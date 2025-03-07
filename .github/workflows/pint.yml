@@ -24,6 +24,6 @@ jobs:
         run: composer require laravel/pint --dev
         
       - name: Ejecutar Laravel Pint
-        run: 
-              cd MedalloBike
-              ./vendor/bin/pint --test
+        run: |
+          cd MedalloBike
+          ./vendor/bin/pint --test
