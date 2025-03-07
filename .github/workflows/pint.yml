@@ -15,7 +15,7 @@ jobs:
           php-version: 8.2
           tools: composer
 
-      - name: 📦 Instalar dependencias
+      - name: Instalar dependencias
         run: |
           cd MedalloBike
           composer install --no-progress --prefer-dist --optimize-autoloader
