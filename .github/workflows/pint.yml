@@ -19,6 +19,11 @@ jobs:
         run: |
           cd MedalloBike
           composer install --no-progress --prefer-dist --optimize-autoloader
+
+      - name: 🚀 Instalar Laravel Pint
+        run: composer require laravel/pint --dev
         
       - name: Ejecutar Laravel Pint
-        run: ./vendor/bin/pint --test
+        run: 
+              cd MedalloBike
+              ./vendor/bin/pint --test
