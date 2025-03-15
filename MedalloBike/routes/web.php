@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+$AdminControllerRoute = 'App\Http\Controllers\Admin\AdminProductController';
+
+Route::get('/admin/product/create', $AdminControllerRoute.'@create')->name('admin.product.create');
+Route::post('/admin/product/save', $AdminControllerRoute.'@save')->name('admin.product.save');
