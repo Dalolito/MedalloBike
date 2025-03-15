@@ -1,5 +1,7 @@
 <?php
 
+// Made by: Camilo Monsalve Montes
+
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;

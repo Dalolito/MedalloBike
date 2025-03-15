@@ -7,7 +7,7 @@ return [
     'password' => 'Password',
     'remember_me' => 'Remember Me',
     'forgot_password' => 'Forgot Your Password?',
-    
+
     // register.blade.php
     'register' => 'Register',
     'name' => 'Full Name',

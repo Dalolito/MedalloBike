@@ -1,3 +1,5 @@
+<!-- Made by: Camilo Monsalve Montes -->
+
 @extends('layouts.app')
 
 @section('content')
