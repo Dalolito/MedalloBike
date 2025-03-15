@@ -28,4 +28,16 @@ class AdminProductController extends Controller
 
         return back()->with('success', __('messages.success.product_created'));
     }
+
+    
+    public function list(): View
+    {
+        $viewData = [];
+        $viewData['title'] = 'Products - Online Store';
+        $viewData['subtitle'] = 'List of products';
+        $viewData['products'] = Product::all();
+
+        return view('product.list')->with('viewData', $viewData);
+    }
+
 }
