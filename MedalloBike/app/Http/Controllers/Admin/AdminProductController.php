@@ -3,28 +3,26 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\View\View;
-use App\Models\Product;
 use App\Http\Requests\ProductRequest;
-use Illuminate\Http\RedirectResponse;
 use App\Models\Category;
+use App\Models\Product;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class AdminProductController extends Controller
 {
-
-
     public function create(): View
     {
         $categories = Category::all();
         $viewData = [
             'title' => 'Create product',
-            'categories' => $categories, 
+            'categories' => $categories,
         ];
+
         return view('admin.product.create')->with('viewData', $viewData);
     }
 
-    public function save(ProductRequest $request):RedirectResponse
+    public function save(ProductRequest $request): RedirectResponse
     {
         Product::create($request->validated());
 

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-    
+
         Schema::table('products', function (Blueprint $table) {
             $table->dropColumn(['publicationDate', 'createdDate']);
         });
@@ -22,7 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        
+
         Schema::table('products', function (Blueprint $table) {
             $table->date('publicationDate')->nullable();
             $table->date('createdDate')->nullable();
