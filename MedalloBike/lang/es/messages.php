@@ -2,6 +2,6 @@
 
 return [
     'success' => [
-        'product_created' => 'Product created successfully.',
+        'product_created' => '¡Producto creado exitosamente!',
     ],
 ];
