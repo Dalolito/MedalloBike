@@ -1,6 +1,13 @@
 <?php
 
 return [
+    'login_title' => 'Login',
+    'register_title' => 'Register',
+    'verify_title' => 'Verify Email',
+    'confirm_title' => 'Confirm Password',
+    'email_title' => 'Recover Password',
+    'reset_title' => 'Reset Password',
+
     // login.blade.php
     'login' => 'Login',
     'email' => 'Email Address',

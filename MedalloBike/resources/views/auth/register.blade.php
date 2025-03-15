@@ -2,6 +2,8 @@
 
 @extends('layouts.app')
 
+@section('title', __('auth.register_title'))
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

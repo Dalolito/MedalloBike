@@ -1,4 +1,4 @@
 @extends('layouts.app')
-@section('title', 'Página de Inicio - MedalloBike')
+@section('title', __('app.title'))
 @section('content')
 @endsection

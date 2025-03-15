@@ -1,6 +1,13 @@
 <?php
 
 return [
+    'login_title' => 'Iniciar sesión',
+    'register_title' => 'Registrarse',
+    'verify_title' => 'Verificar correo electrónico',
+    'confirm_title' => 'Confirmar contraseña',
+    'email_title' => 'Recuperar contraseña',
+    'reset_title' => 'Restablecer contraseña',
+
     // login.blade.php
     'login' => 'Iniciar sesión',
     'email' => 'Correo electrónico',
