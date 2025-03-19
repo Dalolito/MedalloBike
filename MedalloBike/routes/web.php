@@ -7,3 +7,4 @@ $AdminProductControllerRoute = 'App\Http\Controllers\Admin\AdminProductControlle
 Route::get('/admin/product/create', $AdminProductControllerRoute.'@create')->name('admin.product.create');
 Route::post('/admin/product/save', $AdminProductControllerRoute.'@save')->name('admin.product.save');
 Route::get('/admin/product/list', $AdminProductControllerRoute.'@list')->name('admin.product.list');
+Route::get('/admin/product/show/{id}', $AdminProductControllerRoute.'@show')->name('admin.product.show');

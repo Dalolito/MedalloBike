@@ -14,7 +14,7 @@ class AdminProductController extends Controller
     public function create(): View
     {
         $categories = Category::all();
-    
+
         $viewData = [
             'title' => __('admin.products.create.title'), // Título de la página
             'categories' => $categories, // Lista de categorías
@@ -30,7 +30,7 @@ class AdminProductController extends Controller
                 'submit' => __('admin.products.create.form.submit'),
             ],
         ];
-    
+
         return view('admin.product.create')->with('viewData', $viewData);
     }
 
@@ -41,7 +41,6 @@ class AdminProductController extends Controller
         return back()->with('success', __('messages.success.product_created'));
     }
 
-    
     public function list(): View
     {
         $viewData = [];
@@ -52,4 +51,24 @@ class AdminProductController extends Controller
         return view('admin.product.list')->with('viewData', $viewData);
     }
 
+    public function show($id): View
+    {
+        $product = Product::findOrFail($id);
+
+        $viewData = [
+            'title' => $product->getTitle().' - Online Store',
+            'product' => $product,
+            'labels' => [
+                'description' => __('admin.products.show.description'),
+                'details' => __('admin.products.show.details'),
+                'brand' => __('admin.products.show.brand'),
+                'category' => __('admin.products.show.category'),
+                'stock' => __('admin.products.show.stock'),
+                'state' => __('admin.products.show.state'),
+                'add_to_cart' => __('admin.products.show.add_to_cart'),
+            ],
+        ];
+
+        return view('admin.product.show')->with('viewData', $viewData);
+    }
 }

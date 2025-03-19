@@ -14,8 +14,8 @@
         <p class="card-text">{{ __('admin.products.list.price') }}: ${{ number_format($product->getPrice(), 2) }}</p>
         <p class="card-text">{{ __('admin.products.list.category') }}: {{ $product->getCategoryId() }}</p>
         <p class="card-text">{{ __('admin.products.create.form.brand') }}: {{ $product->getBrand() }}</p>
-        <a href="" class="btn btn-primary">
-            {{ __('admin.products.list.view_product') }}
+        <a href="{{ route('admin.product.show', ['id' => $product->getId()]) }}" class="btn btn-primary">
+            {{ __('admin.products.list.show_product') }}
         </a>
         <a href="" class="btn btn-warning">
             {{ __('admin.products.list.edit') }}
