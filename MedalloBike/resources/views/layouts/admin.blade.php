@@ -31,12 +31,12 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ms-auto">
                         <!-- Button to View Products -->
-                        <a class="nav-link active" href="">
+                        <a class="nav-link active" href="{{ route('admin.product.list') }}">
                             {{ __('admin.view_products') }}
                         </a>
 
                         <!-- Button to Create Product -->
-                        <a class="nav-link active" href="">
+                        <a class="nav-link active" href="{{ route('admin.product.create') }}">
                             {{ __('admin.create_product') }}
                         </a>
                     </div>
