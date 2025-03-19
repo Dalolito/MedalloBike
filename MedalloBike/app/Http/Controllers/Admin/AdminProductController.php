@@ -14,11 +14,23 @@ class AdminProductController extends Controller
     public function create(): View
     {
         $categories = Category::all();
+    
         $viewData = [
-            'title' => 'Create product',
-            'categories' => $categories,
+            'title' => __('admin.products.create.title'), // Título de la página
+            'categories' => $categories, // Lista de categorías
+            'labels' => [
+                'title' => __('admin.products.create.form.title'),
+                'description' => __('admin.products.create.form.description'),
+                'category_id' => __('admin.products.create.form.category_id'),
+                'select_category' => 'Select a category', // Texto para el placeholder del select
+                'image' => __('admin.products.create.form.image'),
+                'brand' => __('admin.products.create.form.brand'),
+                'price' => __('admin.products.create.form.price'),
+                'stock' => __('admin.products.create.form.stock'),
+                'submit' => __('admin.products.create.form.submit'),
+            ],
         ];
-
+    
         return view('admin.product.create')->with('viewData', $viewData);
     }
 
@@ -37,7 +49,7 @@ class AdminProductController extends Controller
         $viewData['subtitle'] = 'List of products';
         $viewData['products'] = Product::all();
 
-        return view('product.list')->with('viewData', $viewData);
+        return view('admin.product.list')->with('viewData', $viewData);
     }
 
 }
