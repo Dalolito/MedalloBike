@@ -59,10 +59,10 @@
                             <div id="productos-accordion-collapse-1" class="hs-accordion-content hidden" role="region" aria-labelledby="productos-accordion">
                                 <ul class="submenu">
                                     <li class="submenu-item">
-                                        <a class="submenu-link" href="#">Catálogo</a>
+                                        <a class="submenu-link" href="{{ route('admin.product.list') }}">{{ __('app.view_product') }}</a>
                                     </li>
                                     <li class="submenu-item">
-                                        <a class="submenu-link" href="#">Ofertas</a>
+                                        <a class="submenu-link" href="{{ route('admin.product.create') }}">{{ __('app.create_product') }}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -86,16 +86,6 @@
                     <!-- Menú desplegable del perfil -->
                     <div id="footer-dropdown-menu" class="footer-dropdown-menu transition-opacity opacity-0 hidden">
                         <ul class="dropdown-menu-list">
-                            <li>
-                                <a href="#" class="dropdown-item">
-                                    <i class="bi bi-person nav-icon"></i> Mi Perfil
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="dropdown-item">
-                                    <i class="bi bi-gear nav-icon"></i> Configuración
-                                </a>
-                            </li>
                             <li>
                                 <form id="logout" action="{{ route('logout') }}" method="POST" class="m-0 p-0">
                                     @csrf

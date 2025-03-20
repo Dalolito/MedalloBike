@@ -12,4 +12,6 @@ return [
     'menu' => 'Menú',
     'close' => 'Cerrar',
     'products' => 'Productos',
+    'create_product' => 'Crear Producto',
+    'view_product' => 'Ver Productos',
 ];

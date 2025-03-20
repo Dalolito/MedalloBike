@@ -12,4 +12,6 @@ return [
     'menu' => 'Menu',
     'close' => 'Close',
     'products' => 'Products',
+    'create_product' => 'Create Product',
+    'view_product' => 'View Products',
 ];
