@@ -85,6 +85,8 @@ class AdminProductController extends Controller
                 'state_available' => __('admin.products.edit.form.state_available'),
                 'state_disabled' => __('admin.products.edit.form.state_disabled'),
                 'edit' => __('admin.products.list.edit'),
+                'enable' => __('admin.products.list.enable'),
+                'disable' => __('admin.products.list.disable'),
                 'back_to_list' => __('admin.products.show.back_to_list'),
                 'delete' => __('admin.products.list.delete'),
                 'delete_confirmation' => __('admin.products.list.delete_confirmation'),
@@ -130,5 +132,25 @@ class AdminProductController extends Controller
         $product->update($request->validated());
 
         return redirect()->route('admin.product.show', ['id' => $product->getId()])->with('success', __('messages.success.product_updated'));
+    }
+
+    public function disable($id): RedirectResponse
+    {
+        $product = Product::findOrFail($id);
+        $product->setState('disabled');
+        $product->save();
+
+        return redirect()->route('admin.product.show', ['id' => $product->getId()])
+            ->with('success', __('messages.success.product_disabled'));
+    }
+
+    public function enable($id): RedirectResponse
+    {
+        $product = Product::findOrFail($id);
+        $product->setState('available');
+        $product->save();
+
+        return redirect()->route('admin.product.show', ['id' => $product->getId()])
+            ->with('success', __('messages.success.product_enabled'));
     }
 }
