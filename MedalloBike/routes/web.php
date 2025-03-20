@@ -11,5 +11,7 @@ Route::get('/admin/product/create', $AdminProductControllerRoute.'@create')->nam
 Route::post('/admin/product/save', $AdminProductControllerRoute.'@save')->name('admin.product.save');
 Route::get('/admin/product/list', $AdminProductControllerRoute.'@list')->name('admin.product.list');
 Route::get('/admin/product/show/{id}', $AdminProductControllerRoute.'@show')->name('admin.product.show');
+Route::get('/admin/product/edit/{id}', $AdminProductControllerRoute.'@edit')->name('admin.product.edit');
+Route::post('/admin/product/update/{id}', $AdminProductControllerRoute.'@update')->name('admin.product.update');
 
 Auth::routes();
