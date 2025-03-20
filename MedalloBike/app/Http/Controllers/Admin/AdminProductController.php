@@ -53,6 +53,7 @@ class AdminProductController extends Controller
                 'brand' => __('admin.products.create.form.brand'),
                 'show_product' => __('admin.products.list.show_product'),
                 'edit' => __('admin.products.list.edit'),
+                'disable' => __('admin.products.list.disable'),
                 'delete' => __('admin.products.list.delete'),
                 'delete_confirmation' => __('admin.products.list.delete_confirmation'),
                 'actions' => __('admin.actions'),

@@ -37,6 +37,7 @@ return [
             'category' => 'Categoría',
             'show_product' => 'Ver Producto',
             'edit' => 'Editar',
+            'disable' => 'Deshabilitar',
             'delete' => 'Eliminar',
             'delete_confirmation' => '¿Estás seguro de que deseas eliminar este producto?',
             'in_stock' => 'En Stock',

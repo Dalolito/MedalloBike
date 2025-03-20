@@ -39,14 +39,9 @@
                                 </a>
                             </li>
                             <li>
-                                <form action="#" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="dropdown-item" 
-                                            onclick="">
-                                        {{ $viewData['labels']['delete'] }}
-                                    </button>
-                                </form>
+                                <a class="dropdown-item" href="">
+                                        {{ $viewData['labels']['disable'] }}
+                                </a>
                             </li>
                         </ul>
                     </div>
