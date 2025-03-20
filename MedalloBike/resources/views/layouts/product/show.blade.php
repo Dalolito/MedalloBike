@@ -39,9 +39,9 @@
                     <li><strong>{{ $viewData['labels']['stock'] }}:</strong> {{ $viewData['product']->getStock() }}</li>
                     <li><strong>{{ $viewData['labels']['state'] }}:</strong> 
                         @if($viewData['product']->getState() == 'available')
-                            <span class="badge bg-success">{{ $viewData['labels']['state_available'] ?? 'Available' }}</span>
+                            <span class="badge bg-success">{{ $viewData['labels']['state_available'] }}</span>
                         @else
-                            <span class="badge bg-secondary">{{ $viewData['labels']['state_disabled'] ?? 'Disabled' }}</span>
+                            <span class="badge bg-secondary">{{ $viewData['labels']['state_disabled'] }}</span>
                         @endif
                     </li>
                     
