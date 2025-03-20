@@ -37,6 +37,7 @@ return [
             'category' => 'Category',
             'show_product' => 'View Product',
             'edit' => 'Edit',
+            'enable' => 'enable',
             'disable' => 'Disable',
             'delete' => 'Delete',
             'delete_confirmation' => 'Are you sure you want to delete this product?',

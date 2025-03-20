@@ -26,25 +26,6 @@
                     <a href="{{ route('admin.product.show', ['id' => $product->getId()]) }}" class="btn btn-primary btn-sm">
                         {{ $viewData['labels']['show_product'] }}
                     </a>
-                    
-                    <div class="dropdown">
-                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" 
-                                id="dropdownMenuButton{{ $product->getId() }}" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ $viewData['labels']['actions'] }}
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton{{ $product->getId() }}">
-                            <li>
-                                <a class="dropdown-item" href="{{ route('admin.product.edit', ['id' => $product->getId()]) }}">
-                                    {{ $viewData['labels']['edit'] }}
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="">
-                                        {{ $viewData['labels']['disable'] }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             @endsection
         @endforeach

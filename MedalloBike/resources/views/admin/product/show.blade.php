@@ -9,18 +9,18 @@
             {{ $viewData['labels']['edit'] }}
         </a>
         <a href="{{ route('admin.product.list') }}" class="btn btn-secondary">
-            {{ $viewData['labels']['back_to_list']  }}
+            {{ $viewData['labels']['back_to_list'] }}
         </a>
         
-        <!-- Delete button (optional) -->
-        <form action="" method="POST" class="d-inline">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger ms-2" 
-                    onclick="">
-                {{ $viewData['labels']['delete']  }}
-            </button>
-        </form>
+        @if($viewData['product']->getState() == 'available')
+            <a class="btn btn-danger ms-2" href="{{ route('admin.product.disable', ['id' => $viewData['product']->getId()]) }}">
+                {{ $viewData['labels']['disable'] }}
+            </a>
+        @else
+            <a class="btn btn-success ms-2" href="{{ route('admin.product.enable', ['id' => $viewData['product']->getId()]) }}">
+                {{ $viewData['labels']['enable'] }}
+            </a>
+        @endif
     @endsection
     
     @section('additional_details')
