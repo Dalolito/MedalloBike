@@ -4,32 +4,57 @@
 @section('subtitle', $viewData["subtitle"])
 
 @section('content')
-<div class="row">
-  @foreach ($viewData["products"] as $product)
-  <div class="col-md-4 col-lg-3 mb-2">
-    <div class="card">
-      <img src="{{ asset('/img/bike.jpg') }}" class="card-img-top img-card">
-      <div class="card-body text-center">
-        <h5 class="card-title">{{ $product->getTitle() }}</h5>
-        <p class="card-text">{{ __('admin.products.list.price') }}: ${{ number_format($product->getPrice(), 2) }}</p>
-        <p class="card-text">{{ __('admin.products.list.category') }}: {{ $product->getCategoryId() }}</p>
-        <p class="card-text">{{ __('admin.products.create.form.brand') }}: {{ $product->getBrand() }}</p>
-        <a href="{{ route('admin.product.show', ['id' => $product->getId()]) }}" class="btn btn-primary">
-            {{ __('admin.products.list.show_product') }}
+    <!-- Definimos las secciones antes de incluir el layout -->
+    @section('header_title', $viewData["title"])
+    @section('header_subtitle', $viewData["subtitle"])
+
+    @section('header_actions')
+        <a href="{{ route('admin.product.create') }}" class="btn btn-primary">
+            {{ $viewData['labels']['create_product'] }}
         </a>
-        <a href="" class="btn btn-warning">
-            {{ __('admin.products.list.edit') }}
-        </a>
-        <form action="" method="POST" class="d-inline">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger" onclick="">
-                {{ __('admin.products.list.delete') }}
-            </button>
-        </form>
-      </div>
-    </div>
-  </div>
-  @endforeach
-</div>
+    @endsection
+
+    @section('empty_message')
+        <p>{{ $viewData['labels']['no_products'] }}</p>
+    @endsection
+
+    <!-- Definimos las acciones para cada producto -->
+    @if(isset($viewData['products']))
+        @foreach($viewData['products'] as $product)
+            @section('product_actions_'.$product->getId())
+                <div class="d-flex justify-content-between">
+                    <a href="{{ route('admin.product.show', ['id' => $product->getId()]) }}" class="btn btn-primary btn-sm">
+                        {{ $viewData['labels']['show_product'] }}
+                    </a>
+                    
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" 
+                                id="dropdownMenuButton{{ $product->getId() }}" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ $viewData['labels']['actions'] }}
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton{{ $product->getId() }}">
+                            <li>
+                                <a class="dropdown-item" href="{{ route('admin.product.edit', ['id' => $product->getId()]) }}">
+                                    {{ $viewData['labels']['edit'] }}
+                                </a>
+                            </li>
+                            <li>
+                                <form action="#" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="dropdown-item" 
+                                            onclick="">
+                                        {{ $viewData['labels']['delete'] }}
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            @endsection
+        @endforeach
+    @endif
+
+
+    @include('layouts.product.list')
 @endsection
