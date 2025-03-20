@@ -16,13 +16,13 @@ class AdminProductController extends Controller
         $categories = Category::all();
 
         $viewData = [
-            'title' => __('admin.products.create.title'), // Título de la página
-            'categories' => $categories, // Lista de categorías
+            'title' => __('admin.products.create.title'), 
+            'categories' => $categories, 
             'labels' => [
                 'title' => __('admin.products.create.form.title'),
                 'description' => __('admin.products.create.form.description'),
                 'category_id' => __('admin.products.create.form.category_id'),
-                'select_category' => 'Select a category', // Texto para el placeholder del select
+                'select_category' => 'Select a category',
                 'image' => __('admin.products.create.form.image'),
                 'brand' => __('admin.products.create.form.brand'),
                 'price' => __('admin.products.create.form.price'),
@@ -60,6 +60,7 @@ class AdminProductController extends Controller
                 'out_of_stock' => __('admin.products.list.out_of_stock'),
                 'no_products' => __('admin.products.list.no_products'),
                 'create_product' => __('admin.create_product'),
+                'state_disabled' => __('admin.products.edit.form.state_disabled'),
             ],
         ];
     
@@ -84,6 +85,10 @@ class AdminProductController extends Controller
                 'state_disabled' => __('admin.products.edit.form.state_disabled'),
                 'edit' => __('admin.products.list.edit'),
                 'back_to_list' => __('admin.products.show.back_to_list'),
+                'delete' => __('admin.products.list.delete'),
+                'delete_confirmation' => __('admin.products.list.delete_confirmation'),
+                'created_at' => __('admin.products.show.created_at'),
+                'updated_at' => __('admin.products.show.updated_at'),
             ],
         ];
     

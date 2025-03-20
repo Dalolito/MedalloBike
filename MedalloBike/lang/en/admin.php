@@ -26,6 +26,9 @@ return [
             'state' => 'State',
             'add_to_cart' => 'Add to Cart',
             'back_to_list' => 'Back to List',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
+            'date_format' => 'Y-m-d H:i:s',
         ],
         'list' => [
             'title' => 'Products - Online Store',

@@ -26,6 +26,9 @@ return [
             'state' => 'Estado',
             'add_to_cart' => 'Agregar al Carrito',
             'back_to_list' => 'Volver a la Lista',
+            'created_at' => 'Fecha de Creación',
+            'updated_at' => 'Fecha de Actualización',
+            'date_format' => 'd-m-Y H:i:s',
         ],
         'list' => [
             'title' => 'Productos - Tienda Online',

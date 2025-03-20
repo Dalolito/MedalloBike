@@ -34,6 +34,10 @@
                             @else
                                 <p class="badge bg-danger">{{ $viewData['labels']['out_of_stock'] }}</p>
                             @endif
+
+                            @if($product->getState() == 'disabled')
+                                <p class="badge bg-secondary">{{ $viewData['labels']['state_disabled'] ?? 'Disabled' }}</p>
+                            @endif
                         </div>
                         
                         <!-- Product Actions - Customizable by specific views -->
