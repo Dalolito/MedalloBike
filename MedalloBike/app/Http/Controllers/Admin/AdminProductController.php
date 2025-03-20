@@ -16,8 +16,8 @@ class AdminProductController extends Controller
         $categories = Category::all();
 
         $viewData = [
-            'title' => __('admin.products.create.title'), 
-            'categories' => $categories, 
+            'title' => __('admin.products.create.title'),
+            'categories' => $categories,
             'labels' => [
                 'title' => __('admin.products.create.form.title'),
                 'description' => __('admin.products.create.form.description'),
@@ -64,14 +64,14 @@ class AdminProductController extends Controller
                 'state_disabled' => __('admin.products.edit.form.state_disabled'),
             ],
         ];
-    
+
         return view('admin.product.list')->with('viewData', $viewData);
     }
 
     public function show($id): View
     {
         $product = Product::findOrFail($id);
-    
+
         $viewData = [
             'title' => $product->getTitle().' - '.__('admin.products.show.title_suffix'),
             'product' => $product,
@@ -92,7 +92,7 @@ class AdminProductController extends Controller
                 'updated_at' => __('admin.products.show.updated_at'),
             ],
         ];
-    
+
         return view('admin.product.show')->with('viewData', $viewData);
     }
 
@@ -124,12 +124,11 @@ class AdminProductController extends Controller
         return view('admin.product.edit')->with('viewData', $viewData);
     }
 
-
     public function update(ProductRequest $request, $id): RedirectResponse
     {
         $product = Product::findOrFail($id);
         $product->update($request->validated());
-    
+
         return redirect()->route('admin.product.show', ['id' => $product->getId()])->with('success', __('messages.success.product_updated'));
     }
 }

@@ -110,7 +110,7 @@ class Product extends Model
     {
         return $this->attributes['state'];
     }
-    
+
     public function setState(string $state): void
     {
         $this->attributes['state'] = $state;
