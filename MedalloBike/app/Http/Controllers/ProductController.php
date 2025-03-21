@@ -10,20 +10,20 @@ class ProductController extends Controller
     public function list(): View
     {
         $viewData = [
-            'title' => __('user.products.list.title'),
-            'subtitle' => __('user.products.list.subtitle'),
+            'title' => __('app.products_user.list.title'),
+            'subtitle' => __('app.products_user.list.subtitle'),
             'products' => Product::all(),
         ];
 
         return view('product.list')->with('viewData', $viewData);
     }
 
-    public function show($id): View
+    public function show(int $id): View
     {
         $product = Product::findOrFail($id);
 
         $viewData = [
-            'title' => $product->getTitle().' - '.__('user.products.show.title_suffix'),
+            'title' => $product->getTitle().' - '.__('app.products_user.show.title_suffix'),
             'product' => $product,
         ];
 

@@ -41,7 +41,7 @@ class AdminProductController extends Controller
         return view('admin.product.list')->with('viewData', $viewData);
     }
 
-    public function show($id): View
+    public function show(int $id): View
     {
         $product = Product::findOrFail($id);
 
@@ -53,7 +53,7 @@ class AdminProductController extends Controller
         return view('admin.product.show')->with('viewData', $viewData);
     }
 
-    public function edit($id): View
+    public function edit(int $id): View
     {
         $product = Product::findOrFail($id);
         $categories = Category::all();
@@ -67,7 +67,7 @@ class AdminProductController extends Controller
         return view('admin.product.edit')->with('viewData', $viewData);
     }
 
-    public function update(ProductRequest $request, $id): RedirectResponse
+    public function update(ProductRequest $request, int $id): RedirectResponse
     {
         $product = Product::findOrFail($id);
         $product->update($request->validated());
@@ -75,7 +75,7 @@ class AdminProductController extends Controller
         return redirect()->route('admin.product.show', ['id' => $product->getId()])->with('success', __('messages.success.product_updated'));
     }
 
-    public function disable($id): RedirectResponse
+    public function disable(int $id): RedirectResponse
     {
         $product = Product::findOrFail($id);
         $product->setState('disabled');
@@ -85,7 +85,7 @@ class AdminProductController extends Controller
             ->with('success', __('messages.success.product_disabled'));
     }
 
-    public function enable($id): RedirectResponse
+    public function enable(int $id): RedirectResponse
     {
         $product = Product::findOrFail($id);
         $product->setState('available');

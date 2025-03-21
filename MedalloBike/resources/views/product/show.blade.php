@@ -27,18 +27,18 @@
 
             <!-- Product Description -->
             <div class="product-description mb-4">
-                <h3>{{ __('user.products.show.description') }}</h3>
+                <h3>{{ __('app.products_user.show.description') }}</h3>
                 <p>{{ $viewData['product']->getDescription() }}</p>
             </div>
 
             <!-- Additional Details -->
             <div class="product-details mb-4">
-                <h3>{{ __('user.products.show.details') }}</h3>
+                <h3>{{ __('app.products_user.show.details') }}</h3>
                 <ul class="list-unstyled">
-                    <li><strong>{{ __('user.products.show.brand') }}:</strong> {{ $viewData['product']->getBrand() }}</li>
-                    <li><strong>{{ __('user.products.show.category') }}:</strong> {{ $viewData['product']->getCategoryId() }}</li>
-                    <li><strong>{{ __('user.products.show.stock') }}:</strong> {{ $viewData['product']->getStock() }}</li>
-                    <li><strong>{{ __('user.products.show.state') }}:</strong> 
+                    <li><strong>{{ __('app.products_user.show.brand') }}:</strong> {{ $viewData['product']->getBrand() }}</li>
+                    <li><strong>{{ __('app.products_user.show.category') }}:</strong> {{ $viewData['product']->getCategoryId() }}</li>
+                    <li><strong>{{ __('app.products_user.show.stock') }}:</strong> {{ $viewData['product']->getStock() }}</li>
+                    <li><strong>{{ __('app.products_user.show.state') }}:</strong> 
                         @if($viewData['product']->getState() == 'available')
                             <span class="badge bg-success">{{ __('admin.products.edit.form.state_available') }}</span>
                         @else
@@ -51,12 +51,12 @@
             <!-- Action Buttons -->
             <div class="mt-4">
                 <a href="{{ route('product.list') }}" class="btn btn-secondary">
-                    {{ __('user.products.show.back_to_list') }}
+                    {{ __('app.products_user.show.back_to_list') }}
                 </a>
                 
                 @if($viewData['product']->getState() == 'available' && $viewData['product']->getStock() > 0)
                     <button class="btn btn-primary ms-2">
-                        {{ __('user.products.show.add_to_cart') }}
+                        {{ __('app.products_user.show.add_to_cart') }}
                     </button>
                 @endif
             </div>
