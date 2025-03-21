@@ -61,6 +61,9 @@
                                     <li class="submenu-item">
                                         <a class="submenu-link" href="{{ route('admin.product.list') }}">{{ __('app.view_product') }}</a>
                                     </li>
+                                    <li class="submenu-item">
+                                        <a class="submenu-link" href="{{ route('admin.product.create') }}">{{ __('app.create_product') }}</a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
