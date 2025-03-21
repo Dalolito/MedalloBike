@@ -14,7 +14,7 @@ return [
     'products' => 'Productos',
     'create_product' => 'Crear Producto',
     'view_product' => 'Ver Productos',
-    
+
     // Contenido migrado desde user.php
     'products_user' => [
         'show' => [
