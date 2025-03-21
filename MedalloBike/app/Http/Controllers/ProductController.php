@@ -10,21 +10,23 @@ class ProductController extends Controller
     public function list(): View
     {
         $viewData = [
-            'title' => __('user.products.list.title'),
-            'subtitle' => __('user.products.list.subtitle'),
+            'title' => __('app.products_user.list.title'),
+            'subtitle' => __('app.products_user.list.subtitle'),
             'products' => Product::all(),
-            'labels' => [
-                'price' => __('user.products.list.price'),
-                'category' => __('user.products.list.category'),
-                'brand' => __('user.products.list.brand'),
-                'show_product' => __('user.products.list.show_product'),
-                'edit' => __('user.products.list.edit'),
-                'in_stock' => __('user.products.list.in_stock'),
-                'out_of_stock' => __('user.products.list.out_of_stock'),
-                'no_products' => __('user.products.list.no_products'),
-            ],
         ];
 
         return view('product.list')->with('viewData', $viewData);
+    }
+
+    public function show(int $id): View
+    {
+        $product = Product::findOrFail($id);
+
+        $viewData = [
+            'title' => $product->getTitle().' - '.__('app.products_user.show.title_suffix'),
+            'product' => $product,
+        ];
+
+        return view('product.show')->with('viewData', $viewData);
     }
 }
