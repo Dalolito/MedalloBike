@@ -22,5 +22,6 @@ Route::get('/admin/product/enable/{id}', $AdminProductControllerRoute.'@enable')
 
 // Product Controller routes
 Route::get('/product/list', $ProductControllerRoute.'@list')->name('product.list');
+Route::get('/product/show/{id}', $ProductControllerRoute.'@show')->name('product.show');
 
 Auth::routes();
