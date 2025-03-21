@@ -27,47 +27,47 @@
 
             <!-- Product Description -->
             <div class="product-description mb-4">
-                <h3>{{ $viewData['labels']['description'] }}</h3>
+                <h3>{{ __('admin.products.show.description') }}</h3>
                 <p>{{ $viewData['product']->getDescription() }}</p>
             </div>
 
             <!-- Additional Details -->
             <div class="product-details mb-4">
-                <h3>{{ $viewData['labels']['details'] }}</h3>
+                <h3>{{ __('admin.products.show.details') }}</h3>
                 <ul class="list-unstyled">
-                    <li><strong>{{ $viewData['labels']['brand'] }}:</strong> {{ $viewData['product']->getBrand() }}</li>
-                    <li><strong>{{ $viewData['labels']['category'] }}:</strong> {{ $viewData['product']->getCategoryId() }}</li>
-                    <li><strong>{{ $viewData['labels']['stock'] }}:</strong> {{ $viewData['product']->getStock() }}</li>
-                    <li><strong>{{ $viewData['labels']['state'] }}:</strong> 
+                    <li><strong>{{ __('admin.products.show.brand') }}:</strong> {{ $viewData['product']->getBrand() }}</li>
+                    <li><strong>{{ __('admin.products.show.category') }}:</strong> {{ $viewData['product']->getCategoryId() }}</li>
+                    <li><strong>{{ __('admin.products.show.stock') }}:</strong> {{ $viewData['product']->getStock() }}</li>
+                    <li><strong>{{ __('admin.products.show.state') }}:</strong> 
                         @if($viewData['product']->getState() == 'available')
-                            <span class="badge bg-success">{{ $viewData['labels']['state_available'] }}</span>
+                            <span class="badge bg-success">{{ __('admin.products.edit.form.state_available') }}</span>
                         @else
-                            <span class="badge bg-secondary">{{ $viewData['labels']['state_disabled'] }}</span>
+                            <span class="badge bg-secondary">{{ __('admin.products.edit.form.state_disabled') }}</span>
                         @endif
                     </li>
                     
                     <!-- Additional fields specific to admin view -->
-                    <li><strong>{{ $viewData['labels']['created_at'] }}:</strong> {{ $viewData['product']->getCreatedAt() }}</li>
-                    <li><strong>{{ $viewData['labels']['updated_at'] }}:</strong> {{ $viewData['product']->getUpdatedAt() }}</li>
+                    <li><strong>{{ __('admin.products.show.created_at') }}:</strong> {{ $viewData['product']->getCreatedAt() }}</li>
+                    <li><strong>{{ __('admin.products.show.updated_at') }}:</strong> {{ $viewData['product']->getUpdatedAt() }}</li>
                 </ul>
             </div>
 
             <!-- Action Buttons - Admin-specific actions -->
             <div class="mt-4">
                 <a href="{{ route('admin.product.edit', ['id' => $viewData['product']->getId()]) }}" class="btn btn-primary me-2">
-                    {{ $viewData['labels']['edit'] }}
+                    {{ __('admin.products.list.edit') }}
                 </a>
                 <a href="{{ route('admin.product.list') }}" class="btn btn-secondary">
-                    {{ $viewData['labels']['back_to_list'] }}
+                    {{ __('admin.products.show.back_to_list') }}
                 </a>
                 
                 @if($viewData['product']->getState() == 'available')
                     <a class="btn btn-danger ms-2" href="{{ route('admin.product.disable', ['id' => $viewData['product']->getId()]) }}">
-                        {{ $viewData['labels']['disable'] }}
+                        {{ __('admin.products.list.disable') }}
                     </a>
                 @else
                     <a class="btn btn-success ms-2" href="{{ route('admin.product.enable', ['id' => $viewData['product']->getId()]) }}">
-                        {{ $viewData['labels']['enable'] }}
+                        {{ __('admin.products.list.enable') }}
                     </a>
                 @endif
             </div>

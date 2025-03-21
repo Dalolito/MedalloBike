@@ -27,22 +27,22 @@
 
             <!-- Product Description -->
             <div class="product-description mb-4">
-                <h3>{{ $viewData['labels']['description'] }}</h3>
+                <h3>{{ __('user.products.show.description') }}</h3>
                 <p>{{ $viewData['product']->getDescription() }}</p>
             </div>
 
             <!-- Additional Details -->
             <div class="product-details mb-4">
-                <h3>{{ $viewData['labels']['details'] }}</h3>
+                <h3>{{ __('user.products.show.details') }}</h3>
                 <ul class="list-unstyled">
-                    <li><strong>{{ $viewData['labels']['brand'] }}:</strong> {{ $viewData['product']->getBrand() }}</li>
-                    <li><strong>{{ $viewData['labels']['category'] }}:</strong> {{ $viewData['product']->getCategoryId() }}</li>
-                    <li><strong>{{ $viewData['labels']['stock'] }}:</strong> {{ $viewData['product']->getStock() }}</li>
-                    <li><strong>{{ $viewData['labels']['state'] }}:</strong> 
+                    <li><strong>{{ __('user.products.show.brand') }}:</strong> {{ $viewData['product']->getBrand() }}</li>
+                    <li><strong>{{ __('user.products.show.category') }}:</strong> {{ $viewData['product']->getCategoryId() }}</li>
+                    <li><strong>{{ __('user.products.show.stock') }}:</strong> {{ $viewData['product']->getStock() }}</li>
+                    <li><strong>{{ __('user.products.show.state') }}:</strong> 
                         @if($viewData['product']->getState() == 'available')
-                            <span class="badge bg-success">{{ $viewData['labels']['state_available'] }}</span>
+                            <span class="badge bg-success">{{ __('admin.products.edit.form.state_available') }}</span>
                         @else
-                            <span class="badge bg-secondary">{{ $viewData['labels']['state_disabled'] }}</span>
+                            <span class="badge bg-secondary">{{ __('admin.products.edit.form.state_disabled') }}</span>
                         @endif
                     </li>
                 </ul>
@@ -51,12 +51,12 @@
             <!-- Action Buttons -->
             <div class="mt-4">
                 <a href="{{ route('product.list') }}" class="btn btn-secondary">
-                    {{ $viewData['labels']['back_to_list'] }}
+                    {{ __('user.products.show.back_to_list') }}
                 </a>
                 
                 @if($viewData['product']->getState() == 'available' && $viewData['product']->getStock() > 0)
                     <button class="btn btn-primary ms-2">
-                        {{ $viewData['labels']['back_to_list'] }}
+                        {{ __('user.products.show.add_to_cart') }}
                     </button>
                 @endif
             </div>

@@ -12,7 +12,7 @@
         </div>
         <div>
             <a href="{{ route('admin.product.create') }}" class="btn btn-primary">
-                {{ $viewData['labels']['create_product'] }}
+                {{ __('admin.create_product') }}
             </a>
         </div>
     </div>
@@ -30,19 +30,19 @@
                         <!-- Product Info -->
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ $product->getTitle() }}</h5>
-                            <p class="card-text">{{ $viewData['labels']['price'] }}: ${{ number_format($product->getPrice(), 2) }}</p>
-                            <p class="card-text">{{ $viewData['labels']['category'] }}: {{ $product->getCategoryId() }}</p>
-                            <p class="card-text">{{ $viewData['labels']['brand'] }}: {{ $product->getBrand() }}</p>
+                            <p class="card-text">{{ __('admin.products.list.price') }}: ${{ number_format($product->getPrice(), 2) }}</p>
+                            <p class="card-text">{{ __('admin.products.list.category') }}: {{ $product->getCategoryId() }}</p>
+                            <p class="card-text">{{ __('admin.products.create.form.brand') }}: {{ $product->getBrand() }}</p>
                             
                             <!-- Stock Status -->
                             @if($product->getStock() > 0)
-                                <p class="badge bg-success">{{ $viewData['labels']['in_stock'] }} ({{ $product->getStock() }})</p>
+                                <p class="badge bg-success">{{ __('admin.products.list.in_stock') }} ({{ $product->getStock() }})</p>
                             @else
-                                <p class="badge bg-danger">{{ $viewData['labels']['out_of_stock'] }}</p>
+                                <p class="badge bg-danger">{{ __('admin.products.list.out_of_stock') }}</p>
                             @endif
 
                             @if($product->getState() == 'disabled')
-                                <p class="badge bg-secondary">{{ $viewData['labels']['state_disabled'] ?? 'Disabled' }}</p>
+                                <p class="badge bg-secondary">{{ __('admin.products.edit.form.state_disabled') }}</p>
                             @endif
                         </div>
                         
@@ -50,7 +50,7 @@
                         <div class="card-footer bg-white text-center">
                             <div class="d-flex justify-content-between">
                                 <a href="{{ route('admin.product.show', ['id' => $product->getId()]) }}" class="btn btn-primary btn-sm">
-                                    {{ $viewData['labels']['show_product'] }}
+                                    {{ __('admin.products.list.show_product') }}
                                 </a>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
         @else
             <div class="col-12">
                 <div class="alert alert-info">
-                    {{ $viewData['labels']['no_products'] }}
+                    {{ __('admin.products.list.no_products') }}
                 </div>
             </div>
         @endif
