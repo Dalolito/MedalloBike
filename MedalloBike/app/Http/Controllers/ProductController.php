@@ -27,4 +27,34 @@ class ProductController extends Controller
 
         return view('product.list')->with('viewData', $viewData);
     }
+
+    public function show($id): View
+    {
+        $product = Product::findOrFail($id);
+
+        $viewData = [
+            'title' => $product->getTitle().' - '.__('admin.products.show.title_suffix'),
+            'product' => $product,
+            'labels' => [
+                'description' => __('admin.products.show.description'),
+                'details' => __('admin.products.show.details'),
+                'brand' => __('admin.products.show.brand'),
+                'category' => __('admin.products.show.category'),
+                'stock' => __('admin.products.show.stock'),
+                'state' => __('admin.products.show.state'),
+                'state_available' => __('admin.products.edit.form.state_available'),
+                'state_disabled' => __('admin.products.edit.form.state_disabled'),
+                'edit' => __('admin.products.list.edit'),
+                'enable' => __('admin.products.list.enable'),
+                'disable' => __('admin.products.list.disable'),
+                'back_to_list' => __('admin.products.show.back_to_list'),
+                'delete' => __('admin.products.list.delete'),
+                'delete_confirmation' => __('admin.products.list.delete_confirmation'),
+                'created_at' => __('admin.products.show.created_at'),
+                'updated_at' => __('admin.products.show.updated_at'),
+            ],
+        ];
+
+        return view('product.show')->with('viewData', $viewData);
+    }
 }
