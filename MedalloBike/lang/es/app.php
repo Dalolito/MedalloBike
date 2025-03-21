@@ -14,6 +14,9 @@ return [
     'products' => 'Productos',
     'create_product' => 'Crear Producto',
     'view_product' => 'Ver Productos',
+    'categories' => 'Categorías',
+    'create_category' => 'Crear Categoría',
+    'view_category' => 'Ver Categorías',
 
     // Contenido migrado desde user.php
     'products_user' => [

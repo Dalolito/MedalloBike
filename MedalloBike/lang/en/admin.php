@@ -64,8 +64,23 @@ return [
             ],
         ],
     ],
+    'category' => [
+        'list' => [
+            'title' => 'Categories - Online Store',
+            'subtitle' => 'List of categories',
+            'create_category' => 'Create Category',
+            'name' => 'Name',
+            'show_category' => 'View Category',
+            'edit' => 'Edit',
+            'delete' => 'Delete',
+            'delete_confirmation' => 'Are you sure you want to delete this category?',
+            'no_categories' => 'No categories available yet. Click "Create Category" to add your first category.',
+        ],
+    ],
     'title' => 'Admin Panel',
     'actions' => 'Actions',
     'create_product' => 'Create Product',
     'view_products' => 'View Products',
+    'create_category' => 'Create Category',
+    'view_categories' => 'View Categories',
 ];
