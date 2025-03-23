@@ -3,6 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Item;
+use App\Models\Order;
 
 class Product extends Model
 {
@@ -19,6 +23,7 @@ class Product extends Model
      * $this->attributes['state'] - string - contains the state of the product (available/disabled)
      * $this->attributes['created_at'] - timestamp - contains the record creation date
      * $this->attributes['updated_at'] - timestamp - contains the record update date
+     * $this->items - Item[] - contains the associated items 
      */
     protected $fillable = [
         'title',
@@ -31,7 +36,7 @@ class Product extends Model
         'state', // Add the new field here
     ];
 
-    public static function sumPricesByQuantities($products, $productsInSession)
+    public static function sumPricesByQuantities(array $products, array $productsInSession): int
     {
         $total = 0;
         foreach ($products as $product) {
@@ -134,5 +139,20 @@ class Product extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function items(): HasMany
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
+
+    public function setItems(Collection $items): void
+    {
+        $this->items = $items;
     }
 }

@@ -20,8 +20,10 @@
         @foreach ($viewData["products"] as $product) 
         <tr> 
           <td>{{ $product->getId() }}</td> 
-          <td>{{ $product->getName() }}</td>           <td>${{ $product->getPrice() }}</td> 
-          <td>{{ session('products')[$product->getId()] }}</td>         </tr> 
+          <td>{{ $product->getTitle() }}</td>           
+          <td>${{ $product->getPrice() }}</td> 
+          <td>{{ session('products')[$product->getId()] }}</td>         
+        </tr> 
         @endforeach 
       </tbody> 
     </table> 

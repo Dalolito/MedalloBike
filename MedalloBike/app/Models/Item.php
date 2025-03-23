@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Item extends Model
 {
@@ -48,6 +49,21 @@ class Item extends Model
         $this->attributes['totalPrice'] = $totalPrice;
     }
 
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class);
+    }
+   
+    public function getProduct(): Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(Product $product): void
+    {
+        $this->product = $product;
+    }   
+
     public function getProductId(): int
     {
         return $this->attributes['product_id'];
@@ -56,6 +72,21 @@ class Item extends Model
     public function setProductId(int $productId): void
     {
         $this->attributes['product_id'] = $productId;
+    }
+
+    public function order(): BelongsTo
+    {
+        return $this->belongsTo(Order::class);
+    }
+    
+    public function getOrder(): Order
+    {
+        return $this->order;
+    }
+    
+    public function setOrder(Order $order): void
+    {
+        $this->order = $order;
     }
 
     public function getOrderId(): int

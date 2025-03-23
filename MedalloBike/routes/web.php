@@ -27,7 +27,7 @@ Route::get('/product/show/{id}', $ProductControllerRoute.'@show')->name('product
 
 // Cart Controller routes
 Route::get('/cart', $CartControllerRoute.'@index')->name('cart.index');
-Route::get('/cart/delete', $CartControllerRoute.'r@delete')->name('cart.delete');
+Route::get('/cart/delete', $CartControllerRoute.'@delete')->name('cart.delete');
 Route::post('/cart/add/{id}', $CartControllerRoute.'@add')->name('cart.add');
 
 Auth::routes();

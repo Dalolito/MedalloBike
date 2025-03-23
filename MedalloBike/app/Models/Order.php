@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Collection;
 
 class Order extends Model
 {
@@ -38,6 +41,21 @@ class Order extends Model
         $this->attributes['totalPrice'] = $totalPrice;
     }
 
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    } 
+
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    public function setUser($user)
+    {
+        $this->user = $user; 
+    }
+
     public function getUserId(): int
     {
         return $this->attributes['user_id'];
@@ -56,6 +74,21 @@ class Order extends Model
     public function setState(string $state): void
     {
         $this->attributes['state'] = $state;
+    }
+
+    public function items(): HasMany
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
+
+    public function setItems(Collection $items): void
+    {
+        $this->items = $items;
     }
 
     public function getCreatedAt(): string
