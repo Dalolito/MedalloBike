@@ -45,4 +45,25 @@ return [
             'no_products' => 'No products available yet.',
         ],
     ],
+    'cart' => [
+            'index' => [
+                'title' => 'Cart - Online Store',
+                'subtitle' => 'Shopping Cart',
+                'products_in_cart' => 'Products in Cart',
+                'id' => 'ID',
+                'name' => 'Name',
+                'price' => 'Price',
+                'quantity' => 'Quantity',
+                'total_to_pay' => 'Total to pay:',
+                'purchase' => 'Purchase',
+                'remove_all' => 'Remove all products from Cart',
+            ],
+            'purchase' => [
+                'title' => 'Purchase - Online Store',
+                'subtitle' => 'Purchase Status',
+                'completed' => 'Purchase Completed',
+            ],
+            'quantity' => 'Quantity',
+            'add_to_cart' => 'Add to cart',
+        ],
 ];

@@ -4,12 +4,12 @@
 @section('content') 
 <div class="card"> 
   <div class="card-header"> 
-    Purchase Completed 
+    {{ __('app.cart.purchase.completed') }}
   </div> 
   <div class="card-body"> 
     <div class="alert alert-success" role="alert"> 
-      Congratulations, purchase completed. Order number is <b>#{{ $viewData["order"]->getId() }}</b> 
+      {!! __('messages.success.purchase_completed', ['id' => $viewData["order"]->getId()]) !!}
     </div> 
   </div> 
 </div> 
-@endsection 
+@endsection

@@ -21,8 +21,8 @@ class CartController extends Controller
             $total = Product::sumPricesByQuantities($productsInCart, $productsInSession);
         }
         $viewData = [];
-        $viewData['title'] = 'Cart - Online Store';
-        $viewData['subtitle'] = 'Shopping Cart';
+        $viewData["title"] = __('app.cart.purchase.title');
+        $viewData["subtitle"] = __('app.cart.purchase.subtitle');
         $viewData['total'] = $total;
         $viewData['products'] = $productsInCart;
 

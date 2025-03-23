@@ -55,13 +55,13 @@
                         <div class="row"> 
                             @csrf 
                             <div class="col-auto"> 
-                            <div class="input-group col-auto"> 
-                                <div class="input-group-text">Quantity</div> 
-                                <input 	type="number" 	min="1" 	max="10" 	class="form-control 	quantity-input" name="quantity" value="1"> 
-                            </div> 
+                                <div class="input-group col-auto"> 
+                                    <div class="input-group-text">{{ __('app.cart.quantity') }}</div> 
+                                    <input type="number" min="1" max="10" class="form-control quantity-input" name="quantity" value="1"> 
+                                </div> 
                             </div> 
                             <div class="col-auto"> 
-                            <button class="btn bg-primary text-white" type="submit">Add to cart</button> 
+                                <button class="btn bg-primary text-white" type="submit">{{ __('app.cart.add_to_cart') }}</button> 
                             </div> 
                         </div> 
                     </form> 
@@ -70,7 +70,6 @@
                 <a href="{{ route('product.list') }}" class="btn btn-secondary">
                     {{ __('app.products_user.show.back_to_list') }}
                 </a>
-
             </div>
         </div>
     </div>

@@ -44,5 +44,27 @@ return [
             'out_of_stock' => 'Agotado',
             'no_products' => 'No hay productos disponibles aún. ',
         ],
+        
     ],
+    'cart' => [
+            'index' => [
+                'title' => 'Carrito - Tienda Online',
+                'subtitle' => 'Carrito de Compras',
+                'products_in_cart' => 'Productos en el Carrito',
+                'id' => 'ID',
+                'name' => 'Nombre',
+                'price' => 'Precio',
+                'quantity' => 'Cantidad',
+                'total_to_pay' => 'Total a pagar:',
+                'purchase' => 'Comprar',
+                'remove_all' => 'Eliminar todos los productos del Carrito',
+            ],
+            'purchase' => [
+                'title' => 'Compra - Tienda Online',
+                'subtitle' => 'Estado de la Compra',
+                'completed' => 'Compra Completada',
+            ],
+            'quantity' => 'Cantidad',
+            'add_to_cart' => 'Añadir al carrito',
+        ],
 ];
