@@ -4,16 +4,16 @@
 @section('content') 
 <div class="card"> 
   <div class="card-header"> 
-    {{ __('app.cart.index.products_in_cart') }}
+    {{ __('app.products_user.cart.index.products_in_cart') }}
   </div> 
   <div class="card-body"> 
     <table class="table table-bordered table-striped text-center"> 
       <thead> 
         <tr> 
-          <th scope="col">{{ __('app.cart.index.id') }}</th> 
-          <th scope="col">{{ __('app.cart.index.name') }}</th> 
-          <th scope="col">{{ __('app.cart.index.price') }}</th> 
-          <th scope="col">{{ __('app.cart.index.quantity') }}</th> 
+          <th scope="col">{{ __('app.products_user.cart.index.id') }}</th> 
+          <th scope="col">{{ __('app.products_user.cart.index.name') }}</th> 
+          <th scope="col">{{ __('app.products_user.cart.index.price') }}</th> 
+          <th scope="col">{{ __('app.products_user.cart.index.quantity') }}</th> 
         </tr> 
       </thead> 
       <tbody> 
@@ -29,12 +29,12 @@
     </table> 
     <div class="row"> 
       <div class="text-end"> 
-        <a class="btn btn-outline-secondary mb-2"><b>{{ __('app.cart.index.total_to_pay') }}</b> ${{ $viewData["total"] }}</a> 
+        <a class="btn btn-outline-secondary mb-2"><b>{{ __('app.products_user.cart.index.total_to_pay') }}</b> ${{ $viewData["total"] }}</a> 
         @if (count($viewData["products"]) > 0)
-          <a href="{{ route('cart.purchase') }}" class="btn bg-primary text-white mb-2">{{ __('app.cart.index.purchase') }}</a> 
+          <a href="{{ route('cart.purchase') }}" class="btn bg-primary text-white mb-2">{{ __('app.products_user.cart.index.purchase') }}</a> 
           <a href="{{ route('cart.delete') }}"> 
             <button class="btn btn-danger mb-2"> 
-              {{ __('app.cart.index.remove_all') }}
+              {{ __('app.products_user.cart.index.remove_all') }}
             </button> 
           </a> 
         @endif

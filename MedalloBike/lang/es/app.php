@@ -17,7 +17,6 @@ return [
     'create_product' => 'Crear Producto',
     'view_product' => 'Ver Productos',
 
-    // Contenido migrado desde user.php
     'products_user' => [
         'show' => [
             'title_suffix' => 'Tienda Online',
@@ -38,15 +37,15 @@ return [
             'subtitle' => 'Lista de productos',
             'price' => 'Precio',
             'category' => 'Categoría',
-            'show_product' => 'Ver Producto',
             'brand' => 'Marca',
+            'show_product' => 'Ver Producto',
             'in_stock' => 'En Stock',
             'out_of_stock' => 'Agotado',
-            'no_products' => 'No hay productos disponibles aún. ',
+            'no_products' => 'No hay productos disponibles aún.',
         ],
-        
-    ],
-    'cart' => [
+        'cart' => [
+            'quantity' => 'Cantidad',
+            'add_to_cart' => 'Añadir al carrito',
             'index' => [
                 'title' => 'Carrito - Tienda Online',
                 'subtitle' => 'Carrito de Compras',
@@ -64,7 +63,6 @@ return [
                 'subtitle' => 'Estado de la Compra',
                 'completed' => 'Compra Completada',
             ],
-            'quantity' => 'Cantidad',
-            'add_to_cart' => 'Añadir al carrito',
         ],
+    ],
 ];

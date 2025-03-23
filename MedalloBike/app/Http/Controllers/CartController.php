@@ -21,8 +21,8 @@ class CartController extends Controller
             $total = Product::sumPricesByQuantities($productsInCart, $productsInSession);
         }
         $viewData = [];
-        $viewData["title"] = __('app.cart.purchase.title');
-        $viewData["subtitle"] = __('app.cart.purchase.subtitle');
+        $viewData["title"] = __('app.products_user.cart.index.title');
+        $viewData["subtitle"] = __('app.products_user.cart.index.subtitle');
         $viewData['total'] = $total;
         $viewData['products'] = $productsInCart;
 
@@ -83,8 +83,8 @@ class CartController extends Controller
             $request->session()->forget('products');
             
             $viewData = [];
-            $viewData["title"] = "Purchase - Online Store";
-            $viewData["subtitle"] = "Purchase Status";
+            $viewData["title"] = __('app.products_user.cart.purchase.title');
+            $viewData["subtitle"] = __('app.products_user.cart.purchase.subtitle');
             $viewData["order"] = $order;
             
             return view('cart.purchase')->with("viewData", $viewData);

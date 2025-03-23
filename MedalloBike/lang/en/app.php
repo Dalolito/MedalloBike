@@ -17,7 +17,6 @@ return [
     'create_product' => 'Create Product',
     'view_product' => 'View Products',
 
-    // Contenido migrado desde user.php
     'products_user' => [
         'show' => [
             'title_suffix' => 'Online Store',
@@ -44,8 +43,9 @@ return [
             'out_of_stock' => 'Out of Stock',
             'no_products' => 'No products available yet.',
         ],
-    ],
-    'cart' => [
+        'cart' => [
+            'quantity' => 'Quantity',
+            'add_to_cart' => 'Add to cart',
             'index' => [
                 'title' => 'Cart - Online Store',
                 'subtitle' => 'Shopping Cart',
@@ -63,7 +63,6 @@ return [
                 'subtitle' => 'Purchase Status',
                 'completed' => 'Purchase Completed',
             ],
-            'quantity' => 'Quantity',
-            'add_to_cart' => 'Add to cart',
         ],
+    ],
 ];
