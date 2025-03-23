@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 $AdminProductControllerRoute = 'App\Http\Controllers\Admin\AdminProductController';
+$AdminCategoryControllerRoute = 'App\Http\Controllers\Admin\AdminCategoryController';
 $HomeControllerRoute = 'App\Http\Controllers\HomeController';
 $ProductControllerRoute = 'App\Http\Controllers\ProductController';
 
@@ -19,6 +20,11 @@ Route::get('/admin/product/edit/{id}', $AdminProductControllerRoute.'@edit')->na
 Route::post('/admin/product/update/{id}', $AdminProductControllerRoute.'@update')->name('admin.product.update');
 Route::get('/admin/product/disable/{id}', $AdminProductControllerRoute.'@disable')->name('admin.product.disable');
 Route::get('/admin/product/enable/{id}', $AdminProductControllerRoute.'@enable')->name('admin.product.enable');
+
+// Admin Category Controller routes
+Route::get('/admin/category/create', $AdminCategoryControllerRoute.'@create')->name('admin.category.create');
+Route::get('/admin/category/list', $AdminCategoryControllerRoute.'@list')->name('admin.category.list');
+Route::get('/admin/category/show/{id}', $AdminCategoryControllerRoute.'@show')->name('admin.category.show');
 
 // Product Controller routes
 Route::get('/product/list', $ProductControllerRoute.'@list')->name('product.list');
