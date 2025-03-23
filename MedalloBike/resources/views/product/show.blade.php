@@ -50,15 +50,27 @@
 
             <!-- Action Buttons -->
             <div class="mt-4">
+                @if($viewData['product']->getState() == 'available' && $viewData['product']->getStock() > 0)
+                    <form method="POST" action="{{ route('cart.add', ['id'=> $viewData['product']->getId()]) }}"> 
+                        <div class="row"> 
+                            @csrf 
+                            <div class="col-auto"> 
+                            <div class="input-group col-auto"> 
+                                <div class="input-group-text">Quantity</div> 
+                                <input 	type="number" 	min="1" 	max="10" 	class="form-control 	quantity-input" name="quantity" value="1"> 
+                            </div> 
+                            </div> 
+                            <div class="col-auto"> 
+                            <button class="btn bg-primary text-white" type="submit">Add to cart</button> 
+                            </div> 
+                        </div> 
+                    </form> 
+                @endif
+
                 <a href="{{ route('product.list') }}" class="btn btn-secondary">
                     {{ __('app.products_user.show.back_to_list') }}
                 </a>
-                
-                @if($viewData['product']->getState() == 'available' && $viewData['product']->getStock() > 0)
-                    <button class="btn btn-primary ms-2">
-                        {{ __('app.products_user.show.add_to_cart') }}
-                    </button>
-                @endif
+
             </div>
         </div>
     </div>

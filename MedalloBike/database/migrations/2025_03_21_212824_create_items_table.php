@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedInteger('totalPrice');
             $table->unsignedInteger('subtotal');
             $table->foreignId('product_id')->constrained('products');
-            $table->unsignedBigInteger('order_id')->nullable(); 
+            $table->unsignedBigInteger('order_id')->nullable();
             $table->timestamps();
         });
     }

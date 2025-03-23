@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 $AdminProductControllerRoute = 'App\Http\Controllers\Admin\AdminProductController';
 $HomeControllerRoute = 'App\Http\Controllers\HomeController';
 $ProductControllerRoute = 'App\Http\Controllers\ProductController';
+$CartControllerRoute = 'App\Http\Controllers\CartController';
 
 // Home Controller routes
 Route::get('/', $HomeControllerRoute.'@index')->name('home.index');
@@ -23,5 +24,10 @@ Route::get('/admin/product/enable/{id}', $AdminProductControllerRoute.'@enable')
 // Product Controller routes
 Route::get('/product/list', $ProductControllerRoute.'@list')->name('product.list');
 Route::get('/product/show/{id}', $ProductControllerRoute.'@show')->name('product.show');
+
+// Cart Controller routes
+Route::get('/cart', $CartControllerRoute.'@index')->name('cart.index');
+Route::get('/cart/delete', $CartControllerRoute.'r@delete')->name('cart.delete');
+Route::post('/cart/add/{id}', $CartControllerRoute.'@add')->name('cart.add');
 
 Auth::routes();

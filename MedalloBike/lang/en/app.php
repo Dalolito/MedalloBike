@@ -12,6 +12,8 @@ return [
     'menu' => 'Menu',
     'close' => 'Close',
     'products' => 'Products',
+    'cart' => 'Cart',
+    'view_cart' => 'View Cart',
     'create_product' => 'Create Product',
     'view_product' => 'View Products',
 

@@ -14,11 +14,13 @@ class Order extends Model
      * $this->attributes['state'] - string - contains the state of the order
      * $this->attributes['created_at'] - timestamp - contains the record creation date
      * $this->attributes['updated_at'] - timestamp - contains the record update date
+     * $this->user - User - contains the associated User
+     * $this->items - Item[] - contains the associated items
      */
     protected $fillable = [
         'totalPrice',
         'user_id',
-        'state'
+        'state',
     ];
 
     public function getId(): int
