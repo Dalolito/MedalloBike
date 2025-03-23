@@ -61,6 +61,7 @@ class Review extends Model
     {
         $this->attributes['approvedState'] = $approvedState;
     }
+
     public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
