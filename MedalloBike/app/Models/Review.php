@@ -10,6 +10,7 @@ class Review extends Model
      * REVIEW ATTRIBUTES
      * $this->attributes['id'] - int - contains the primary key of the review
      * $this->attributes['product_id'] - int - contains the foreign key of the associated product
+     * $this->attributes['user_id'] - int - contains the foreign key of the user who created the review
      * $this->attributes['qualification'] - int - contains the rating given in the review (0-5)
      * $this->attributes['review'] - string - contains the text of the review
      * $this->attributes['state'] - bool - contains the approval status of the review (true = approved, false = pending/rejected)
