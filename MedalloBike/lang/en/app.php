@@ -16,6 +16,9 @@ return [
     'view_cart' => 'View Cart',
     'create_product' => 'Create Product',
     'view_product' => 'View Products',
+    'categories' => 'Categories',
+    'create_category' => 'Create Category',
+    'view_category' => 'View Categories',
 
     'products_user' => [
         'show' => [

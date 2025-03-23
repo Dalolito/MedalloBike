@@ -16,6 +16,9 @@ return [
     'view_cart' => 'Ver Carrito',
     'create_product' => 'Crear Producto',
     'view_product' => 'Ver Productos',
+    'categories' => 'Categorías',
+    'create_category' => 'Crear Categoría',
+    'view_category' => 'Ver Categorías',
 
     'products_user' => [
         'show' => [
