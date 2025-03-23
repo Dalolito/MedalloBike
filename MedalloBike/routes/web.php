@@ -32,8 +32,7 @@ Route::get('/product/show/{id}', $ProductControllerRoute.'@show')->name('product
 Route::get('/cart', $CartControllerRoute.'@index')->name('cart.index');
 Route::get('/cart/delete', $CartControllerRoute.'@delete')->name('cart.delete');
 Route::post('/cart/add/{id}', $CartControllerRoute.'@add')->name('cart.add');
-Route::middleware('auth')->group(function () 
-{
+Route::middleware('auth')->group(function () {
     $CartControllerRoute = 'App\Http\Controllers\CartController';
     Route::get('/cart/purchase', $CartControllerRoute.'@purchase')->name('cart.purchase');
 });

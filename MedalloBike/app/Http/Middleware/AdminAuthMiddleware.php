@@ -2,11 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\CustomUser;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
-use App\Models\CustomUser;
 
 class AdminAuthMiddleware
 {
@@ -22,7 +22,7 @@ class AdminAuthMiddleware
             // Get the authenticated user ID and find the CustomUser
             $userId = Auth::id();
             $customUser = CustomUser::find($userId);
-            
+
             // Check if the user exists and is an admin
             if ($customUser && $customUser->getRole() == 'admin') {
                 return $next($request);

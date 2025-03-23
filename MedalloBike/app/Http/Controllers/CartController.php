@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CustomUser;
+use App\Models\Item;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use App\Models\Order;
-use App\Models\Item;
-use App\Models\CustomUser;
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
@@ -21,8 +21,8 @@ class CartController extends Controller
             $total = Product::sumPricesByQuantities($productsInCart, $productsInSession);
         }
         $viewData = [];
-        $viewData["title"] = __('app.products_user.cart.index.title');
-        $viewData["subtitle"] = __('app.products_user.cart.index.subtitle');
+        $viewData['title'] = __('app.products_user.cart.index.title');
+        $viewData['subtitle'] = __('app.products_user.cart.index.subtitle');
         $viewData['total'] = $total;
         $viewData['products'] = $productsInCart;
 
@@ -47,24 +47,24 @@ class CartController extends Controller
 
     public function purchase(Request $request)
     {
-        $productsInSession = $request->session()->get("products");
-        
+        $productsInSession = $request->session()->get('products');
+
         if ($productsInSession) {
             $userId = Auth::id();
             $customUser = CustomUser::find($userId);
-            
-            $order = new Order();
+
+            $order = new Order;
             $order->setUserId($userId);
             $order->setTotalPrice(0);
-            $order->setState('pending'); 
+            $order->setState('pending');
             $order->save();
-            
+
             $total = 0;
             $productsInCart = Product::findMany(array_keys($productsInSession));
-            
+
             foreach ($productsInCart as $product) {
                 $quantity = $productsInSession[$product->getId()];
-                $item = new Item();
+                $item = new Item;
                 $item->setQuantity($quantity);
                 $item->setTotalPrice($product->getPrice() * $quantity);
                 $item->setProductId($product->getId());
@@ -72,25 +72,23 @@ class CartController extends Controller
                 $item->save();
                 $total = $total + ($product->getPrice() * $quantity);
             }
-            
+
             $order->setTotalPrice($total);
             $order->save();
-            
+
             $newBudget = $customUser->getBudget() - $total;
             $customUser->setBudget($newBudget);
             $customUser->save();
-            
+
             $request->session()->forget('products');
-            
+
             $viewData = [];
-            $viewData["title"] = __('app.products_user.cart.purchase.title');
-            $viewData["subtitle"] = __('app.products_user.cart.purchase.subtitle');
-            $viewData["order"] = $order;
-            
-            return view('cart.purchase')->with("viewData", $viewData);
-        } 
-        else 
-        {
+            $viewData['title'] = __('app.products_user.cart.purchase.title');
+            $viewData['subtitle'] = __('app.products_user.cart.purchase.subtitle');
+            $viewData['order'] = $order;
+
+            return view('cart.purchase')->with('viewData', $viewData);
+        } else {
             return redirect()->route('cart.index');
         }
     }
