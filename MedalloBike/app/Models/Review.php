@@ -52,13 +52,22 @@ class Review extends Model
         $this->attributes['review'] = $review;
     }
 
-    public function getApprovedState(): bool
+    public function getState(): bool
     {
         return $this->attributes['state'];
     }
 
-    public function setApprovedState(bool $approvedState): void
+    public function setState(bool $approvedState): void
     {
         $this->attributes['approvedState'] = $approvedState;
+    }
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
     }
 }
