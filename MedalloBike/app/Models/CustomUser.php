@@ -4,6 +4,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -24,6 +26,7 @@ class CustomUser extends Authenticatable
      * $this->attributes['email_verified_at'] - timestamp - contains the user email verification date
      * $this->attributes['created_at'] - timestamp - contains the user creation date
      * $this->attributes['updated_at'] - timestamp - contains the user update date
+     * $this->orders - Order[] - contains the associated orders
      */
 
     /**
@@ -49,7 +52,7 @@ class CustomUser extends Authenticatable
         return $this->attributes['name'];
     }
 
-    public function setName($name): void
+    public function setName(string $name): void
     {
         $this->attributes['name'] = $name;
     }
@@ -59,7 +62,7 @@ class CustomUser extends Authenticatable
         return $this->attributes['email'];
     }
 
-    public function setEmail($email): void
+    public function setEmail(string $email): void
     {
         $this->attributes['email'] = $email;
     }
@@ -69,7 +72,7 @@ class CustomUser extends Authenticatable
         return $this->attributes['password'];
     }
 
-    public function setPassword($password): void
+    public function setPassword(string $password): void
     {
         $this->attributes['password'] = $password;
     }
@@ -79,7 +82,7 @@ class CustomUser extends Authenticatable
         return $this->attributes['address'];
     }
 
-    public function setAddress($address): void
+    public function setAddress(string $address): void
     {
         $this->attributes['address'] = $address;
     }
@@ -89,7 +92,7 @@ class CustomUser extends Authenticatable
         return $this->attributes['role'];
     }
 
-    public function setRole($role): void
+    public function setRole(string $role): void
     {
         $this->attributes['role'] = $role;
     }
@@ -99,7 +102,7 @@ class CustomUser extends Authenticatable
         return $this->attributes['budget'];
     }
 
-    public function setBudget($budget): void
+    public function setBudget(float $budget): void
     {
         $this->attributes['budget'] = $budget;
     }
@@ -122,5 +125,20 @@ class CustomUser extends Authenticatable
     public function setUpdatedAt($updatedAt): void
     {
         $this->attributes['updated_at'] = $updatedAt;
+    }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class, 'user_id');
+    }
+
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function setOrders(Collection $orders): void
+    {
+        $this->orders = $orders;
     }
 }
