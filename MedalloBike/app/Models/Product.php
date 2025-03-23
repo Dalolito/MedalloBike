@@ -34,13 +34,13 @@ class Product extends Model
         'state', // Add the new field here
     ];
 
-    public static function sumPricesByQuantities(array $products, array $productsInSession): int
+    public static function sumPricesByQuantities($products, array $productsInSession): int
     {
         $total = 0;
         foreach ($products as $product) {
             $total = $total + ($product->getPrice() * $productsInSession[$product->getId()]);
         }
-
+    
         return $total;
     }
 
