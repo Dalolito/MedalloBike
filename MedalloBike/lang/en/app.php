@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     'title' => 'MedalloBike',
     'home' => 'Home',
     'login' => 'Log In',
@@ -15,7 +16,15 @@ return [
     'create_product' => 'Create Product',
     'view_product' => 'View Products',
 
-    // Contenido migrado desde user.php
+    'review' => [
+        'form' => [
+            'qualification' => 'Qualification',
+            'submit' => 'Publish',
+            'label_review' => 'Do you have any reviews?',
+            'add_review' => 'Write a review',
+        ],
+    ],
+
     'products_user' => [
         'show' => [
             'title_suffix' => 'Online Store',

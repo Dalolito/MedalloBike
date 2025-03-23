@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 $AdminProductControllerRoute = 'App\Http\Controllers\Admin\AdminProductController';
 $HomeControllerRoute = 'App\Http\Controllers\HomeController';
 $ProductControllerRoute = 'App\Http\Controllers\ProductController';
+$ReviewController = 'App\Http\Controllers\ReviewController';
 
 // Home Controller routes
 Route::get('/', $HomeControllerRoute.'@index')->name('home.index');
@@ -19,6 +20,7 @@ Route::get('/admin/product/edit/{id}', $AdminProductControllerRoute.'@edit')->na
 Route::post('/admin/product/update/{id}', $AdminProductControllerRoute.'@update')->name('admin.product.update');
 Route::get('/admin/product/disable/{id}', $AdminProductControllerRoute.'@disable')->name('admin.product.disable');
 Route::get('/admin/product/enable/{id}', $AdminProductControllerRoute.'@enable')->name('admin.product.enable');
+Route::post('/review/save', $ReviewController.'@save')->name('review.save');
 
 // Product Controller routes
 Route::get('/product/list', $ProductControllerRoute.'@list')->name('product.list');

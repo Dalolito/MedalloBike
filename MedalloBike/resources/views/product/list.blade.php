@@ -45,6 +45,12 @@
                                 </a>
                             </div>
                         </div>
+                        
+                        <!-- Create Review -->
+                        <div class="p-2 border-top">
+                            <x-review-form :product="$product" />
+                        </div>
+
                     </div>
                 </div>
             @endforeach
