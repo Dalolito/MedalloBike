@@ -53,7 +53,7 @@ class Item extends Model
     {
         return $this->belongsTo(Product::class);
     }
-   
+
     public function getProduct(): Product
     {
         return $this->product;
@@ -62,7 +62,7 @@ class Item extends Model
     public function setProduct(Product $product): void
     {
         $this->product = $product;
-    }   
+    }
 
     public function getProductId(): int
     {
@@ -78,12 +78,12 @@ class Item extends Model
     {
         return $this->belongsTo(Order::class);
     }
-    
+
     public function getOrder(): Order
     {
         return $this->order;
     }
-    
+
     public function setOrder(Order $order): void
     {
         $this->order = $order;

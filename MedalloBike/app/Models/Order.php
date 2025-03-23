@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Collection;
 
 class Order extends Model
 {
@@ -44,7 +44,7 @@ class Order extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
-    } 
+    }
 
     public function getUser()
     {
@@ -53,7 +53,7 @@ class Order extends Model
 
     public function setUser($user)
     {
-        $this->user = $user; 
+        $this->user = $user;
     }
 
     public function getUserId(): int

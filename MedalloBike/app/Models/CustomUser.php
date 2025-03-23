@@ -4,9 +4,8 @@
 
 namespace App\Models;
 
-use App\Models\Order;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Relations\HasMany; 
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -27,7 +26,7 @@ class CustomUser extends Authenticatable
      * $this->attributes['email_verified_at'] - timestamp - contains the user email verification date
      * $this->attributes['created_at'] - timestamp - contains the user creation date
      * $this->attributes['updated_at'] - timestamp - contains the user update date
-     * $this->orders - Order[] - contains the associated orders 
+     * $this->orders - Order[] - contains the associated orders
      */
 
     /**
@@ -141,5 +140,5 @@ class CustomUser extends Authenticatable
     public function setOrders(Collection $orders): void
     {
         $this->orders = $orders;
-    } 
+    }
 }
