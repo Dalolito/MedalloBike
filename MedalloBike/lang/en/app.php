@@ -13,9 +13,15 @@ return [
     'menu' => 'Menu',
     'close' => 'Close',
     'products' => 'Products',
+    'cart' => 'Cart',
+    'view_cart' => 'View Cart',
     'create_product' => 'Create Product',
     'view_product' => 'View Products',
+    'categories' => 'Categories',
+    'create_category' => 'Create Category',
+    'view_category' => 'View Categories',
 
+<<<<<<< HEAD
     'review' => [
         'form' => [
             'qualification' => 'Qualification',
@@ -25,6 +31,8 @@ return [
         ],
     ],
 
+=======
+>>>>>>> c81936a345d68f64835a28503660546b7d28267d
     'products_user' => [
         'show' => [
             'title_suffix' => 'Online Store',
@@ -50,6 +58,27 @@ return [
             'in_stock' => 'In Stock',
             'out_of_stock' => 'Out of Stock',
             'no_products' => 'No products available yet.',
+        ],
+        'cart' => [
+            'quantity' => 'Quantity',
+            'add_to_cart' => 'Add to cart',
+            'index' => [
+                'title' => 'Cart - Online Store',
+                'subtitle' => 'Shopping Cart',
+                'products_in_cart' => 'Products in Cart',
+                'id' => 'ID',
+                'name' => 'Name',
+                'price' => 'Price',
+                'quantity' => 'Quantity',
+                'total_to_pay' => 'Total to pay:',
+                'purchase' => 'Purchase',
+                'remove_all' => 'Remove all products from Cart',
+            ],
+            'purchase' => [
+                'title' => 'Purchase - Online Store',
+                'subtitle' => 'Purchase Status',
+                'completed' => 'Purchase Completed',
+            ],
         ],
     ],
 ];

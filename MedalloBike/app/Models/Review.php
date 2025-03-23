@@ -9,15 +9,14 @@ class Review extends Model
     /**
      * REVIEW ATTRIBUTES
      *
-     * this->attributes['id']                -int           -Review Id (primary key)
-     * this->attributtes['product_id']       -int           -Product Id(foreign key)
-     * this->attributtes['route_id']         -int           -Route Id(foreign key) ---------------Falta
-     * this->attributtes['user_id']          -int           -User Id (foreign key) ---------------Falta
-     *
-     * this->attibuttes['qualification ']    -int           -The qualification of product or route
-     * this->attributtes['review']           -string        -The comment about the route or route
-     * this->attributtes['approvedState']    -boolean       -The approval state of review, True:approved reviews False:unapproved reviews
-     * this->attributtes['moderator']        -int           -User Id admin
+     * this->attributes['id']-int-Review Id (primary key)
+     * this->attributtes['product_id']-int-Product Id(foreign key)
+     * this->attributtes['route_id']-int-Route Id(foreign key) ---------------
+     * this->attributtes['user_id']-int-User Id (foreign key) ---------------
+     * this->attibuttes['qualification ']-int-The qualification of product or route
+     * this->attributtes['review']-string-The comment about the route or route
+     * this->attributtes['approvedState']-boolean-The approval state of review
+     * this->attributtes['moderator']-int-User Id admin
      */
     protected $table = 'review';
 

@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('review', function (Blueprint $table) {
+        Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->integer('qualification');
-            $table->string('review');
-            $table->boolean('approvedState')->default(false);
+            $table->unsignedInteger('quantity');
+            $table->unsignedInteger('totalPrice');
+            $table->unsignedInteger('subtotal');
+            $table->foreignId('product_id')->constrained('products');
+            $table->unsignedBigInteger('order_id')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('review');
+        Schema::dropIfExists('items');
     }
 };

@@ -12,10 +12,14 @@ return [
     'menu' => 'Menú',
     'close' => 'Cerrar',
     'products' => 'Productos',
+    'cart' => 'Carrito',
+    'view_cart' => 'Ver Carrito',
     'create_product' => 'Crear Producto',
     'view_product' => 'Ver Productos',
+    'categories' => 'Categorías',
+    'create_category' => 'Crear Categoría',
+    'view_category' => 'Ver Categorías',
 
-    // Contenido migrado desde user.php
     'products_user' => [
         'show' => [
             'title_suffix' => 'Tienda Online',
@@ -36,11 +40,32 @@ return [
             'subtitle' => 'Lista de productos',
             'price' => 'Precio',
             'category' => 'Categoría',
-            'show_product' => 'Ver Producto',
             'brand' => 'Marca',
+            'show_product' => 'Ver Producto',
             'in_stock' => 'En Stock',
             'out_of_stock' => 'Agotado',
-            'no_products' => 'No hay productos disponibles aún. ',
+            'no_products' => 'No hay productos disponibles aún.',
+        ],
+        'cart' => [
+            'quantity' => 'Cantidad',
+            'add_to_cart' => 'Añadir al carrito',
+            'index' => [
+                'title' => 'Carrito - Tienda Online',
+                'subtitle' => 'Carrito de Compras',
+                'products_in_cart' => 'Productos en el Carrito',
+                'id' => 'ID',
+                'name' => 'Nombre',
+                'price' => 'Precio',
+                'quantity' => 'Cantidad',
+                'total_to_pay' => 'Total a pagar:',
+                'purchase' => 'Comprar',
+                'remove_all' => 'Eliminar todos los productos del Carrito',
+            ],
+            'purchase' => [
+                'title' => 'Compra - Tienda Online',
+                'subtitle' => 'Estado de la Compra',
+                'completed' => 'Compra Completada',
+            ],
         ],
     ],
 ];
