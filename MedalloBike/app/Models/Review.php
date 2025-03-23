@@ -36,7 +36,9 @@ class Review extends Model
     {
         return $this->attributes['product_id'];
     }
-    public function setProductId(int $product_id): void{
+
+    public function setProductId(int $product_id): void
+    {
         $this->attributes['product_id'] = $product_id;
     }
 
