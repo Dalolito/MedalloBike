@@ -20,9 +20,8 @@ return [
     'categories' => 'Categories',
     'create_category' => 'Create Category',
     'view_category' => 'View Categories',
-    'route'=>'Route',
+    'route' => 'Route',
     'view_route' => 'View Route',
-
 
     'review' => [
         'form' => [
@@ -84,14 +83,14 @@ return [
 
     'routes_user' => [
         'list' => [
-        'title' => 'Routes - MedalloBike',
-        'subtitle' => 'List of available routes',
-        'zone' => 'Zone',
-        'type' => 'Type',
-        'difficulty' => 'Difficulty',
-        'show_route' => 'View Route',
-        'no_routes' => 'No routes available yet.',
-    ],
+            'title' => 'Routes - MedalloBike',
+            'subtitle' => 'List of available routes',
+            'zone' => 'Zone',
+            'type' => 'Type',
+            'difficulty' => 'Difficulty',
+            'show_route' => 'View Route',
+            'no_routes' => 'No routes available yet.',
+        ],
         'show' => [
             'title_suffix' => 'Route Details',
         ],
