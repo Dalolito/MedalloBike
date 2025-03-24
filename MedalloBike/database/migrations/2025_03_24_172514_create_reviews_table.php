@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('product_id')->references('id')->on('products');
             $table->integer('qualification');
             $table->string('review');
-            $table->boolean('state')->default(true);
+            $table->boolean('state')->default(false);
             $table->timestamps();
         });
     }
