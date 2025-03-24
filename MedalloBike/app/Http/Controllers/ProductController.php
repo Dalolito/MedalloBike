@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use App\Models\Category;
-use Illuminate\View\View;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ProductController extends Controller
 {
@@ -13,14 +13,14 @@ class ProductController extends Controller
     {
         $categoryId = $request->query('category');
         $productsQuery = Product::where('state', 'available');
-        
+
         if ($categoryId) {
             $productsQuery->where('category_id', $categoryId);
         }
-        
+
         $products = $productsQuery->get();
         $categories = Category::where('state', 'available')->get();
-        
+
         $viewData = [
             'title' => __('app.products_user.list.title'),
             'subtitle' => __('app.products_user.list.subtitle'),
