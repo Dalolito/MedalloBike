@@ -98,8 +98,8 @@ class AdminProductController extends Controller
     public function topSelling(): View
     {
         $topProducts = Product::with('category')
-                             ->topSelling()
-                             ->get();
+            ->topSelling()
+            ->get();
 
         $viewData = [
             'title' => __('admin.products.top_selling.title'),

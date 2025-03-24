@@ -13,14 +13,14 @@ class ProductController extends Controller
     {
         $categoryId = $request->query('category');
         $productsQuery = Product::where('state', 'available');
-    
+
         if ($categoryId) {
             $productsQuery->where('category_id', $categoryId);
         }
-    
+
         $products = $productsQuery->get();
         $categories = Category::where('state', 'available')->get();
-    
+
         $viewData = [
             'title' => __('app.products_user.list.title'),
             'subtitle' => __('app.products_user.list.subtitle'),
@@ -28,7 +28,7 @@ class ProductController extends Controller
             'categories' => $categories,
             'selectedCategory' => $categoryId,
         ];
-    
+
         return view('product.list')->with('viewData', $viewData);
     }
 

@@ -3,9 +3,9 @@
 namespace App\Services;
 
 use App\Models\CustomUser;
+use App\Models\Item;
 use App\Models\Order;
 use App\Models\Product;
-use App\Models\Item;
 use Illuminate\Support\Facades\DB;
 
 class PurchaseService
@@ -13,8 +13,8 @@ class PurchaseService
     /**
      * procces purchase of session products
      *
-     * @param int $userId User id
-     * @param array $productsInSession Array with products in session
+     * @param  int  $userId  User id
+     * @param  array  $productsInSession  Array with products in session
      * @return array Result of the purchase
      */
     public function processPurchase(int $userId, array $productsInSession): array
@@ -27,7 +27,7 @@ class PurchaseService
             return [
                 'status' => 'insufficient_funds',
                 'budget' => $user->getBudget(),
-                'total' => $total
+                'total' => $total,
             ];
         }
 
@@ -54,7 +54,7 @@ class PurchaseService
             $item->setProductId($product->getId());
             $item->setOrderId($order->getId());
             $item->save();
-            
+
             $total += ($product->getPrice() * $quantity);
 
             $product->setStock($product->getStock() - $quantity);
@@ -68,10 +68,10 @@ class PurchaseService
         $user->save();
 
         DB::commit();
-        
+
         return [
             'status' => 'success',
-            'order' => $order
+            'order' => $order,
         ];
 
     }

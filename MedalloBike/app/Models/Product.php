@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 
 class Product extends Model
@@ -146,7 +146,7 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
-    
+
     public function getCategory(): ?Category
     {
         return $this->category;
@@ -169,12 +169,10 @@ class Product extends Model
 
     public function scopeTopSelling(Builder $query, int $limit = 3): Builder
     {
-        return $query->withCount(['items as total_sold' => function ($query)
-        {
+        return $query->withCount(['items as total_sold' => function ($query) {
             $query->select(DB::raw('SUM(quantity)'));
         }])
-        ->orderBy('total_sold', 'desc')
-        ->take($limit);
+            ->orderBy('total_sold', 'desc')
+            ->take($limit);
     }
-
 }

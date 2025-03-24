@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CustomUser;
-use App\Models\Item;
-use App\Models\Order;
 use App\Models\Product;
+use App\Services\PurchaseService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use App\Services\PurchaseService;
 
 class CartController extends Controller
 {
@@ -68,16 +65,14 @@ class CartController extends Controller
     {
         $productsInSession = $request->session()->get('products');
 
-        if (!$productsInSession) 
-        {
+        if (! $productsInSession) {
             return redirect()->route('cart.index');
         }
 
         $userId = Auth::id();
         $result = $this->purchaseService->processPurchase($userId, $productsInSession);
 
-        if ($result['status'] === 'insufficient_funds')
-        {
+        if ($result['status'] === 'insufficient_funds') {
             return redirect()->route('cart.index')->with('error',
                 __('messages.error.insufficient_funds', [
                     'budget' => number_format($result['budget'], 2),
@@ -86,8 +81,7 @@ class CartController extends Controller
             );
         }
 
-        if ($result['status'] === 'error') 
-        {
+        if ($result['status'] === 'error') {
             return redirect()->route('cart.index')->with('error', __('messages.error.purchase_failed'));
         }
 
