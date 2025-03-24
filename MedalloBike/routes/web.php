@@ -25,7 +25,7 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/product/enable/{id}', $AdminProductControllerRoute.'@enable')->name('admin.product.enable');
 });
 
-// Rutas de categorías
+// Admin Category Controller routes
 Route::middleware('admin')->group(function () {
     $AdminCategoryControllerRoute = 'App\Http\Controllers\Admin\AdminCategoryController';
 
@@ -62,6 +62,12 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     $MyAccountControllerRoute = 'App\Http\Controllers\MyAccountController';
     Route::get('/my-account/orders', $MyAccountControllerRoute.'@orders')->name('Myaccount.orders');
+});
+
+// Admin Home Controller route
+Route::middleware('admin')->group(function () {
+    $AdminHomeControllerRoute = 'App\Http\Controllers\Admin\AdminHomeController';
+    Route::get('/admin/home', $AdminHomeControllerRoute.'@index')->name('admin.home');
 });
 
 Auth::routes();

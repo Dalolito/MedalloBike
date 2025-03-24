@@ -1,6 +1,22 @@
 
 <?php
 return [
+    'dashboard' => [
+        'title' => 'Admin Panel',
+        'subtitle' => 'Welcome to the admin panel',
+        'products' => [
+            'title' => 'Products',
+            'description' => 'Manage the store product catalog.',
+            'view' => 'View Products',
+            'create' => 'Create Product',
+        ],
+        'categories' => [
+            'title' => 'Categories',
+            'description' => 'Manage product categories.',
+            'view' => 'View Categories',
+            'create' => 'Create Category',
+        ],
+    ],
     'products' => [
         'create' => [
             'title' => 'Create New Product',
