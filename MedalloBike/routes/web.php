@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+
+
 $AdminCategoryControllerRoute = 'App\Http\Controllers\Admin\AdminCategoryController';
 $HomeControllerRoute = 'App\Http\Controllers\HomeController';
 $ProductControllerRoute = 'App\Http\Controllers\ProductController';
