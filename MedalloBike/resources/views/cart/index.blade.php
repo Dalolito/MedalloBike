@@ -6,7 +6,23 @@
   <div class="card-header"> 
     {{ __('app.products_user.cart.index.products_in_cart') }}
   </div> 
-  <div class="card-body"> 
+  <div class="card-body">
+    <!-- Error Message -->
+    @if(session('error'))
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ session('error') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @endif
+
+    <!-- Success Message -->
+    @if(session('success'))
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @endif
+ 
     <table class="table table-bordered table-striped text-center"> 
       <thead> 
         <tr> 

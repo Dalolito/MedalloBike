@@ -64,7 +64,7 @@
                             <div class="col-auto"> 
                                 <div class="input-group col-auto"> 
                                     <div class="input-group-text">{{ __('app.products_user.cart.quantity') }}</div> 
-                                    <input type="number" min="1" max="10" class="form-control quantity-input" name="quantity" value="1"> 
+                                    <input type="number" min="1" max="{{ $viewData['product']->getStock() }}" class="form-control quantity-input" name="quantity" value="1"> 
                                 </div> 
                             </div> 
                             <div class="col-auto"> 
