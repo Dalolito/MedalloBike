@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-    <!-- Header Section -->
+    <!-- Header Section - manteniendo el diseño original -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
             <h1>{{ $viewData["title"] }}</h1>
@@ -12,7 +12,7 @@
         </div>
     </div>
 
-    <!-- Category Filter -->
+    <!-- Category Filter - restaurado al diseño original -->
     <div class="row mb-4">
         <div class="col-md-6">
             <div class="card">
@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <!-- Products Grid -->
+    <!-- Products Grid con diseño mejorado -->
     <div class="row">
         @if(isset($viewData['products']) && count($viewData['products']) > 0)
             @foreach($viewData['products'] as $product)
@@ -45,42 +45,47 @@
                     <div class="card h-100">
                         <!-- Product Image -->
                         <img src="{{ asset('/img/bike.jpg') }}"
-                             class="card-img-top img-card" alt="{{ $product->getTitle() }}">
+                            class="card-img-top img-fluid" style="height: 180px; object-fit: cover;" alt="{{ $product->getTitle() }}">
                         
-                        <!-- Product Info -->
+                        <!-- Product Info with improved typography -->
                         <div class="card-body text-center">
-                            <h5 class="card-title">{{ $product->getTitle() }}</h5>
-                            <p class="card-text">{{ __('app.products_user.list.price') }}: ${{ number_format($product->getPrice(), 2) }}</p>
-                            <p class="card-text">{{ __('app.products_user.list.brand') }}: {{ $product->getBrand() }}</p>
+                            <h5 class="card-title fw-bold">{{ $product->getTitle() }}</h5>
+                            <p class="card-text fs-5 text-primary fw-bold">${{ number_format($product->getPrice(), 2) }}</p>
+                            <p class="card-text text-muted"><small>{{ __('app.products_user.list.brand') }}: {{ $product->getBrand() }}</small></p>
                             
-                            <!-- Stock Status -->
+                            <!-- Stock Status con badges mejorados -->
                             @if($product->getStock() > 0)
-                                <p class="badge bg-success">{{ __('app.products_user.list.in_stock') }} ({{ $product->getStock() }})</p>
+                                <div class="mt-2">
+                                    <span class="badge rounded-pill bg-success text-white px-3 py-2">
+                                        <i class="bi bi-check-circle me-1"></i>
+                                        {{ __('app.products_user.list.in_stock') }} ({{ $product->getStock() }})
+                                    </span>
+                                </div>
                             @else
-                                <p class="badge bg-danger">{{ __('app.products_user.list.out_of_stock') }}</p>
+                                <div class="mt-2">
+                                    <span class="badge rounded-pill bg-danger text-white px-3 py-2">
+                                        <i class="bi bi-x-circle me-1"></i>
+                                        {{ __('app.products_user.list.out_of_stock') }}
+                                    </span>
+                                </div>
                             @endif
                         </div>
                         
-                        <!-- Product Actions -->
-                        <div class="card-footer bg-white text-center">
-                            <div class="d-flex justify-content-between">
-                                <a href="{{ route('product.show', ['id' => $product->getId()]) }}" class="btn btn-primary btn-sm">
-                                    {{ __('app.products_user.list.show_product') }}
-                                </a>
-                            </div>
+                        <!-- Product Actions con botones mejorados -->
+                        <div class="card-footer bg-white text-center py-3">
+                            <a href="{{ route('product.show', ['id' => $product->getId()]) }}" 
+                               class="btn btn-outline-primary btn-sm w-100">
+                                <i class="bi bi-info-circle me-1"></i>
+                                {{ __('app.products_user.list.show_product') }}
+                            </a>
                         </div>
-                        
-                        <!-- Create Review -->
-                        <div class="p-2 border-top">
-                            <x-review-form :product="$product" />
-                        </div>
-
                     </div>
                 </div>
             @endforeach
         @else
             <div class="col-12">
                 <div class="alert alert-info">
+                    <i class="bi bi-info-circle me-2"></i>
                     {{ __('app.products_user.list.no_products') }}
                 </div>
             </div>
