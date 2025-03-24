@@ -7,6 +7,7 @@ $HomeControllerRoute = 'App\Http\Controllers\HomeController';
 $ProductControllerRoute = 'App\Http\Controllers\ProductController';
 $CartControllerRoute = 'App\Http\Controllers\CartController';
 $MyAccountControllerRoute = 'App\Http\Controllers\MyAccountController';
+$RouteControllerRoute = 'App\Http\Controllers\RouteController';
 
 // Home Controller routes
 Route::get('/', $HomeControllerRoute.'@index')->name('home.index');
@@ -23,9 +24,10 @@ Route::middleware('admin')->group(function () {
     Route::post('/admin/product/update/{id}', $AdminProductControllerRoute.'@update')->name('admin.product.update');
     Route::get('/admin/product/disable/{id}', $AdminProductControllerRoute.'@disable')->name('admin.product.disable');
     Route::get('/admin/product/enable/{id}', $AdminProductControllerRoute.'@enable')->name('admin.product.enable');
+    Route::get('/admin/product/top-selling', $AdminProductControllerRoute.'@topSelling')->name('admin.product.topSelling');
 });
 
-// Rutas de categorías
+// Admin Category Controller routes
 Route::middleware('admin')->group(function () {
     $AdminCategoryControllerRoute = 'App\Http\Controllers\Admin\AdminCategoryController';
 
@@ -35,7 +37,8 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/category/show/{id}', $AdminCategoryControllerRoute.'@show')->name('admin.category.show');
     Route::get('/admin/category/edit/{id}', $AdminCategoryControllerRoute.'@edit')->name('admin.category.edit');
     Route::put('/admin/category/update/{id}', $AdminCategoryControllerRoute.'@update')->name('admin.category.update');
-    Route::delete('/admin/category/delete/{id}', $AdminCategoryControllerRoute.'@delete')->name('admin.category.delete');
+    Route::get('/admin/category/disable/{id}', $AdminCategoryControllerRoute.'@disable')->name('admin.category.disable');
+    Route::get('/admin/category/enable/{id}', $AdminCategoryControllerRoute.'@enable')->name('admin.category.enable');
 });
 
 // Product Controller routes
@@ -56,11 +59,19 @@ Route::middleware('auth')->group(function () {
     $ReviewControllerRoute = 'App\Http\Controllers\ReviewController';
     Route::post('/review/save', $ReviewControllerRoute.'@save')->name('review.save');
 });
+// Route Controller routes
+Route::get('/route', $RouteControllerRoute.'@list')->name('route.list');
 
 // My Account Controller routes
 Route::middleware('auth')->group(function () {
     $MyAccountControllerRoute = 'App\Http\Controllers\MyAccountController';
     Route::get('/my-account/orders', $MyAccountControllerRoute.'@orders')->name('Myaccount.orders');
+});
+
+// Admin Home Controller route
+Route::middleware('admin')->group(function () {
+    $AdminHomeControllerRoute = 'App\Http\Controllers\Admin\AdminHomeController';
+    Route::get('/admin/home', $AdminHomeControllerRoute.'@index')->name('admin.index');
 });
 
 Auth::routes();

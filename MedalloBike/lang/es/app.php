@@ -62,6 +62,9 @@ return [
             'in_stock' => 'En Stock',
             'out_of_stock' => 'Agotado',
             'no_products' => 'No hay productos disponibles aún.',
+            'filter_by_category' => 'Filtrar por Categoría',
+            'all_categories' => 'Todas las Categorías',
+            'filter' => 'Filtrar',
         ],
         'cart' => [
             'quantity' => 'Cantidad',

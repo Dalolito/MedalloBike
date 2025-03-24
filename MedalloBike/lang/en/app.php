@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     'title' => 'MedalloBike',
     'home' => 'Home',
     'login' => 'Log In',
@@ -20,6 +19,8 @@ return [
     'categories' => 'Categories',
     'create_category' => 'Create Category',
     'view_category' => 'View Categories',
+    'route' => 'Route',
+    'view_route' => 'View Route',
 
     'review' => [
         'form' => [
@@ -60,6 +61,8 @@ return [
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'date_format' => 'Y-m-d H:i:s',
+            'price' => 'Price',
+            'create_review' => 'Create Review',
         ],
         'list' => [
             'title' => 'Products - Online Store',
@@ -71,6 +74,9 @@ return [
             'in_stock' => 'In Stock',
             'out_of_stock' => 'Out of Stock',
             'no_products' => 'No products available yet.',
+            'filter_by_category' => 'Filter by Category',
+            'all_categories' => 'All Categories',
+            'filter' => 'Filter',
         ],
         'cart' => [
             'quantity' => 'Quantity',
@@ -92,6 +98,21 @@ return [
                 'subtitle' => 'Purchase Status',
                 'completed' => 'Purchase Completed',
             ],
+        ],
+    ],
+
+    'routes_user' => [
+        'list' => [
+            'title' => 'Routes - MedalloBike',
+            'subtitle' => 'List of available routes',
+            'zone' => 'Zone',
+            'type' => 'Type',
+            'difficulty' => 'Difficulty',
+            'show_route' => 'View Route',
+            'no_routes' => 'No routes available yet.',
+        ],
+        'show' => [
+            'title_suffix' => 'Route Details',
         ],
     ],
 ];

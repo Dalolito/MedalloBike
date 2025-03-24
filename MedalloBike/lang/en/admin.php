@@ -1,6 +1,22 @@
 
 <?php
 return [
+    'dashboard' => [
+        'title' => 'Admin Panel',
+        'subtitle' => 'Welcome to the admin panel',
+        'products' => [
+            'title' => 'Products',
+            'description' => 'Manage the store product catalog.',
+            'view' => 'View Products',
+            'create' => 'Create Product',
+        ],
+        'categories' => [
+            'title' => 'Categories',
+            'description' => 'Manage product categories.',
+            'view' => 'View Categories',
+            'create' => 'Create Category',
+        ],
+    ],
     'products' => [
         'create' => [
             'title' => 'Create New Product',
@@ -34,6 +50,14 @@ return [
             'system_details' => 'System Details',
             'price' => 'Price',
         ],
+
+        'top_selling' => [
+            'title' => 'Top Selling Products',
+            'subtitle' => 'The 3 most sold products',
+            'units_sold' => 'Units Sold',
+            'no_data' => 'No sales data available yet.',
+        ],
+
         'list' => [
             'title' => 'Products - Online Store',
             'table_title' => 'Product',
@@ -42,7 +66,7 @@ return [
             'category' => 'Category',
             'show_product' => 'View Product',
             'edit' => 'Edit',
-            'enable' => 'enable',
+            'enable' => 'Enable',
             'disable' => 'Disable',
             'delete' => 'Delete',
             'delete_confirmation' => 'Are you sure you want to delete this product?',
@@ -54,6 +78,7 @@ return [
             'state' => 'State',
             'stock' => 'Stock',
             'actions' => 'Actions',
+            'back_to_list' => 'Back to List',
         ],
         'edit' => [
             'title' => 'Edit Product',
@@ -85,6 +110,13 @@ return [
             'delete' => 'Delete',
             'delete_confirmation' => 'Are you sure you want to delete this category?',
             'no_categories' => 'No categories available yet. Click "Create Category" to add your first category.',
+            'name' => 'Name',
+            'actions' => 'Actions',
+            'state' => 'State',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
+            'enable' => 'Enable',
+            'disable' => 'Disable',
         ],
         'create' => [
             'title' => 'Create New Category',
@@ -105,6 +137,8 @@ return [
             'date_format' => 'Y-m-d H:i:s',
             'edit_category' => 'Edit Category',
             'back_to_list' => 'Back to List',
+            'state' => 'State',
+            'name' => 'Name',
         ],
         'edit' => [
             'title' => 'Edit Category',
@@ -112,6 +146,8 @@ return [
                 'name' => 'Name',
                 'submit' => 'Update Category',
                 'cancel' => 'Cancel',
+                'state_available' => 'Available',
+                'state_disabled' => 'Disabled',
             ],
             'back_to_list' => 'Back to List',
         ],

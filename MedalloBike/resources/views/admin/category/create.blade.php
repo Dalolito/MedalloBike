@@ -26,7 +26,7 @@
                     <div class="mb-3">
                         <label for="name" class="form-label">{{ __('admin.category.create.form.name') }}</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" 
-                               placeholder="{{ __('admin.category.create.form.name') }}" value="{{ old('name') }}" required>
+                                placeholder="{{ __('admin.category.create.form.name') }}" value="{{ old('name') }}" required>
                         @error('name')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
