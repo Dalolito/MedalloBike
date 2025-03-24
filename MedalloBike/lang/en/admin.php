@@ -96,6 +96,15 @@ return [
             'edit_category' => 'Edit Category',
             'back_to_list' => 'Back to List',
         ],
+        'edit' => [
+            'title' => 'Edit Category',
+            'form' => [
+                'name' => 'Name',
+                'submit' => 'Update Category',
+                'cancel' => 'Cancel',
+            ],
+            'back_to_list' => 'Back to List',
+        ],
     ],
     'title' => 'Admin Panel',
     'actions' => 'Actions',

@@ -55,12 +55,8 @@ class AdminCategoryController extends Controller
         $category = Category::findOrFail($id);
 
         $viewData = [
-            'title' => __('admin.categories.edit.title', ['name' => $category->getName()]),
+            'title' => __('admin.category.edit.title', ['name' => $category->getName()]),
             'category' => $category,
-            'labels' => [
-                'name' => __('admin.categories.edit.form.name'),
-                'submit' => __('admin.categories.edit.form.submit'),
-            ],
         ];
 
         return view('admin.category.edit')->with('viewData', $viewData);
