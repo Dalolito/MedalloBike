@@ -25,7 +25,7 @@
         <div class="sidebar-container">
             <!-- Header -->
             <header class="sidebar-header">
-                <a class="sidebar-brand" href="{{ route('admin.home') }}" aria-label="Brand">{{ __('app.title') }} 🚲</a>
+                <a class="sidebar-brand" href="{{ route('admin.index') }}" aria-label="Brand">{{ __('app.title') }} 🚲</a>
                 <div class="d-lg-none">
                     <!-- Botón de cierre para móvil -->
                     <button type="button" class="sidebar-close-btn" data-hs-overlay="#medallo-sidebar">
@@ -41,7 +41,7 @@
                 <div class="accordion-group" data-hs-accordion-always-open>
                     <ul class="sidebar-nav-list">
                         <li>
-                            <a class="sidebar-nav-link active-item" href="{{ route('admin.home') }}">
+                            <a class="sidebar-nav-link active-item" href="{{ route('admin.index') }}">
                                 <i class="bi bi-house-door nav-icon"></i>
                                 {{ __('app.home') }}
                             </a>

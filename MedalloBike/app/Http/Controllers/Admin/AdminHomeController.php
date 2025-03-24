@@ -14,6 +14,6 @@ class AdminHomeController extends Controller
             'subtitle' => __('admin.dashboard.subtitle'),
         ];
 
-        return view('admin.home')->with('viewData', $viewData);
+        return view('admin.index')->with('viewData', $viewData);
     }
 }
