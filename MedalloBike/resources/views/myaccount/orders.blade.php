@@ -5,18 +5,18 @@
 @forelse ($viewData["orders"] as $order) 
 <div class="card mb-4"> 
   <div class="card-header"> 
-    Order #{{ $order->getId() }} 
+    {{ __('app.myaccount.orders.order_number') }} #{{ $order->getId() }} 
   </div> 
   <div class="card-body"> 
-    <b>Date:</b> {{ $order->getCreatedAt() }}<br /> 
-    <b>Total:</b> ${{ $order->getTotalPrice() }}<br /> 
+    <b>{{ __('app.myaccount.orders.date') }}:</b> {{ $order->getCreatedAt() }}<br /> 
+    <b>{{ __('app.myaccount.orders.total') }}:</b> ${{ $order->getTotalPrice() }}<br /> 
     <table class="table table-bordered table-striped text-center mt-3"> 
       <thead> 
         <tr> 
-          <th scope="col">Item ID</th> 
-          <th scope="col">Product Name</th> 
-          <th scope="col">Price</th> 
-          <th scope="col">Quantity</th> 
+          <th scope="col">{{ __('app.myaccount.orders.item_id') }}</th> 
+          <th scope="col">{{ __('app.myaccount.orders.product_name') }}</th> 
+          <th scope="col">{{ __('app.myaccount.orders.price') }}</th> 
+          <th scope="col">{{ __('app.myaccount.orders.quantity') }}</th> 
         </tr> 
       </thead> 
       <tbody> 
@@ -38,7 +38,7 @@
 </div> 
 @empty 
 <div class="alert alert-danger" role="alert"> 
-  Seems to be that you have not purchased anything in our store =(. 
+  {{ __('app.myaccount.orders.no_orders') }}
 </div> 
 @endforelse 
-@endsection 
+@endsection
