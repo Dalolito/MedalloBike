@@ -12,6 +12,31 @@
         </div>
     </div>
 
+    <!-- Category Filter -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">{{ __('app.products_user.list.filter_by_category') }}</h5>
+                </div>
+                <div class="card-body">
+                    <form method="GET" action="{{ route('product.list') }}" class="d-flex">
+                        <select name="category" class="form-select me-2">
+                            <option value="">{{ __('app.products_user.list.all_categories') }}</option>
+                            @foreach($viewData['categories'] as $category)
+                                <option value="{{ $category->getId() }}" 
+                                    {{ isset($viewData['selectedCategory']) && $viewData['selectedCategory'] == $category->getId() ? 'selected' : '' }}>
+                                    {{ $category->getName() }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <button type="submit" class="btn btn-primary">{{ __('app.products_user.list.filter') }}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Products Grid -->
     <div class="row">
         @if(isset($viewData['products']) && count($viewData['products']) > 0)
@@ -26,7 +51,6 @@
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ $product->getTitle() }}</h5>
                             <p class="card-text">{{ __('app.products_user.list.price') }}: ${{ number_format($product->getPrice(), 2) }}</p>
-                            <p class="card-text">{{ __('app.products_user.list.category') }}: {{ $product->getCategoryId() }}</p>
                             <p class="card-text">{{ __('app.products_user.list.brand') }}: {{ $product->getBrand() }}</p>
                             
                             <!-- Stock Status -->

@@ -70,6 +70,9 @@ return [
             'in_stock' => 'In Stock',
             'out_of_stock' => 'Out of Stock',
             'no_products' => 'No products available yet.',
+            'filter_by_category' => 'Filter by Category',
+            'all_categories' => 'All Categories',
+            'filter' => 'Filter',
         ],
         'cart' => [
             'quantity' => 'Quantity',
