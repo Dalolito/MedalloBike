@@ -10,6 +10,9 @@ return [
         'review_updated' => '¡Reseña actualizada exitosamente!',
         'category_created' => '¡Categoría creada exitosamente!',
         'category_updated' => '¡Categoría actualizada exitosamente!',
+        'product_disabled' => 'Producto deshabilitado exitosamente!.',
+        'product_enabled' => 'Producto habitado exitosamente! .',
+        'review_created' => 'Reseña Creada exitosamente!',
         'purchase_completed' => ['Congratulations, purchase completed. Order number is #:id'],
     ],
 ];
