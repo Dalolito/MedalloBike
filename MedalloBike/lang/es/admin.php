@@ -13,6 +13,7 @@ return [
                 'price' => 'Precio',
                 'stock' => 'Stock',
                 'submit' => 'Guardar',
+                'select_category' => 'Seleccionar Categoría',
             ],
             'success' => '¡Producto creado exitosamente!',
         ],

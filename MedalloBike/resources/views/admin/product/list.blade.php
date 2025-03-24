@@ -17,58 +17,100 @@
         </div>
     </div>
 
-    <!-- Products Grid -->
-    <div class="row">
-        @if(isset($viewData['products']) && count($viewData['products']) > 0)
-            @foreach($viewData['products'] as $product)
-                <div class="col-md-4 col-lg-3 mb-4">
-                    <div class="card h-100">
-                        <!-- Product Image -->
-                        <img src="{{ asset('/img/bike.jpg') }}"
-                             class="card-img-top img-card" alt="{{ $product->getTitle() }}">
-                        
-                        <!-- Product Info -->
-                        <div class="card-body text-center">
-                            <h5 class="card-title">{{ $product->getTitle() }}</h5>
-                            <p class="card-text">{{ __('admin.products.list.price') }}: ${{ number_format($product->getPrice(), 2) }}</p>
-                            <p class="card-text">{{ __('admin.products.list.category') }}: {{ $product->getCategoryId() }}</p>
-                            <p class="card-text">{{ __('admin.products.create.form.brand') }}: {{ $product->getBrand() }}</p>
-                            
-                            <!-- Stock Status -->
-                            @if($product->getStock() > 0)
-                                <p class="badge bg-success">{{ __('admin.products.list.in_stock') }} ({{ $product->getStock() }})</p>
-                            @else
-                                <p class="badge bg-danger">{{ __('admin.products.list.out_of_stock') }}</p>
-                            @endif
-
-                            @if($product->getState() == 'disabled')
-                                <p class="badge bg-secondary">{{ __('admin.products.edit.form.state_disabled') }}</p>
-                            @endif
-                        </div>
-                        
-                        <!-- Product Actions -->
-                        <div class="card-footer bg-white text-center">
-                            <div class="d-flex justify-content-between">
-                                <a href="{{ route('admin.product.show', ['id' => $product->getId()]) }}" class="btn btn-primary btn-sm">
-                                    {{ __('admin.products.list.show_product') }}
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="p-2 border-top">
-                            <x-review-form :product="$product" />
-                        </div>
-
-                    </div>
+    <!-- Products Table -->
+    <div class="card">
+        <div class="card-body">
+            @if(isset($viewData['products']) && count($viewData['products']) > 0)
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>{{ __('admin.products.list.image') }}</th>
+                                <th>{{ __('admin.products.list.table_title') }}</th>
+                                <th>{{ __('admin.products.list.price') }}</th>
+                                <th>{{ __('admin.products.list.category') }}</th>
+                                <th>{{ __('admin.products.list.brand') }}</th>
+                                <th>{{ __('admin.products.list.stock') }}</th>
+                                <th>{{ __('admin.products.list.state') }}</th>
+                                <th class="text-end">{{ __('admin.products.list.actions') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($viewData['products'] as $product)
+                                <tr>
+                                    <!-- Product Image -->
+                                    <td>
+                                        <img src="{{ asset('/img/bike.jpg') }}" 
+                                            class="img-thumbnail" style="max-width: 80px;" 
+                                            alt="{{ $product->getTitle() }}">
+                                    </td>
+                                    
+                                    <!-- Product Info -->
+                                    <td>{{ $product->getTitle() }}</td>
+                                    <td>${{ number_format($product->getPrice(), 2) }}</td>
+                                    <td>{{ $product->getCategoryId() }}</td>
+                                    <td>{{ $product->getBrand() }}</td>
+                                    
+                                    <!-- Stock Status -->
+                                    <td>
+                                        @if($product->getStock() > 0)
+                                            <span class="badge bg-success">{{ $product->getStock() }}</span>
+                                        @else
+                                            <span class="badge bg-danger">0</span>
+                                        @endif
+                                    </td>
+                                    
+                                    <!-- State -->
+                                    <td>
+                                        @if($product->getState() == 'available')
+                                            <span class="badge bg-success">{{ __('admin.products.edit.form.state_available') }}</span>
+                                        @else
+                                            <span class="badge bg-secondary">{{ __('admin.products.edit.form.state_disabled') }}</span>
+                                        @endif
+                                    </td>
+                                    
+                                    <!-- Actions -->
+                                    <td class="text-end">
+                                        <div class="btn-group" role="group">
+                                            <!-- Show button -->
+                                            <a href="{{ route('admin.product.show', ['id' => $product->getId()]) }}" 
+                                                class="btn btn-sm btn-info me-1" title="{{ __('admin.products.list.show_product') }}">
+                                                <i class="bi bi-eye-fill"></i>
+                                            </a>
+                                            
+                                            <!-- Edit button -->
+                                            <a href="{{ route('admin.product.edit', ['id' => $product->getId()]) }}" 
+                                                class="btn btn-sm btn-primary me-1" title="{{ __('admin.products.list.edit') }}">
+                                                <i class="bi bi-pencil-fill"></i>
+                                            </a>
+                                            
+                                            <!-- Enable/Disable button -->
+                                            @if($product->getState() == 'available')
+                                                <a href="{{ route('admin.product.disable', ['id' => $product->getId()]) }}" 
+                                                    class="btn btn-sm btn-warning me-1" title="{{ __('admin.products.list.disable') }}">
+                                                    <i class="bi bi-toggle-off"></i>
+                                                </a>
+                                            @else
+                                                <a href="{{ route('admin.product.enable', ['id' => $product->getId()]) }}" 
+                                                    class="btn btn-sm btn-success me-1" title="{{ __('admin.products.list.enable') }}">
+                                                    <i class="bi bi-toggle-on"></i>
+                                                </a>
+                                            @endif
+                                            
+                                            <!-- No delete button as products are only disabled, not deleted -->
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
-            @endforeach
-        @else
-            <div class="col-12">
+            @else
                 <div class="alert alert-info">
                     {{ __('admin.products.list.no_products') }}
                 </div>
-            </div>
-        @endif
+            @endif
+        </div>
     </div>
 </div>
 @endsection
