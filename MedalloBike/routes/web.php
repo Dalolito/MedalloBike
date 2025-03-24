@@ -7,6 +7,7 @@ $AdminCategoryControllerRoute = 'App\Http\Controllers\Admin\AdminCategoryControl
 $HomeControllerRoute = 'App\Http\Controllers\HomeController';
 $ProductControllerRoute = 'App\Http\Controllers\ProductController';
 $CartControllerRoute = 'App\Http\Controllers\CartController';
+$RouteControllerRoute = 'App\Http\Controllers\RouteController';
 
 // Home Controller routes
 Route::get('/', $HomeControllerRoute.'@index')->name('home.index');
@@ -47,5 +48,7 @@ Route::middleware('auth')->group(function () {
     $ReviewControllerRoute = 'App\Http\Controllers\ReviewController';
     Route::post('/review/save', $ReviewControllerRoute.'@save')->name('review.save');
 });
+// Route Controller routes
+Route::get('/route', $RouteControllerRoute.'@list')->name('route.list');
 
 Auth::routes();
