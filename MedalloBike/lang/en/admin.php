@@ -50,6 +50,14 @@ return [
             'system_details' => 'System Details',
             'price' => 'Price',
         ],
+
+        'top_selling' => [
+            'title' => 'Top Selling Products',
+            'subtitle' => 'The 3 most sold products',
+            'units_sold' => 'Units Sold',
+            'no_data' => 'No sales data available yet.',
+        ],
+
         'list' => [
             'title' => 'Products - Online Store',
             'table_title' => 'Product',
@@ -70,6 +78,7 @@ return [
             'state' => 'State',
             'stock' => 'Stock',
             'actions' => 'Actions',
+            'back_to_list' => 'Back to List',
         ],
         'edit' => [
             'title' => 'Edit Product',
