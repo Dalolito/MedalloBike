@@ -26,10 +26,14 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/product/enable/{id}', $AdminProductControllerRoute.'@enable')->name('admin.product.enable');
 });
 
-// Admin Category Controller routes
+// Rutas de categorías
 Route::get('/admin/category/create', $AdminCategoryControllerRoute.'@create')->name('admin.category.create');
+Route::post('/admin/category/save', $AdminCategoryControllerRoute.'@save')->name('admin.category.save');
 Route::get('/admin/category/list', $AdminCategoryControllerRoute.'@list')->name('admin.category.list');
 Route::get('/admin/category/show/{id}', $AdminCategoryControllerRoute.'@show')->name('admin.category.show');
+Route::get('/admin/category/edit/{id}', $AdminCategoryControllerRoute.'@edit')->name('admin.category.edit');
+Route::put('/admin/category/update/{id}', $AdminCategoryControllerRoute.'@update')->name('admin.category.update');
+Route::delete('/admin/category/delete/{id}', $AdminCategoryControllerRoute.'@delete')->name('admin.category.delete');
 
 // Product Controller routes
 Route::get('/product/list', $ProductControllerRoute.'@list')->name('product.list');
