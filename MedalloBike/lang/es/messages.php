@@ -13,7 +13,7 @@ return [
         'category_updated' => '¡Categoría actualizada exitosamente!',
         'purchase_completed' => ['Congratulations, purchase completed. Order number is #:id'],
     ],
-    
+
     'error' => [
         'category_has_products' => 'No se puede eliminar la categoría con productos asociados.',
         'insufficient_funds' => 'Fondos insuficientes. Tu presupuesto es $:budget, pero el costo total es $:total',

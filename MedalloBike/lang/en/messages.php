@@ -14,7 +14,7 @@ return [
         'category_enabled' => 'Category enabled successfully.',
         'purchase_completed' => 'Congratulations, purchase completed. Order number is #:id',
     ],
-    
+
     'error' => [
         'category_has_products' => 'Cannot delete category with associated products.',
         'insufficient_funds' => 'Insufficient funds. Your budget is $:budget, but the total cost is $:total',

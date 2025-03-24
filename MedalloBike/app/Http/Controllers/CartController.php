@@ -6,10 +6,10 @@ use App\Models\CustomUser;
 use App\Models\Item;
 use App\Models\Order;
 use App\Models\Product;
-use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class CartController extends Controller
 {
@@ -18,12 +18,12 @@ class CartController extends Controller
         $total = 0;
         $productsInCart = [];
         $productsInSession = $request->session()->get('products');
-        
+
         if ($productsInSession) {
             $productsInCart = Product::findMany(array_keys($productsInSession));
             $total = Product::sumPricesByQuantities($productsInCart, $productsInSession);
         }
-        
+
         $viewData = [];
         $viewData['title'] = __('app.products_user.cart.index.title');
         $viewData['subtitle'] = __('app.products_user.cart.index.subtitle');
@@ -37,11 +37,11 @@ class CartController extends Controller
     {
         $product = Product::findOrFail($id);
         $quantity = $request->input('quantity');
-        
+
         if ($quantity > $product->getStock()) {
             $quantity = $product->getStock();
         }
-        
+
         $products = $request->session()->get('products', []);
         $products[$id] = $quantity;
         $request->session()->put('products', $products);
@@ -68,10 +68,10 @@ class CartController extends Controller
             $total = Product::sumPricesByQuantities($productsInCart, $productsInSession);
 
             if ($customUser->getBudget() < $total) {
-                return redirect()->route('cart.index')->with('error', 
+                return redirect()->route('cart.index')->with('error',
                     __('messages.error.insufficient_funds', [
                         'budget' => number_format($customUser->getBudget(), 2),
-                        'total' => number_format($total, 2)
+                        'total' => number_format($total, 2),
                     ])
                 );
             }
@@ -83,10 +83,10 @@ class CartController extends Controller
             $order->save();
 
             $total = 0;
-            
+
             foreach ($productsInCart as $product) {
                 $quantity = $productsInSession[$product->getId()];
-                
+
                 if ($quantity > $product->getStock()) {
                     $quantity = $product->getStock();
                 }
