@@ -23,6 +23,7 @@ Route::middleware('admin')->group(function () {
     Route::post('/admin/product/update/{id}', $AdminProductControllerRoute.'@update')->name('admin.product.update');
     Route::get('/admin/product/disable/{id}', $AdminProductControllerRoute.'@disable')->name('admin.product.disable');
     Route::get('/admin/product/enable/{id}', $AdminProductControllerRoute.'@enable')->name('admin.product.enable');
+    Route::get('/admin/product/top-selling', $AdminProductControllerRoute.'@topSelling')->name('admin.product.topSelling');
 });
 
 // Rutas de categorías
