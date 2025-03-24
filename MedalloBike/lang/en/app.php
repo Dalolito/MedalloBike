@@ -29,6 +29,22 @@ return [
             'add_review' => 'Write a review',
         ],
     ],
+    'myaccount' => [
+        'title' => 'My Account',
+        'orders' => [
+            'title' => 'My Orders - Online Store',
+            'subtitle' => 'My Orders',
+            'view_orders' => 'View Orders',
+            'order_number' => 'Order',
+            'date' => 'Date',
+            'total' => 'Total',
+            'item_id' => 'Item ID',
+            'product_name' => 'Product Name',
+            'price' => 'Price',
+            'quantity' => 'Quantity',
+            'no_orders' => 'Seems to be that you have not purchased anything in our store =(',
+        ],
+    ],
 
     'products_user' => [
         'show' => [

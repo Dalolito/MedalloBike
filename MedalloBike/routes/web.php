@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 $HomeControllerRoute = 'App\Http\Controllers\HomeController';
 $ProductControllerRoute = 'App\Http\Controllers\ProductController';
 $CartControllerRoute = 'App\Http\Controllers\CartController';
+$MyAccountControllerRoute = 'App\Http\Controllers\MyAccountController';
 
 // Home Controller routes
 Route::get('/', $HomeControllerRoute.'@index')->name('home.index');
@@ -49,10 +50,17 @@ Route::middleware('auth')->group(function () {
     $CartControllerRoute = 'App\Http\Controllers\CartController';
     Route::get('/cart/purchase', $CartControllerRoute.'@purchase')->name('cart.purchase');
 });
+
 // Review Controller routes
 Route::middleware('auth')->group(function () {
     $ReviewControllerRoute = 'App\Http\Controllers\ReviewController';
     Route::post('/review/save', $ReviewControllerRoute.'@save')->name('review.save');
+});
+
+// My Account Controller routes
+Route::middleware('auth')->group(function () {
+    $MyAccountControllerRoute = 'App\Http\Controllers\MyAccountController';
+    Route::get('/my-account/orders', $MyAccountControllerRoute.'@orders')->name('Myaccount.orders');
 });
 
 Auth::routes();
