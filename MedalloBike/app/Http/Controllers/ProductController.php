@@ -12,7 +12,7 @@ class ProductController extends Controller
         $viewData = [
             'title' => __('app.products_user.list.title'),
             'subtitle' => __('app.products_user.list.subtitle'),
-            'products' => Product::all(),
+            'products' => Product::where('state', 'available')->get(),
         ];
 
         return view('product.list')->with('viewData', $viewData);
