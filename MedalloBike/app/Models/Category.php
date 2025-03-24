@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    use HasFactory;
+
     /**
      * CATEGORY ATTRIBUTES
      * $this->attributes['id'] - int - contains the primary key of the category
