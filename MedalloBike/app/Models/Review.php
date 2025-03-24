@@ -61,6 +61,16 @@ class Review extends Model
         $this->attributes['approvedState'] = $approvedState;
     }
 
+    public function getQualification(): int
+    {
+        return $this->attributes['qualification'];
+    }
+
+    public function setQualification(int $qualification): void
+    {
+        $this->attributes['product_id'] = $qualification;
+    }
+
     public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
