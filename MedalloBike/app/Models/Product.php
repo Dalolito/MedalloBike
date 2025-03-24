@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\DB;
 
 class Product extends Model
 {
@@ -34,7 +37,7 @@ class Product extends Model
         'brand',
         'price',
         'stock',
-        'state', // Add the new field here
+        'state',
     ];
 
     public static function sumPricesByQuantities($products, array $productsInSession): int
@@ -142,6 +145,16 @@ class Product extends Model
         return $this->attributes['updated_at'];
     }
 
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
     public function items(): HasMany
     {
         return $this->hasMany(Item::class);
@@ -155,5 +168,14 @@ class Product extends Model
     public function setItems(Collection $items): void
     {
         $this->items = $items;
+    }
+
+    public function scopeTopSelling(Builder $query, int $limit = 3): Builder
+    {
+        return $query->withCount(['items as total_sold' => function ($query) {
+            $query->select(DB::raw('SUM(quantity)'));
+        }])
+            ->orderBy('total_sold', 'desc')
+            ->take($limit);
     }
 }
