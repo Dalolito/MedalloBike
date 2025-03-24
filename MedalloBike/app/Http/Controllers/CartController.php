@@ -64,6 +64,8 @@ class CartController extends Controller
 
             foreach ($productsInCart as $product) {
                 $quantity = $productsInSession[$product->getId()];
+
+                // Create item
                 $item = new Item;
                 $item->setQuantity($quantity);
                 $item->setTotalPrice($product->getPrice() * $quantity);
@@ -71,6 +73,11 @@ class CartController extends Controller
                 $item->setOrderId($order->getId());
                 $item->save();
                 $total = $total + ($product->getPrice() * $quantity);
+
+                // Update product stock
+                $newStock = $product->getStock() - $quantity;
+                $product->setStock($newStock);
+                $product->save();
             }
 
             $order->setTotalPrice($total);
