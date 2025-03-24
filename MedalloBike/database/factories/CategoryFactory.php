@@ -54,9 +54,9 @@ class CategoryFactory extends Factory
             'Mochilas',
             'Alforjas',
             'Lubricantes',
-            'Candados y Seguridad'
+            'Candados y Seguridad',
         ];
-        
+
         return [
             'name' => $this->faker->unique()->randomElement($bikeCategories),
             'state' => $this->faker->randomElement(['available', 'disabled']),
