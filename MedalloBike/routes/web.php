@@ -35,7 +35,8 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/category/show/{id}', $AdminCategoryControllerRoute.'@show')->name('admin.category.show');
     Route::get('/admin/category/edit/{id}', $AdminCategoryControllerRoute.'@edit')->name('admin.category.edit');
     Route::put('/admin/category/update/{id}', $AdminCategoryControllerRoute.'@update')->name('admin.category.update');
-    Route::delete('/admin/category/delete/{id}', $AdminCategoryControllerRoute.'@delete')->name('admin.category.delete');
+    Route::get('/admin/category/disable/{id}', $AdminCategoryControllerRoute.'@disable')->name('admin.category.disable');
+    Route::get('/admin/category/enable/{id}', $AdminCategoryControllerRoute.'@enable')->name('admin.category.enable');
 });
 
 // Product Controller routes
