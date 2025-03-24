@@ -60,12 +60,6 @@
                                 <th>{{ __('admin.category.show.name') }}</th>
                                 <td>{{ $viewData['category']->getName() }}</td>
                             </tr>
-                            @if($viewData['category']->getDescription())
-                            <tr>
-                                <th>{{ __('admin.category.show.description') }}</th>
-                                <td>{{ $viewData['category']->getDescription() }}</td>
-                            </tr>
-                            @endif
                             <tr>
                                 <th>{{ __('admin.category.show.state') }}</th>
                                 <td>

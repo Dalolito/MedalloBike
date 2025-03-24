@@ -15,7 +15,6 @@ class CategoryRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
             'state' => 'nullable|string|in:available,disabled',
         ];
     }
@@ -31,7 +30,6 @@ class CategoryRequest extends FormRequest
             'name.required' => __('validation.category.name.required'),
             'name.string' => __('validation.category.name.string'),
             'name.max' => __('validation.category.name.max'),
-            'description.string' => __('validation.category.description.string'),
             'state.in' => __('validation.category.state.in'),
         ];
     }

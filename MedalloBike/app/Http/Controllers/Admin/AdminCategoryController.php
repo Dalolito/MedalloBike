@@ -40,7 +40,7 @@ class AdminCategoryController extends Controller
         return view('admin.category.list')->with('viewData', $viewData);
     }
 
-    public function show($id): View
+    public function show(int $id): View
     {
         $category = Category::findOrFail($id);
         $products = $category->products;
@@ -54,7 +54,7 @@ class AdminCategoryController extends Controller
         return view('admin.category.show')->with('viewData', $viewData);
     }
 
-    public function edit($id): View
+    public function edit(int $id): View
     {
         $category = Category::findOrFail($id);
 
@@ -66,26 +66,16 @@ class AdminCategoryController extends Controller
         return view('admin.category.edit')->with('viewData', $viewData);
     }
 
-    public function update(CategoryRequest $request, $id): RedirectResponse
+    public function update(CategoryRequest $request, int $id): RedirectResponse
     {
         $category = Category::findOrFail($id);
-        $category->setName($request->validated()['name']);
-
-        if (isset($request->validated()['description'])) {
-            $category->setDescription($request->validated()['description']);
-        }
-
-        if (isset($request->validated()['state'])) {
-            $category->setState($request->validated()['state']);
-        }
-
-        $category->save();
+        $category->update($request->validated());
 
         return redirect()->route('admin.category.show', ['id' => $category->getId()])
             ->with('success', __('messages.success.category_updated'));
     }
 
-    public function disable($id): RedirectResponse
+    public function disable(int $id): RedirectResponse
     {
         $category = Category::findOrFail($id);
         $category->setState('disabled');
@@ -95,7 +85,7 @@ class AdminCategoryController extends Controller
             ->with('success', __('messages.success.category_disabled'));
     }
 
-    public function enable($id): RedirectResponse
+    public function enable(int $id): RedirectResponse
     {
         $category = Category::findOrFail($id);
         $category->setState('available');

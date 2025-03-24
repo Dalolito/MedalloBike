@@ -10,15 +10,13 @@ class Category extends Model
      * CATEGORY ATTRIBUTES
      * $this->attributes['id'] - int - contains the primary key of the category
      * $this->attributes['name'] - string - contains the name of the category
-     * $this->attributes['description'] - string - contains the description of the category (nullable)
      * $this->attributes['state'] - string - contains the state of the category (available/disabled)
      * $this->attributes['created_at'] - timestamp - contains the record creation date
      * $this->attributes['updated_at'] - timestamp - contains the record update date
      */
     protected $fillable = [
-        'name',
-        'description',
-        'state',
+        'name', // Name of the category
+        'state', // State of the category (available/disabled)
     ];
 
     public function getId(): int
@@ -34,16 +32,6 @@ class Category extends Model
     public function setName(string $name): void
     {
         $this->attributes['name'] = $name;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->attributes['description'] ?? null;
-    }
-
-    public function setDescription(?string $description): void
-    {
-        $this->attributes['description'] = $description;
     }
 
     public function getState(): string
