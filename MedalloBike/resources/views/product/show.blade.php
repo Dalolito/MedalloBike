@@ -13,12 +13,19 @@
     @endif
 
     <div class="row">
-        <!-- Product Image -->
+        <!-- Product Image and Revies -->
         <div class="col-md-6">
             <div class="product-image-container text-center">
                 <img src="{{ asset('/img/bike.jpg') }}" class="card-img-top img-card">
             </div>
+
+            <!-- Create Review -->
+            <div class="p-2 border-top">
+                <x-review-list :product="$viewData['product']" />
+            </div>
         </div>
+
+        
 
         <!-- Product Details -->
         <div class="col-md-6">
@@ -70,6 +77,12 @@
                 <a href="{{ route('product.list') }}" class="btn btn-secondary">
                     {{ __('app.products_user.show.back_to_list') }}
                 </a>
+
+                <!-- Create Review -->
+                <div class="p-2 border-top">
+                <x-review-form :product="$viewData['product']" />
+                </div>
+
             </div>
         </div>
     </div>
