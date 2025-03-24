@@ -8,7 +8,6 @@ $HomeControllerRoute = 'App\Http\Controllers\HomeController';
 $ProductControllerRoute = 'App\Http\Controllers\ProductController';
 $CartControllerRoute = 'App\Http\Controllers\CartController';
 
-
 // Home Controller routes
 Route::get('/', $HomeControllerRoute.'@index')->name('home.index');
 

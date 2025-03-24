@@ -29,9 +29,9 @@ class AdminCategoryController extends Controller
     public function list(): View
     {
         $viewData = [
-        'title' => __('admin.category.list.title'),
-        'subtitle' => __('admin.category.list.subtitle'),
-        'category' => Category::all(),];
+            'title' => __('admin.category.list.title'),
+            'subtitle' => __('admin.category.list.subtitle'),
+            'category' => Category::all(), ];
 
         return view('admin.category.list')->with('viewData', $viewData);
     }
@@ -79,14 +79,14 @@ class AdminCategoryController extends Controller
     public function delete($id): RedirectResponse
     {
         $category = Category::findOrFail($id);
-        
+
         // Verificar si la categoría tiene productos asociados
         if ($category->products->count() > 0) {
             return back()->with('error', __('messages.error.category_has_products'));
         }
-        
+
         $category->delete();
-        
+
         return redirect()->route('admin.category.list')
             ->with('success', __('messages.success.category_deleted'));
     }
