@@ -35,13 +35,6 @@ class Product extends Model
         'state',
     ];
 
-    /**
-     * Calculate the total price of products based on quantities in session.
-     *
-     * @param array|Collection $products Products to calculate price for
-     * @param array $productsInSession Array with product ID as key and quantity as value
-     * @return int Total price
-     */
     public static function sumPricesByQuantities($products, array $productsInSession): int
     {
         $total = 0;
@@ -147,54 +140,30 @@ class Product extends Model
         return $this->attributes['updated_at'];
     }
 
-    /**
-     * Get the category that owns the product.
-     *
-     * @return BelongsTo
-     */
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
     
-    /**
-     * Get the category instance.
-     *
-     * @return Category|null
-     */
     public function getCategory(): ?Category
     {
         return $this->category;
     }
 
-    /**
-     * Get all items associated with this product.
-     *
-     * @return HasMany
-     */
     public function items(): HasMany
     {
         return $this->hasMany(Item::class);
     }
 
-    /**
-     * Get the items collection for this product.
-     *
-     * @return Collection
-     */
     public function getItems(): Collection
     {
         return $this->items;
     }
 
-    /**
-     * Set the items collection for this product.
-     *
-     * @param Collection $items
-     * @return void
-     */
     public function setItems(Collection $items): void
     {
         $this->items = $items;
     }
+
+    
 }
