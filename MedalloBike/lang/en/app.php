@@ -43,11 +43,8 @@ return [
             'price' => 'Price',
             'quantity' => 'Quantity',
             'no_orders' => 'Seems to be that you have not purchased anything in our store =(',
-            ],
+        ],
     ],
-
-        
-
 
     'products_user' => [
         'show' => [
