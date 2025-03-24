@@ -119,7 +119,9 @@ class CartController extends Controller
             $viewData['order'] = $order;
 
             return view('cart.purchase')->with('viewData', $viewData);
-        } else {
+        } 
+        else 
+        {
             return redirect()->route('cart.index');
         }
     }
