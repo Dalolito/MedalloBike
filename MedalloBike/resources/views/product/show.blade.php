@@ -49,7 +49,7 @@
                                     </tr>
                                     <tr>
                                         <th>{{ __('app.products_user.show.category') }}</th>
-                                        <td>{{ $viewData['product']->getCategoryId() }}</td>
+                                        <<td>{{ $viewData['product']->getCategory()->getName() }}</td>
                                     </tr>
                                     <tr>
                                         <th>{{ __('app.products_user.show.stock') }}</th>
@@ -89,11 +89,6 @@
                                             <i class="bi bi-cart-plus"></i> {{ __('app.products_user.cart.add_to_cart') }}
                                         </button>
                                     </form>
-                                </div>
-                            @else
-                                <div class="alert alert-warning">
-                                    <i class="bi bi-exclamation-triangle"></i> 
-                                    {{ __('app.products_user.show.not_available') }}
                                 </div>
                             @endif
                         </div>

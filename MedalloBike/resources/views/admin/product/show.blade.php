@@ -65,7 +65,7 @@
                                     </tr>
                                     <tr>
                                         <th>{{ __('admin.products.show.category') }}</th>
-                                        <td>{{ $viewData['product']->getCategoryId() }}</td>
+                                        <td>{{ $viewData['product']->getCategory()->getName() }}</td>
                                     </tr>
                                     <tr>
                                         <th>{{ __('admin.products.show.stock') }}</th>
