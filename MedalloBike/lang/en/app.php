@@ -59,6 +59,8 @@ return [
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'date_format' => 'Y-m-d H:i:s',
+            'price' => 'Price',
+            'create_review' => 'Create Review',
         ],
         'list' => [
             'title' => 'Products - Online Store',
