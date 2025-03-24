@@ -21,7 +21,6 @@ return [
     'create_category' => 'Create Category',
     'view_category' => 'View Categories',
 
-<<<<<<< HEAD
     'review' => [
         'form' => [
             'qualification' => 'Qualification',
@@ -31,8 +30,6 @@ return [
         ],
     ],
 
-=======
->>>>>>> c81936a345d68f64835a28503660546b7d28267d
     'products_user' => [
         'show' => [
             'title_suffix' => 'Online Store',
