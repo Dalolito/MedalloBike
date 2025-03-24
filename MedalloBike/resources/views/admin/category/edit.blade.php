@@ -13,27 +13,33 @@
             </div>
         @endif
 
-        <!-- Form to Create a New Category -->
+        <!-- Form to Edit a Category -->
         <div class="card">
             <div class="card-header">
-                <h5>{{ $viewData["title"] }}</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5>{{ $viewData["title"] }}</h5>
+                    <a href="{{ route('admin.category.list') }}" class="btn btn-secondary">
+                        {{ __('admin.category.edit.back_to_list') }}
+                    </a>
+                </div>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{ route('admin.category.save') }}">
+                <form method="POST" action="{{ route('admin.category.update', ['id' => $viewData['category']->getId()]) }}">
                     @csrf
+                    @method('PUT')
 
                     <!-- Name -->
                     <div class="mb-3">
-                        <label for="name" class="form-label">{{ __('admin.category.create.form.name') }}</label>
+                        <label for="name" class="form-label">{{ __('admin.category.edit.form.name') }}</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" 
-                                placeholder="{{ __('admin.category.create.form.name') }}" value="{{ old('name') }}" required>
+                                value="{{ old('name', $viewData['category']->getName()) }}" required>
                         @error('name')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
 
                     <!-- Submit Button -->
-                    <button type="submit" class="btn btn-primary">{{ __('admin.category.create.form.submit') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ __('admin.category.edit.form.submit') }}</button>
                 </form>
             </div>
         </div>

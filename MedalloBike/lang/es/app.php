@@ -20,6 +20,23 @@ return [
     'create_category' => 'Crear Categoría',
     'view_category' => 'Ver Categorías',
 
+    'myaccount' => [
+        'title' => 'Mi Cuenta',
+        'orders' => [
+            'title' => 'Mis Pedidos - Tienda Online',
+            'subtitle' => 'Mis Pedidos',
+            'view_orders' => 'Ver Pedidos',
+            'order_number' => 'Pedido',
+            'date' => 'Fecha',
+            'total' => 'Total',
+            'item_id' => 'ID del Artículo',
+            'product_name' => 'Nombre del Producto',
+            'price' => 'Precio',
+            'quantity' => 'Cantidad',
+            'no_orders' => 'Parece que aún no has comprado nada en nuestra tienda =(',
+        ],
+    ],
+
     'products_user' => [
         'show' => [
             'title_suffix' => 'Tienda Online',
@@ -45,6 +62,9 @@ return [
             'in_stock' => 'En Stock',
             'out_of_stock' => 'Agotado',
             'no_products' => 'No hay productos disponibles aún.',
+            'filter_by_category' => 'Filtrar por Categoría',
+            'all_categories' => 'Todas las Categorías',
+            'filter' => 'Filtrar',
         ],
         'cart' => [
             'quantity' => 'Cantidad',

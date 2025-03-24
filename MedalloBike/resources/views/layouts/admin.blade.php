@@ -25,7 +25,7 @@
         <div class="sidebar-container">
             <!-- Header -->
             <header class="sidebar-header">
-                <a class="sidebar-brand" href="/" aria-label="Brand">{{ __('app.title') }} 🚲</a>
+                <a class="sidebar-brand" href="{{ route('admin.index') }}" aria-label="Brand">{{ __('app.title') }} 🚲</a>
                 <div class="d-lg-none">
                     <!-- Botón de cierre para móvil -->
                     <button type="button" class="sidebar-close-btn" data-hs-overlay="#medallo-sidebar">
@@ -41,7 +41,7 @@
                 <div class="accordion-group" data-hs-accordion-always-open>
                     <ul class="sidebar-nav-list">
                         <li>
-                            <a class="sidebar-nav-link active-item" href="/">
+                            <a class="sidebar-nav-link active-item" href="{{ route('admin.index') }}">
                                 <i class="bi bi-house-door nav-icon"></i>
                                 {{ __('app.home') }}
                             </a>
@@ -62,6 +62,9 @@
                                     </li>
                                     <li class="submenu-item">
                                         <a class="submenu-link" href="{{ route('admin.product.create') }}">{{ __('app.create_product') }}</a>
+                                    </li>
+                                    <li class="submenu-item">
+                                        <a href="{{ route('admin.product.topSelling') }}" class="submenu-link"> {{ __('admin.products.top_selling.title') }}</a>
                                     </li>
                                 </ul>
                             </div>

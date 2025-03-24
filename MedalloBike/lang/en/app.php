@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     'title' => 'MedalloBike',
     'home' => 'Home',
     'login' => 'Log In',
@@ -31,6 +30,22 @@ return [
             'add_review' => 'Write a review',
         ],
     ],
+    'myaccount' => [
+        'title' => 'My Account',
+        'orders' => [
+            'title' => 'My Orders - Online Store',
+            'subtitle' => 'My Orders',
+            'view_orders' => 'View Orders',
+            'order_number' => 'Order',
+            'date' => 'Date',
+            'total' => 'Total',
+            'item_id' => 'Item ID',
+            'product_name' => 'Product Name',
+            'price' => 'Price',
+            'quantity' => 'Quantity',
+            'no_orders' => 'Seems to be that you have not purchased anything in our store =(',
+        ],
+    ],
 
     'products_user' => [
         'show' => [
@@ -46,6 +61,8 @@ return [
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'date_format' => 'Y-m-d H:i:s',
+            'price' => 'Price',
+            'create_review' => 'Create Review',
         ],
         'list' => [
             'title' => 'Products - Online Store',
@@ -57,6 +74,9 @@ return [
             'in_stock' => 'In Stock',
             'out_of_stock' => 'Out of Stock',
             'no_products' => 'No products available yet.',
+            'filter_by_category' => 'Filter by Category',
+            'all_categories' => 'All Categories',
+            'filter' => 'Filter',
         ],
         'cart' => [
             'quantity' => 'Quantity',

@@ -1,6 +1,22 @@
 
 <?php
 return [
+    'dashboard' => [
+        'title' => 'Panel de Administración',
+        'subtitle' => 'Bienvenido al panel de administración',
+        'products' => [
+            'title' => 'Productos',
+            'description' => 'Gestiona el catálogo de productos de la tienda.',
+            'view' => 'Ver Productos',
+            'create' => 'Crear Producto',
+        ],
+        'categories' => [
+            'title' => 'Categorías',
+            'description' => 'Administra las categorías de productos.',
+            'view' => 'Ver Categorías',
+            'create' => 'Crear Categoría',
+        ],
+    ],
     'products' => [
         'create' => [
             'title' => 'Crear Nuevo Producto',
@@ -13,6 +29,7 @@ return [
                 'price' => 'Precio',
                 'stock' => 'Stock',
                 'submit' => 'Guardar',
+                'select_category' => 'Seleccionar Categoría',
             ],
             'success' => '¡Producto creado exitosamente!',
         ],
@@ -62,10 +79,32 @@ return [
                 'submit' => 'Actualizar Producto',
                 'cancel' => 'Cancelar',
             ],
+            'create' => [
+                'title' => 'Crear Producto',
+                'form' => [
+                    'name' => 'Nombre',
+                    'submit' => 'Guardar',
+                ],
+                'success' => '¡Producto creado exitosamente!',
+            ],
+            'show' => [
+                'title_suffix' => 'Tienda Online',
+                'description' => 'Descripción',
+                'details' => 'Detalles de la Categoría',
+                'products' => 'Productos',
+                'no_products' => 'No hay productos disponibles en esta categoría aún.',
+                'created_at' => 'Fecha de Creación',
+                'updated_at' => 'Fecha de Actualización',
+                'date_format' => 'Y-m-d H:i:s',
+                'edit_category' => 'Editar Categoría',
+                'back_to_list' => 'Volver a la Lista',
+            ],
         ],
     ],
     'title' => 'Panel de Administración',
     'actions' => 'Acciones',
     'create_product' => 'Crear Producto',
     'view_products' => 'Ver Productos',
+    'create_category' => 'Crear Categoría',
+    'view_categories' => 'Ver Categorías',
 ];
