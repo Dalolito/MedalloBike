@@ -6,6 +6,8 @@ return [
         'product_updated' => 'Product updated successfully.',
         'product_disabled' => 'Product disabled successfully.',
         'product_enabled' => 'Product enabled successfully.',
+        'review_created' => 'Review Created succesfully!',
+        'review_updated' => 'Review updated succesfully!',
         'purchase_completed' => 'Congratulations, purchase completed. Order number is #:id',
     ],
 ];

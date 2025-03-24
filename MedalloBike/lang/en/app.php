@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     'title' => 'MedalloBike',
     'home' => 'Home',
     'login' => 'Log In',
@@ -19,6 +20,15 @@ return [
     'categories' => 'Categories',
     'create_category' => 'Create Category',
     'view_category' => 'View Categories',
+
+    'review' => [
+        'form' => [
+            'qualification' => 'Qualification',
+            'submit' => 'Publish',
+            'label_review' => 'Do you have any reviews?',
+            'add_review' => 'Write a review',
+        ],
+    ],
 
     'products_user' => [
         'show' => [
