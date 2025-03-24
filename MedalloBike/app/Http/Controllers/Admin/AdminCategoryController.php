@@ -76,7 +76,6 @@ class AdminCategoryController extends Controller
     {
         $category = Category::findOrFail($id);
 
-        // Verificar si la categoría tiene productos asociados
         if ($category->products->count() > 0) {
             return back()->with('error', __('messages.error.category_has_products'));
         }
