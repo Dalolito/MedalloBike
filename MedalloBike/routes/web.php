@@ -49,10 +49,10 @@ Route::middleware('auth')->group(function () {
     $CartControllerRoute = 'App\Http\Controllers\CartController';
     Route::get('/cart/purchase', $CartControllerRoute.'@purchase')->name('cart.purchase');
 });
-
+// Review Controller routes
 Route::middleware('auth')->group(function () {
     $ReviewControllerRoute = 'App\Http\Controllers\ReviewController';
-    Route::get('/review/save', $ReviewControllerRoute.'@save')->name('save.review');
+    Route::post('/review/save', $ReviewControllerRoute.'@save')->name('review.save');
 });
 
 Auth::routes();
