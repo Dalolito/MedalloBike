@@ -21,7 +21,10 @@ class AdminCategoryController extends Controller
 
     public function save(CategoryRequest $request): RedirectResponse
     {
-        Category::create($request->validated());
+        $categoryData = $request->validated();
+        $categoryData['state'] = 'available'; // Default state for new categories
+
+        Category::create($categoryData);
 
         return back()->with('success', __('messages.success.category_created'));
     }
@@ -31,12 +34,13 @@ class AdminCategoryController extends Controller
         $viewData = [
             'title' => __('admin.category.list.title'),
             'subtitle' => __('admin.category.list.subtitle'),
-            'category' => Category::all(), ];
+            'category' => Category::all(),
+        ];
 
         return view('admin.category.list')->with('viewData', $viewData);
     }
 
-    public function show($id): View
+    public function show(int $id): View
     {
         $category = Category::findOrFail($id);
         $products = $category->products;
@@ -50,7 +54,7 @@ class AdminCategoryController extends Controller
         return view('admin.category.show')->with('viewData', $viewData);
     }
 
-    public function edit($id): View
+    public function edit(int $id): View
     {
         $category = Category::findOrFail($id);
 
@@ -62,27 +66,32 @@ class AdminCategoryController extends Controller
         return view('admin.category.edit')->with('viewData', $viewData);
     }
 
-    public function update(CategoryRequest $request, $id): RedirectResponse
+    public function update(CategoryRequest $request, int $id): RedirectResponse
     {
         $category = Category::findOrFail($id);
-        $category->setName($request->validated()['name']);
-        $category->save();
+        $category->update($request->validated());
 
-        return redirect()->route('admin.category.list')
+        return redirect()->route('admin.category.show', ['id' => $category->getId()])
             ->with('success', __('messages.success.category_updated'));
     }
 
-    public function delete($id): RedirectResponse
+    public function disable(int $id): RedirectResponse
     {
         $category = Category::findOrFail($id);
+        $category->setState('disabled');
+        $category->save();
 
-        if ($category->products->count() > 0) {
-            return back()->with('error', __('messages.error.category_has_products'));
-        }
+        return redirect()->route('admin.category.show', ['id' => $category->getId()])
+            ->with('success', __('messages.success.category_disabled'));
+    }
 
-        $category->delete();
+    public function enable(int $id): RedirectResponse
+    {
+        $category = Category::findOrFail($id);
+        $category->setState('available');
+        $category->save();
 
-        return redirect()->route('admin.category.list')
-            ->with('success', __('messages.success.category_deleted'));
+        return redirect()->route('admin.category.show', ['id' => $category->getId()])
+            ->with('success', __('messages.success.category_enabled'));
     }
 }

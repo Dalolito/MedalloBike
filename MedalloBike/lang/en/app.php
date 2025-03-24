@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     'title' => 'MedalloBike',
     'home' => 'Home',
     'login' => 'Log In',
