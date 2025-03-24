@@ -1,6 +1,22 @@
 
 <?php
 return [
+    'dashboard' => [
+        'title' => 'Panel de Administración',
+        'subtitle' => 'Bienvenido al panel de administración',
+        'products' => [
+            'title' => 'Productos',
+            'description' => 'Gestiona el catálogo de productos de la tienda.',
+            'view' => 'Ver Productos',
+            'create' => 'Crear Producto',
+        ],
+        'categories' => [
+            'title' => 'Categorías',
+            'description' => 'Administra las categorías de productos.',
+            'view' => 'Ver Categorías',
+            'create' => 'Crear Categoría',
+        ],
+    ],
     'products' => [
         'create' => [
             'title' => 'Crear Nuevo Producto',

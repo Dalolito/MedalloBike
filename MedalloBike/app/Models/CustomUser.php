@@ -36,7 +36,7 @@ class CustomUser extends Authenticatable
      */
     protected $table = 'custom_users';
 
-    protected $fillable = ['name', 'email', 'password', 'address', 'budget'];
+    protected $fillable = ['name', 'email', 'password', 'address', 'budget', 'role'];
 
     protected $hidden = ['password', 'remember_token'];
 
@@ -140,5 +140,10 @@ class CustomUser extends Authenticatable
     public function setOrders(Collection $orders): void
     {
         $this->orders = $orders;
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->getRole() === 'admin';
     }
 }

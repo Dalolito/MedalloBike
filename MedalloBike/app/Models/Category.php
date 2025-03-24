@@ -61,4 +61,9 @@ class Category extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function isAdmin(): bool
+    {
+        return $this->getRole() === 'admin';
+    }
 }
