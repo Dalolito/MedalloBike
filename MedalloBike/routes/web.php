@@ -61,7 +61,7 @@ Route::middleware('auth')->group(function () {
 });
 // Route Controller routes
 Route::get('/route', $RouteControllerRoute.'@list')->name('route.list');
-Route::get('/route/show/{id}',  $RouteControllerRoute.'@show')->name('route.show');
+Route::get('/route/show/{id}', $RouteControllerRoute.'@show')->name('route.show');
 
 // My Account Controller routes
 Route::middleware('auth')->group(function () {
