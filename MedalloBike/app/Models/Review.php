@@ -10,6 +10,7 @@ class Review extends Model
      * REVIEW ATTRIBUTES
      * $this->attributes['id'] - int - contains the primary key of the review
      * $this->attributes['product_id'] - int - contains the foreign key of the associated product
+     * $this->attributes['route_id'] - int - contains the foreign key of the associated route
      * $this->attributes['user_id'] - int - contains the foreign key of the user who created the review
      * $this->attributes['qualification'] - int - contains the rating given in the review (0-5)
      * $this->attributes['review'] - string - contains the text of the review
@@ -22,6 +23,8 @@ class Review extends Model
         'review',
         'state',
         'product_id',
+        'route_id',
+        'user_id',
     ];
 
     public function getId(): int
@@ -37,6 +40,26 @@ class Review extends Model
     public function setProductId(int $product_id): void
     {
         $this->attributes['product_id'] = $product_id;
+    }
+
+    public function getRouteId(): int
+    {
+        return $this->attributes['route_id'];
+    }
+
+    public function setRouteId(int $route_id): void
+    {
+        $this->attributes['route_id'] = $route_id;
+    }
+
+    public function getUserId(): int
+    {
+        return $this->attributes['user_id'];
+    }
+
+    public function setUserId(int $user_id): void
+    {
+        $this->attributes['user_id'] = $user_id;
     }
 
     public function getReview(): string

@@ -58,7 +58,7 @@ class CategoryFactory extends Factory
         ];
 
         return [
-            'name' => $this->faker->unique()->randomElement($bikeCategories),
+            'name' => $this->faker->unique()->word,
             'state' => $this->faker->randomElement(['available', 'disabled']),
         ];
     }
