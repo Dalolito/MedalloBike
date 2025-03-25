@@ -167,6 +167,18 @@ class Product extends Model
         return $this->items;
     }
 
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+
+
     public function setItems(Collection $items): void
     {
         $this->items = $items;

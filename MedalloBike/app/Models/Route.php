@@ -41,6 +41,10 @@ class Route extends Model
     {
         return $this->hasMany(Review::class);
     }
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
 
     // === GETTERS & SETTERS ===
 
@@ -128,6 +132,8 @@ class Route extends Model
     {
         $this->attributes['coordinate_end'] = $coordinate_end;
     }
+   
+   
 
     public function getCreatedAt(): string
     {

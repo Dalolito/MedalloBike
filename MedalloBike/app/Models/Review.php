@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Review extends Model
 {
@@ -20,7 +21,7 @@ class Review extends Model
      */
     protected $fillable = [
         'qualification',
-        'review',
+        'description',
         'state',
         'product_id',
         'route_id',
@@ -91,6 +92,29 @@ class Review extends Model
     {
         $this->attributes['product_id'] = $qualification;
     }
+    public function product(): belongsTo
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function getProduct(): Product
+    {
+        return $this->product;
+    }
+
+    // RELACIÓN con Ruta
+    public function route(): belongsTo
+    {
+        return $this->belongsTo(Route::class);
+    }
+
+    public function getRoute(): Route
+    {
+        return $this->route;
+    }
+
+    
+
 
     public function getCreatedAt(): string
     {
@@ -101,4 +125,5 @@ class Review extends Model
     {
         return $this->attributes['updated_at'];
     }
+   
 }
