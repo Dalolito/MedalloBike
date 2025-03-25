@@ -21,6 +21,6 @@ class ReviewForm extends Component
 
     public function render()
     {
-        return view('components.review-form');
+        return view('components.reviewForm');
     }
 }

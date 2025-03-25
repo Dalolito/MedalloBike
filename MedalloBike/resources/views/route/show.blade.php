@@ -23,14 +23,14 @@
 
         <div class="card-body">
             <div class="row">
-                <!-- Imagen del mapa -->
+                <!-- Image of the Map -->
                 <div class="col-md-4">
                     <div class="text-center">
                         <img src="{{ asset($viewData['route']->getImageMap()) }}" class="img-fluid rounded">
                     </div>
                 </div>
 
-                <!-- Detalles de la ruta -->
+                <!-- Details or the routes -->
                 <div class="col-md-8">
                     <div class="row mb-3">
                         <div class="col-md-12">
@@ -62,7 +62,7 @@
                         </div>
                     </div>
 
-                    <!-- Descripción de la ruta -->
+                    <!-- Description of the route -->
                     <div class="route-description mb-4">
                         <h5>{{ __('app.products_user.show.description') }}</h5>
                         <div class="p-3 bg-light rounded">
@@ -82,12 +82,12 @@
                         <div class="card-body">
                             <!-- Form of reviews -->
                             <div class="mb-4">
-                                <x-review-form :route="$viewData['route']" type="route" />
+                                <x-reviewForm :route="$viewData['route']" type="route" />
                             </div>
 
                             <!-- List of reviews -->
                             <div class="review-list">
-                                <x-review-list :route="$viewData['route']" type="route" />
+                                <x-reviewlist :route="$viewData['route']" type="route" />
                             </div>
                         </div>
                     </div>

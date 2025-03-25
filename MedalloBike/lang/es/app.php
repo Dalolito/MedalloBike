@@ -117,4 +117,17 @@ return [
             'title_suffix' => 'Detalles de la Ruta',
         ],
     ],
+    'routes' => [
+        'list' => [
+            'all_difficulties' => 'Todas las dificultades',
+            'filter' => 'Filtrar por dificultad',
+            'level' => 'Nivel ',
+            'view_details' => 'Ver detalles',
+            'zone' => 'Zona: ',
+            'difficulty' => 'Dificultad: ',
+            'type' => 'Tipo: ',
+            'not_routes' => 'No hay rutas disponibles',
+        ],
+    ],
+
 ];

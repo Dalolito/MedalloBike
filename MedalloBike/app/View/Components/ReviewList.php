@@ -31,6 +31,6 @@ class ReviewList extends Component
             $reviews = Review::where('product_id', $this->product->getId())->get();
         }
 
-        return view('components.review-list', compact('reviews'));
+        return view('components.reviewList', compact('reviews'));
     }
 }

@@ -31,6 +31,7 @@ return [
             'qualification' => 'Qualification',
         ],
     ],
+
     'myaccount' => [
         'title' => 'My Account',
         'orders' => [
@@ -114,6 +115,18 @@ return [
         ],
         'show' => [
             'title_suffix' => 'Route Details',
+        ],
+    ],
+    'routes' => [
+        'list' => [
+            'all_difficulties' => 'All difficulties',
+            'filter' => 'Filter by difficulty',
+            'level' => 'Level ',
+            'view_details' => 'View Details',
+            'zone' => 'Zone: ',
+            'difficulty' => 'Dificullty: ',
+            'type' => 'Type: ',
+            'not_routes' => 'No routes available',
         ],
     ],
 ];

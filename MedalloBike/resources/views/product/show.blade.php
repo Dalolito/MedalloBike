@@ -115,14 +115,14 @@
                         <div class="card-body">
                             <!-- Review Form -->
                             <div class="mb-4">
-                                <x-review-form :product="$viewData['product']" type="product" />
+                                <x-reviewForm :product="$viewData['product']" type="product" />
                             </div>
                             
                             <!-- Review List -->
                            
 
                             <div class="review-list">
-                                <x-review-list :product="$viewData['product']" type="product" />
+                                <x-reviewList :product="$viewData['product']" type="product" />
                             </div>
                         </div>
                     </div>
