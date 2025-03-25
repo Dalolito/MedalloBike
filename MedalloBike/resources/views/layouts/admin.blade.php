@@ -10,10 +10,10 @@
     <title>@yield('title', __('nav.title'))</title> 
 </head>
 <body>
-    <!-- Overlay para móvil -->
+    <!-- Mobile overlay -->
     <div class="sidebar-overlay"></div>
 
-    <!-- Botón de toggle para móvil -->
+    <!-- Mobile toggle button -->
     <div class="sidebar-toggle-container d-lg-none">
         <button type="button" class="sidebar-toggle" data-hs-overlay="#medallo-sidebar" aria-haspopup="dialog" aria-expanded="false" aria-controls="medallo-sidebar" aria-label="Toggle navigation">
             <i class="bi bi-list me-2"></i>{{ __('app.menu') }}
@@ -27,14 +27,14 @@
             <header class="sidebar-header">
                 <a class="sidebar-brand" href="{{ route('admin.home.index') }}" aria-label="Brand">{{ __('app.title') }} 🚲</a>
                 <div class="d-lg-none">
-                    <!-- Botón de cierre para móvil -->
+                    <!-- Mobile close button -->
                     <button type="button" class="sidebar-close-btn" data-hs-overlay="#medallo-sidebar">
                         <i class="bi bi-x"></i>
                         <span class="visually-hidden">{{__('app.close')}}</span>
                     </button>
                 </div>
             </header>
-            <!-- Fin Header -->
+            <!-- End Header -->
 
             <!-- Body -->
             <nav class="sidebar-nav">
@@ -92,11 +92,11 @@
                     </ul>
                 </div>
             </nav>
-            <!-- Fin Body -->
+            <!-- End Body -->
 
             <!-- Footer -->
             <footer class="sidebar-footer">
-                <!-- Perfil o Inicio de sesión -->
+                <!-- Profile or Login -->
                 <div class="footer-dropdown">
                     @auth
                     <button id="footer-dropdown-toggle" type="button" class="footer-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Dropdown">
@@ -105,7 +105,7 @@
                         <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
                     </button>
                     
-                    <!-- Menú desplegable del perfil -->
+                    <!-- Profile dropdown menu -->
                     <div id="footer-dropdown-menu" class="footer-dropdown-menu transition-opacity opacity-0 hidden">
                         <ul class="dropdown-menu-list">
                             <li>
@@ -125,7 +125,7 @@
                         <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
                     </button>
                     
-                    <!-- Menú desplegable para iniciar sesión/registrarse -->
+                    <!-- Dropdown menu for login/register -->
                     <div id="footer-dropdown-menu" class="footer-dropdown-menu transition-opacity opacity-0 hidden">
                         <ul class="dropdown-menu-list">
                             <li>
@@ -143,12 +143,12 @@
                     @endauth
                 </div>
             </footer>
-            <!-- Fin Footer -->
+            <!-- End Footer -->
         </div>
     </div>
-    <!-- Fin Sidebar -->
+    <!-- End Sidebar -->
 
-    <!-- Contenido principal -->
+    <!-- Main content -->
     <div class="main-content">
         <div class="container my-4">
             @yield('content')
