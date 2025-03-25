@@ -57,16 +57,9 @@ class Category extends Model
         return $this->attributes['updated_at'];
     }
 
-    /**
-     * Get the products associated with the category.
-     */
     public function products()
     {
         return $this->hasMany(Product::class);
     }
 
-    public function isAdmin(): bool
-    {
-        return $this->getRole() === 'admin';
-    }
 }
