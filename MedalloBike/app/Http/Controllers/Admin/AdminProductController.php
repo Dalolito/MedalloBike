@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+// Made by: David Lopera Londoño
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class AdminProductController extends Controller
@@ -98,11 +99,8 @@ class AdminProductController extends Controller
 
     public function topSelling(): View
     {
-        $topProducts = Product::withCount(['items as total_sold' => function ($query) {
-            $query->select(DB::raw('SUM(quantity)'));
-        }])
-            ->orderBy('total_sold', 'desc')
-            ->take(3)
+        $topProducts = Product::with('category')
+            ->topSelling()
             ->get();
 
         $viewData = [

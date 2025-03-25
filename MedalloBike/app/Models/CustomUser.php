@@ -5,12 +5,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class CustomUser extends Authenticatable
 {
+    use HasFactory;
     use Notifiable;
 
     /**
@@ -140,10 +142,5 @@ class CustomUser extends Authenticatable
     public function setOrders(Collection $orders): void
     {
         $this->orders = $orders;
-    }
-
-    public function isAdmin(): bool
-    {
-        return $this->getRole() === 'admin';
     }
 }

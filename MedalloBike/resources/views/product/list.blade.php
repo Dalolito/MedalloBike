@@ -1,10 +1,11 @@
+<!-- Made by: David Lopera Londoño -->
 @extends('layouts.app')
 
 @section('title', $viewData["title"])
 
 @section('content')
 <div class="container">
-    <!-- Header Section - manteniendo el diseño original -->
+    <!-- Header Section - keeping the original design -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
             <h1>{{ $viewData["title"] }}</h1>
@@ -12,7 +13,7 @@
         </div>
     </div>
 
-    <!-- Category Filter - restaurado al diseño original -->
+    <!-- Category Filter - restored to original design -->
     <div class="row mb-4">
         <div class="col-md-6">
             <div class="card">
@@ -37,7 +38,7 @@
         </div>
     </div>
 
-    <!-- Products Grid con diseño mejorado -->
+    <!-- Products Grid with improved design -->
     <div class="row">
         @if(isset($viewData['products']) && count($viewData['products']) > 0)
             @foreach($viewData['products'] as $product)
@@ -53,7 +54,7 @@
                             <p class="card-text fs-5 text-primary fw-bold">${{ number_format($product->getPrice(), 2) }}</p>
                             <p class="card-text text-muted"><small>{{ __('app.products_user.list.brand') }}: {{ $product->getBrand() }}</small></p>
                             
-                            <!-- Stock Status con badges mejorados -->
+                            <!-- Stock Status with improved badges -->
                             @if($product->getStock() > 0)
                                 <div class="mt-2">
                                     <span class="badge rounded-pill bg-success text-white px-3 py-2">
@@ -71,7 +72,7 @@
                             @endif
                         </div>
                         
-                        <!-- Product Actions con botones mejorados -->
+                        <!-- Product Actions with improved buttons -->
                         <div class="card-footer bg-white text-center py-3">
                             <a href="{{ route('product.show', ['id' => $product->getId()]) }}" 
                                class="btn btn-outline-primary btn-sm w-100">

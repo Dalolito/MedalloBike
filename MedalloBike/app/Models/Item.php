@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+// Made by: David Lopera Londoño
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
