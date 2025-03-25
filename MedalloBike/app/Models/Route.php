@@ -29,15 +29,9 @@ class Route extends Model
         'type',
         'zone',
         'imageMap',
-        'coordinateStart',
-        'coordinateEnd',
+        'coordinate_start',
+        'coordinate_end',
     ];
-
-    protected $casts = [
-        'coordinateStart' => 'array',
-        'coordinateEnd' => 'array',
-    ];
-
     // === RELATIONSHIPS ===
 
     public function reviews(): HasMany
@@ -112,24 +106,24 @@ class Route extends Model
         $this->attributes['imageMap'] = $imageMap;
     }
 
-    public function getCoordinateStart(): array
+    public function getCoordinateStart(): string
     {
-        return $this->attributes['coordinateStart'];
+        return $this->attributes['coordinate_start'];
     }
 
-    public function setCoordinateStart(array $coordinateStart): void
+    public function setCoordinateStart(string $coordinate_start): void
     {
-        $this->attributes['coordinateStart'] = $coordinateStart;
+        $this->attributes['coordinate_start'] = $coordinate_start;
     }
 
-    public function getCoordinateEnd(): array
+    public function getCoordinateEnd(): string
     {
-        return $this->attributes['coordinateEnd'];
+        return $this->attributes['coordinate_end'];
     }
 
-    public function setCoordinateEnd(array $coordinateEnd): void
+    public function setCoordinateEnd(string $coordinate_end): void
     {
-        $this->attributes['coordinateEnd'] = $coordinateEnd;
+        $this->attributes['coordinate_end'] = $coordinate_end;
     }
 
     public function getCreatedAt(): string
