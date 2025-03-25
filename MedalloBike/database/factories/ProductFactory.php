@@ -3,8 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Category;
-use App\Models\Product;
 use App\Models\Category;
+use App\Models\Product;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -113,26 +113,32 @@ class ProductFactory extends Factory
             ],
         ];
 
-        // Elegir un tipo de producto aleatorio
+        // Choose a random product type
         $productType = $this->faker->randomElement(array_keys($bikeProducts));
         $productInfo = $bikeProducts[$productType];
 
-        // Construir el título del producto
+        // Build the product title
         $productTitle = $productType.$this->faker->randomNumber(3, true);
 
-        // Elegir una marca aleatoria
+        // Choose a random brand
         $brand = $this->faker->randomElement($bikeBrands);
 
-        // Generar precio dentro del rango específico para el tipo de producto
+        // Generate a price within the specific range for the product type
         $price = $this->faker->numberBetween($productInfo['price'][0], $productInfo['price'][1]);
 
-        // Generar descripción detallada
+        // Generate a detailed description
         $description = $productInfo['desc'].' '.$brand.' '.$productInfo['prefix'].
                         $this->faker->sentence(5).' Ideal para '.$this->faker->randomElement(['principiantes', 'avanzados', 'profesionales', 'entusiastas', 'competidores']);
 
         return [
-            'name' => $this->faker->company,
-            'price' => $this->faker->numberBetween($min = 200, $max = 9000),
+            'title' => $this->faker->words(3, true),
+            'description' => $this->faker->sentence(),
+            'price' => $this->faker->numberBetween(200, 9000),
+            'stock' => $this->faker->numberBetween(1, 50),
+            'category_id' => Category::factory(),
+            'brand' => $this->faker->company(),
+            'image' => 'img/products/default.jpg',
+            'state' => 'available',
         ];
     }
 }
