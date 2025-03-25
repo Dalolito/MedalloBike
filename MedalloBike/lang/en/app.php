@@ -24,10 +24,11 @@ return [
 
     'review' => [
         'form' => [
-            'qualification' => 'Qualification',
+            'rating' => 'Rating from 1 to 5',
             'submit' => 'Publish',
             'label_review' => 'Do you have any reviews?',
             'add_review' => 'Write a review',
+            'qualification' => 'Qualification',
         ],
     ],
     'myaccount' => [

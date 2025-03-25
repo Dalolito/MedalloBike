@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Category;
+use App\Models\Category;
+use App\Models\Product;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -111,92 +113,32 @@ class ProductFactory extends Factory
             ],
         ];
 
-        // Elegir un tipo de producto aleatorio
+        // Choose a random product type
         $productType = $this->faker->randomElement(array_keys($bikeProducts));
         $productInfo = $bikeProducts[$productType];
 
-        // Construir el título del producto
+        // Build the product title
         $productTitle = $productType.$this->faker->randomNumber(3, true);
 
-        // Elegir una marca aleatoria
+        // Choose a random brand
         $brand = $this->faker->randomElement($bikeBrands);
 
-        // Generar precio dentro del rango específico para el tipo de producto
+        // Generate a price within the specific range for the product type
         $price = $this->faker->numberBetween($productInfo['price'][0], $productInfo['price'][1]);
 
-        // Generar descripción detallada
+        // Generate a detailed description
         $description = $productInfo['desc'].' '.$brand.' '.$productInfo['prefix'].
                         $this->faker->sentence(5).' Ideal para '.$this->faker->randomElement(['principiantes', 'avanzados', 'profesionales', 'entusiastas', 'competidores']);
 
         return [
-            'title' => $productTitle,
-            'description' => $description,
-            'category_id' => Category::inRandomOrder()->first()?->getId() ?? 1,
-            'image' => 'products/'.$this->faker->numberBetween(1, 10).'.jpg',
-            'brand' => $brand,
-            'price' => $price,
-            'stock' => $this->faker->numberBetween(0, 100),
-            'state' => $this->faker->randomElement(['available', 'disabled']),
-        ];
-    }
-
-    /**
-     * Indicate that the product is available.
-     */
-    public function available(): static
-    {
-        return $this->state(fn (array $attributes) => [
+            'title' => $this->faker->words(3, true),
+            'description' => $this->faker->sentence(),
+            'price' => $this->faker->numberBetween(200, 9000),
+            'stock' => $this->faker->numberBetween(1, 50),
+            'category_id' => Category::factory(),
+            'brand' => $this->faker->company(),
+            'image' => 'img/products/default.jpg',
             'state' => 'available',
-        ]);
-    }
-
-    /**
-     * Indicate that the product is disabled.
-     */
-    public function disabled(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'state' => 'disabled',
-        ]);
-    }
-
-    /**
-     * Indicate that the product has a specific category.
-     */
-    public function forCategory(int $categoryId): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'category_id' => $categoryId,
-        ]);
-    }
-
-    /**
-     * Set the product to have high stock.
-     */
-    public function highStock(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'stock' => $this->faker->numberBetween(50, 200),
-        ]);
-    }
-
-    /**
-     * Set the product to have low stock.
-     */
-    public function lowStock(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'stock' => $this->faker->numberBetween(1, 10),
-        ]);
-    }
-
-    /**
-     * Set the product to be out of stock.
-     */
-    public function outOfStock(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'stock' => 0,
-        ]);
+        ];
     }
 }

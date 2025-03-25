@@ -72,7 +72,7 @@
                 </div>
             </div>
 
-            <!-- Sección de reseñas -->
+            <!-- Seccion of reviews -->
             <div class="row mt-4">
                 <div class="col-12">
                     <div class="card">
@@ -80,14 +80,14 @@
                             <h5 class="mb-0">{{ __('app.products_user.show.create_review') }}</h5>
                         </div>
                         <div class="card-body">
-                            <!-- Formulario de reseñas -->
+                            <!-- Form of reviews -->
                             <div class="mb-4">
-                                
+                                <x-review-form :route="$viewData['route']" type="route" />
                             </div>
 
-                            <!-- Lista de reseñas -->
+                            <!-- List of reviews -->
                             <div class="review-list">
-                                
+                                <x-review-list :route="$viewData['route']" type="route" />
                             </div>
                         </div>
                     </div>

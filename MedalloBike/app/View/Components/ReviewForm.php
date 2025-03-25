@@ -2,21 +2,25 @@
 
 namespace App\View\Components;
 
-use App\Models\Product;
 use Illuminate\View\Component;
 
 class ReviewForm extends Component
 {
-    public Product $product;
+    public string $type;
 
-    public function __construct(Product $product)
+    public mixed $product;
+
+    public mixed $route;
+
+    public function __construct(string $type = 'product', $product = null, mixed $route = null)
     {
         $this->product = $product;
+        $this->route = $route;
+        $this->type = $type;
     }
 
     public function render()
     {
         return view('components.review-form');
-
     }
 }

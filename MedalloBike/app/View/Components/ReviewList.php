@@ -2,25 +2,34 @@
 
 namespace App\View\Components;
 
-use App\Models\Product;
 use App\Models\Review;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
 class ReviewList extends Component
 {
-    private Product $product;
+    public string $type;
 
-    public function __construct(Product $product)
+    public mixed $product;
+
+    public mixed $route;
+
+    public function __construct(string $type = 'route', $product = null, $route = null)
     {
+        $this->type = $type;
         $this->product = $product;
+        $this->route = $route;
     }
 
     public function render(): View
     {
-        $productActual = $this->product;
-        $productId = $productActual->getId();
-        $reviews = Review::where('product_id', $productId)->get();
+
+        if ($this->type === 'route' and $this->product === null) {
+            $reviews = Review::where('route_id', $this->route->getId())->get();
+        } else {
+
+            $reviews = Review::where('product_id', $this->product->getId())->get();
+        }
 
         return view('components.review-list', compact('reviews'));
     }
