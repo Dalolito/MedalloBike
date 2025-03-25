@@ -143,9 +143,4 @@ class CustomUser extends Authenticatable
     {
         $this->orders = $orders;
     }
-
-    public function isAdmin(): bool
-    {
-        return $this->getRole() === 'admin';
-    }
 }
