@@ -25,7 +25,7 @@
         <div class="sidebar-container">
             <!-- Header -->
             <header class="sidebar-header">
-                <a class="sidebar-brand" href="{{ route('admin.home.index') }}" aria-label="Brand">{{ __('app.title') }} 🚲</a>
+                <a class="sidebar-brand" href="/" aria-label="Brand">{{ __('app.title') }} 🚲</a>
                 <div class="d-lg-none">
                     <!-- Mobile close button -->
                     <button type="button" class="sidebar-close-btn" data-hs-overlay="#medallo-sidebar">
@@ -41,50 +41,79 @@
                 <div class="accordion-group" data-hs-accordion-always-open>
                     <ul class="sidebar-nav-list">
                         <li>
-                            <a class="sidebar-nav-link active-item" href="{{ route('admin.home.index') }}">
+                            <a class="sidebar-nav-link active-item" href="/">
                                 <i class="bi bi-house-door nav-icon"></i>
                                 {{ __('app.home') }}
                             </a>
                         </li>
 
+                        <!-- Products -->
                         <li class="hs-accordion" id="productos-accordion">
-                            <button type="button" class="hs-accordion-toggle" aria-expanded="false" aria-controls="productos-accordion-collapse">
+                            <button type="button" class="hs-accordion-toggle" aria-expanded="false" aria-controls="productos-accordion-collapse-1">
                                 <i class="bi bi-bicycle nav-icon"></i>
                                 {{ __('app.products') }}
                                 <svg class="accordion-arrow accordion-up" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
                                 <svg class="accordion-arrow accordion-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                             </button>
 
-                            <div id="productos-accordion-collapse" class="hs-accordion-content hidden" role="region" aria-labelledby="productos-accordion">
+                            <div id="productos-accordion-collapse-1" class="hs-accordion-content hidden" role="region" aria-labelledby="productos-accordion">
                                 <ul class="submenu">
                                     <li class="submenu-item">
-                                        <a class="submenu-link" href="{{ route('admin.product.list') }}">{{ __('app.view_product') }}</a>
-                                    </li>
-                                    <li class="submenu-item">
-                                        <a class="submenu-link" href="{{ route('admin.product.create') }}">{{ __('app.create_product') }}</a>
-                                    </li>
-                                    <li class="submenu-item">
-                                        <a href="{{ route('admin.product.topSelling') }}" class="submenu-link"> {{ __('admin.products.top_selling.title') }}</a>
+                                        <a class="submenu-link" href="{{ route('product.list') }}">{{ __('app.view_product') }}</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
 
-                        <li class="hs-accordion" id="categorias-accordion">
-                            <button type="button" class="hs-accordion-toggle" aria-expanded="false" aria-controls="categorias-accordion-collapse">
-                                <i class="bi bi-tags nav-icon"></i>
-                                {{ __('app.categories') }}
+                        <!-- Cart -->
+                        <li class="hs-accordion" id="cart-accordion">
+                            <button type="button" class="hs-accordion-toggle" aria-expanded="false" aria-controls="cart-accordion-collapse-1">
+                                <i class="bi bi-cart nav-icon"></i>
+                                {{ __('app.cart') }}
                                 <svg class="accordion-arrow accordion-up" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
                                 <svg class="accordion-arrow accordion-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                             </button>
 
-                            <div id="categorias-accordion-collapse" class="hs-accordion-content hidden" role="region" aria-labelledby="categorias-accordion">
+                            <div id="cart-accordion-collapse-1" class="hs-accordion-content hidden" role="region" aria-labelledby="cart-accordion">
                                 <ul class="submenu">
                                     <li class="submenu-item">
-                                        <a class="submenu-link" href="{{ route('admin.category.list') }}">{{ __('app.view_category') }}</a>
+                                        <a class="submenu-link" href="{{ route('cart.index') }}">{{ __('app.view_cart') }}</a>
                                     </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- My Account -->
+                        <li class="hs-accordion" id="myaccount-accordion">
+                            <button type="button" class="hs-accordion-toggle" aria-expanded="false" aria-controls="myaccount-accordion-collapse-1">
+                                <i class="bi bi-person nav-icon"></i>
+                                {{ __('app.myaccount.title') }}
+                                <svg class="accordion-arrow accordion-up" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+                                <svg class="accordion-arrow accordion-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                            </button>
+
+                            <div id="myaccount-accordion-collapse-1" class="hs-accordion-content hidden" role="region" aria-labelledby="myaccount-accordion">
+                                <ul class="submenu">
                                     <li class="submenu-item">
-                                        <a class="submenu-link" href="{{ route('admin.category.create') }}">{{ __('app.create_category') }}</a>
+                                        <a class="submenu-link" href="{{ route('Myaccount.orders') }}">{{ __('app.myaccount.orders.view_orders') }}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                         <!-- Route -->
+                          <li class="hs-accordion" id="routes-accordion">
+                            <button type="button" class="hs-accordion-toggle" aria-expanded="false" aria-controls="routes-accordion-collapse-1">
+                                <i class="bi bi-bicycle nav-icon"></i>
+                                {{ __('app.route') }}
+                                <svg class="accordion-arrow accordion-up" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+                                <svg class="accordion-arrow accordion-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                            </button>
+
+                            <div id="routes-accordion-collapse-1" class="hs-accordion-content hidden" role="region" aria-labelledby="routes-accordion">
+                                <ul class="submenu">
+                                    <li class="submenu-item">
+                                        <a class="submenu-link" href="{{ route('route.list') }}">{{ __('app.view_route') }}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -125,7 +154,7 @@
                         <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
                     </button>
                     
-                    <!-- Dropdown menu for login/register -->
+                    <!-- Login/register dropdown menu -->
                     <div id="footer-dropdown-menu" class="footer-dropdown-menu transition-opacity opacity-0 hidden">
                         <ul class="dropdown-menu-list">
                             <li>

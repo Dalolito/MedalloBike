@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/sidebar.css') }}" rel="stylesheet" />
-    <title>@yield('title', __('nav.title'))</title> 
+    <title>@yield('title', __('nav.title'))</title>
 </head>
 <body>
     <!-- Mobile overlay -->
@@ -27,19 +27,18 @@
             <header class="sidebar-header">
                 <a class="sidebar-brand" href="/" aria-label="Brand">{{ __('app.title') }} 🚲</a>
                 <div class="d-lg-none">
-                    <!-- Mobile close button -->
                     <button type="button" class="sidebar-close-btn" data-hs-overlay="#medallo-sidebar">
                         <i class="bi bi-x"></i>
-                        <span class="visually-hidden">{{__('app.close')}}</span>
+                        <span class="visually-hidden">{{ __('app.close') }}</span>
                     </button>
                 </div>
             </header>
-            <!-- End Header -->
 
-            <!-- Body -->
+            <!-- Navigation -->
             <nav class="sidebar-nav">
                 <div class="accordion-group" data-hs-accordion-always-open>
                     <ul class="sidebar-nav-list">
+                        <!-- Home -->
                         <li>
                             <a class="sidebar-nav-link active-item" href="/">
                                 <i class="bi bi-house-door nav-icon"></i>
@@ -101,8 +100,8 @@
                             </div>
                         </li>
                         
-                         <!-- Route -->
-                          <li class="hs-accordion" id="routes-accordion">
+                        <!-- Route -->
+                        <li class="hs-accordion" id="routes-accordion">
                             <button type="button" class="hs-accordion-toggle" aria-expanded="false" aria-controls="routes-accordion-collapse-1">
                                 <i class="bi bi-bicycle nav-icon"></i>
                                 {{ __('app.route') }}
@@ -121,61 +120,55 @@
                     </ul>
                 </div>
             </nav>
-            <!-- End Body -->
 
             <!-- Footer -->
             <footer class="sidebar-footer">
-                <!-- Profile or Login -->
                 <div class="footer-dropdown">
                     @auth
-                    <button id="footer-dropdown-toggle" type="button" class="footer-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Dropdown">
-                        <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=1abc9c&color=fff" alt="Avatar">
-                        <span>{{ Auth::user()->name }}</span>
-                        <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
-                    </button>
-                    
-                    <!-- Profile dropdown menu -->
-                    <div id="footer-dropdown-menu" class="footer-dropdown-menu transition-opacity opacity-0 hidden">
-                        <ul class="dropdown-menu-list">
-                            <li>
-                                <form id="logout" action="{{ route('logout') }}" method="POST" class="m-0 p-0">
-                                    @csrf
-                                    <a role="button" class="dropdown-item text-danger" onclick="document.getElementById('logout').submit();">
-                                        <i class="bi bi-box-arrow-right nav-icon"></i> {{ __('app.logout') }}
-                                    </a>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
+                        <button id="footer-dropdown-toggle" type="button" class="footer-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Dropdown">
+                            <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=1abc9c&color=fff" alt="Avatar">
+                            <span>{{ Auth::user()->name }}</span>
+                            <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
+                        </button>
+                        
+                        <div id="footer-dropdown-menu" class="footer-dropdown-menu transition-opacity opacity-0 hidden">
+                            <ul class="dropdown-menu-list">
+                                <li>
+                                    <form id="logout" action="{{ route('logout') }}" method="POST" class="m-0 p-0">
+                                        @csrf
+                                        <a role="button" class="dropdown-item text-danger" onclick="document.getElementById('logout').submit();">
+                                            <i class="bi bi-box-arrow-right nav-icon"></i> {{ __('app.logout') }}
+                                        </a>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
                     @else
-                    <button id="footer-dropdown-toggle" type="button" class="footer-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Dropdown">
-                        <img src="https://ui-avatars.com/api/?name=Usuario&background=1abc9c&color=fff" alt="Avatar">
-                        <span>Iniciar sesión</span>
-                        <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
-                    </button>
-                    
-                    <!-- Login/register dropdown menu -->
-                    <div id="footer-dropdown-menu" class="footer-dropdown-menu transition-opacity opacity-0 hidden">
-                        <ul class="dropdown-menu-list">
-                            <li>
-                                <a href="{{ route('login') }}" class="dropdown-item">
-                                    <i class="bi bi-box-arrow-in-right nav-icon"></i> {{ __('app.login') }}
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('register') }}" class="dropdown-item">
-                                    <i class="bi bi-person-plus nav-icon"></i> {{ __('app.register') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                        <button id="footer-dropdown-toggle" type="button" class="footer-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Dropdown">
+                            <img src="https://ui-avatars.com/api/?name=Usuario&background=1abc9c&color=fff" alt="Avatar">
+                            <span>Iniciar sesión</span>
+                            <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
+                        </button>
+                        
+                        <div id="footer-dropdown-menu" class="footer-dropdown-menu transition-opacity opacity-0 hidden">
+                            <ul class="dropdown-menu-list">
+                                <li>
+                                    <a href="{{ route('login') }}" class="dropdown-item">
+                                        <i class="bi bi-box-arrow-in-right nav-icon"></i> {{ __('app.login') }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('register') }}" class="dropdown-item">
+                                        <i class="bi bi-person-plus nav-icon"></i> {{ __('app.register') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     @endauth
                 </div>
             </footer>
-            <!-- End Footer -->
         </div>
     </div>
-    <!-- End Sidebar -->
 
     <!-- Main content -->
     <div class="main-content">

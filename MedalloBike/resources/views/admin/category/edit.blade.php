@@ -1,3 +1,4 @@
+<!-- Made by: Camilo Monsalve Montes -->
 @extends('layouts.admin')
 
 @section('title', $viewData["title"])
@@ -32,7 +33,7 @@
                     <div class="mb-3">
                         <label for="name" class="form-label">{{ __('admin.category.edit.form.name') }}</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" 
-                                value="{{ old('name', $viewData['category']->getName()) }}" required>
+                               value="{{ old('name', $viewData['category']->getName()) }}" required>
                         @error('name')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
