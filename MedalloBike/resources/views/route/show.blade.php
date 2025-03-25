@@ -4,7 +4,6 @@
 
 @section('content')
 <div class="container my-5">
-    <!-- Success Message -->
     @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
@@ -12,79 +11,89 @@
         </div>
     @endif
 
-    <div class="row">
-        <!-- Product Image and Revies -->
-        <div class="col-md-6">
-            <div class="product-image-container text-center">
-                <img src="{{ asset('/img/bike.jpg') }}" class="card-img-top img-card">
-            </div>
-
-            <!-- Create Review -->
-            <div class="p-2 border-top">
-                <x-review-list :product="$viewData['product']" />
+    <div class="card">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            <h1 class="fs-5 mb-0">{{ $viewData['route']->getName() }}</h1>
+            <div>
+                <a href="{{ route('route.list') }}" class="btn btn-secondary btn-sm">
+                    <i class="bi bi-arrow-left"></i> {{ __('app.routes_user.list.title') }}
+                </a>
             </div>
         </div>
 
-        
-
-        <!-- Product Details -->
-        <div class="col-md-6">
-            <h1 class="product-title">{{ $viewData['product']->getTitle() }}</h1>
-            <p class="product-price">${{ number_format($viewData['product']->getPrice(), 2) }}</p>
-
-            <!-- Product Description -->
-            <div class="product-description mb-4">
-                <h3>{{ __('app.products_user.show.description') }}</h3>
-                <p>{{ $viewData['product']->getDescription() }}</p>
-            </div>
-
-            <!-- Additional Details -->
-            <div class="product-details mb-4">
-                <h3>{{ __('app.products_user.show.details') }}</h3>
-                <ul class="list-unstyled">
-                    <li><strong>{{ __('app.products_user.show.brand') }}:</strong> {{ $viewData['product']->getBrand() }}</li>
-                    <li><strong>{{ __('app.products_user.show.category') }}:</strong> {{ $viewData['product']->getCategoryId() }}</li>
-                    <li><strong>{{ __('app.products_user.show.stock') }}:</strong> {{ $viewData['product']->getStock() }}</li>
-                    <li><strong>{{ __('app.products_user.show.state') }}:</strong> 
-                        @if($viewData['product']->getState() == 'available')
-                            <span class="badge bg-success">{{ __('admin.products.edit.form.state_available') }}</span>
-                        @else
-                            <span class="badge bg-secondary">{{ __('admin.products.edit.form.state_disabled') }}</span>
-                        @endif
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="mt-4">
-                @if($viewData['product']->getState() == 'available' && $viewData['product']->getStock() > 0)
-                    <form method="POST" action="{{ route('cart.add', ['id'=> $viewData['product']->getId()]) }}"> 
-                        <div class="row"> 
-                            @csrf 
-                            <div class="col-auto"> 
-                                <div class="input-group col-auto"> 
-                                    <div class="input-group-text">{{ __('app.products_user.cart.quantity') }}</div> 
-                                    <input type="number" min="1" max="10" class="form-control quantity-input" name="quantity" value="1"> 
-                                </div> 
-                            </div> 
-                            <div class="col-auto"> 
-                                <button class="btn bg-primary text-white" type="submit">{{ __('app.products_user.cart.add_to_cart') }}</button> 
-                            </div> 
-                        </div> 
-                    </form> 
-                @endif
-
-                <a href="{{ route('product.list') }}" class="btn btn-secondary">
-                    {{ __('app.products_user.show.back_to_list') }}
-                </a>
-
-                <!-- Create Review -->
-                <div class="p-2 border-top">
-                <x-review-form :product="$viewData['product']" />
+        <div class="card-body">
+            <div class="row">
+                <!-- Imagen del mapa -->
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <img src="{{ asset($viewData['route']->getImageMap()) }}" class="img-fluid rounded">
+                    </div>
                 </div>
 
+                <!-- Detalles de la ruta -->
+                <div class="col-md-8">
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <h5>{{ __('app.products_user.show.details') }}</h5>
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <th>{{ __('app.routes_user.list.type') }}</th>
+                                        <td>{{ $viewData['route']->getType() }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ __('app.routes_user.list.zone') }}</th>
+                                        <td>{{ $viewData['route']->getZone() }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ __('app.routes_user.list.difficulty') }}</th>
+                                        <td>{{ $viewData['route']->getDifficulty() }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Coordenadas de inicio</th>
+                                        <td>{{ $viewData['route']->getCoordinateStart() }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Coordenadas de fin</th>
+                                        <td>{{ $viewData['route']->getCoordinateEnd() }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Descripción de la ruta -->
+                    <div class="route-description mb-4">
+                        <h5>{{ __('app.products_user.show.description') }}</h5>
+                        <div class="p-3 bg-light rounded">
+                            {{ $viewData['route']->getDescription() }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de reseñas -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5 class="mb-0">{{ __('app.products_user.show.create_review') }}</h5>
+                        </div>
+                        <div class="card-body">
+                            <!-- Formulario de reseñas -->
+                            <div class="mb-4">
+                                
+                            </div>
+
+                            <!-- Lista de reseñas -->
+                            <div class="review-list">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </div>  
 </div>
 @endsection
