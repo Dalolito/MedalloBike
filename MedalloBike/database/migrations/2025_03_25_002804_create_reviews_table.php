@@ -15,7 +15,7 @@ return new class extends Migration
             $table->integer('qualification');
             $table->string('review', 255);
             $table->boolean('state')->default(false);
-            $table->timestamps(); 
+            $table->timestamps();
         });
     }
 
