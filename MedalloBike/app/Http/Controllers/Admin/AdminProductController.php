@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+// Made by: David Lopera Londoño
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\Category;

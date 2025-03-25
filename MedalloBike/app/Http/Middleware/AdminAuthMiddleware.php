@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+// Made by: David Lopera Londoño
+
 use App\Models\CustomUser;
 use Closure;
 use Illuminate\Http\Request;

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+// Made by: David Lopera Londoño
+
 use App\Models\Product;
 use App\Services\PurchaseService;
 use Illuminate\Http\RedirectResponse;

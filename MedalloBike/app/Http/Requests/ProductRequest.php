@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+// Made by: David Lopera Londoño
+
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProductRequest extends FormRequest

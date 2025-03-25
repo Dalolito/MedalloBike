@@ -1,3 +1,4 @@
+<!-- Made by: David Lopera Londoño -->
 @extends('layouts.app')
 
 @section('title', $viewData["title"])
