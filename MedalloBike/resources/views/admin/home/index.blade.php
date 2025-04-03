@@ -1,15 +1,15 @@
 <!-- Made by: Camilo Monsalve Montes -->
 @extends('layouts.admin')
 
-@section('title', $viewData["title"])
+@section('title', $viewData['title'])
 
 @section('content')
     <div class="container">
         <!-- Header Section -->
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
-                <h1>{{ $viewData["title"] }}</h1>
-                <h5 class="text-muted">{{ $viewData["subtitle"] }}</h5>
+                <h1>{{ $viewData['title'] }}</h1>
+                <h5 class="text-muted">{{ $viewData['subtitle'] }}</h5>
             </div>
         </div>
 

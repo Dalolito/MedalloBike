@@ -5,49 +5,52 @@
 @section('title', __('auth.confirm_title'))
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('auth.confirm_password_title') }}</div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('auth.confirm_password_title') }}</div>
 
-                <div class="card-body">
-                    {{ __('auth.confirm_password_message') }}
+                    <div class="card-body">
+                        {{ __('auth.confirm_password_message') }}
 
-                    <form method="POST" action="{{ route('password.confirm') }}">
-                        @csrf
+                        <form method="POST" action="{{ route('password.confirm') }}">
+                            @csrf
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('auth.password') }}</label>
+                            <div class="row mb-3">
+                                <label for="password"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('auth.password') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <div class="col-md-6">
+                                    <input id="password" type="password"
+                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        required autocomplete="current-password">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('auth.confirm_password_button') }}
-                                </button>
+                            <div class="row mb-0">
+                                <div class="col-md-8 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('auth.confirm_password_button') }}
+                                    </button>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('auth.forgot_password') }}
-                                    </a>
-                                @endif
+                                    @if (Route::has('password.request'))
+                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                            {{ __('auth.forgot_password') }}
+                                        </a>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
