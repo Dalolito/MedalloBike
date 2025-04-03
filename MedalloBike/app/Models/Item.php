@@ -15,9 +15,12 @@ class Item extends Model
      * $this->attributes['quantity'] - int - contains the quantity of the product
      * $this->attributes['totalPrice'] - int - contains the total price of the item
      * $this->attributes['product_id'] - int - contains the foreign key of the product
-     * $this->attributes['order_id'] - int - contains the foreign key of the order
+     * $this->attributes['order_id'] - int|null - contains the foreign key of the order
      * $this->attributes['created_at'] - timestamp - contains the record creation date
      * $this->attributes['updated_at'] - timestamp - contains the record update date
+     * 
+     * $this->product - Product - contains the associated product
+     * $this->order - Order - contains the associated order
      */
     protected $fillable = [
         'quantity',
@@ -51,21 +54,6 @@ class Item extends Model
         $this->attributes['totalPrice'] = $totalPrice;
     }
 
-    public function product(): BelongsTo
-    {
-        return $this->belongsTo(Product::class);
-    }
-
-    public function getProduct(): Product
-    {
-        return $this->product;
-    }
-
-    public function setProduct(Product $product): void
-    {
-        $this->product = $product;
-    }
-
     public function getProductId(): int
     {
         return $this->attributes['product_id'];
@@ -76,22 +64,7 @@ class Item extends Model
         $this->attributes['product_id'] = $productId;
     }
 
-    public function order(): BelongsTo
-    {
-        return $this->belongsTo(Order::class);
-    }
-
-    public function getOrder(): Order
-    {
-        return $this->order;
-    }
-
-    public function setOrder(Order $order): void
-    {
-        $this->order = $order;
-    }
-
-    public function getOrderId(): int
+    public function getOrderId(): ?int
     {
         return $this->attributes['order_id'];
     }
@@ -109,5 +82,35 @@ class Item extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function getProduct(): Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(Product $product): void
+    {
+        $this->product = $product;
+    }
+
+    public function order(): BelongsTo
+    {
+        return $this->belongsTo(Order::class);
+    }
+
+    public function getOrder(): Order
+    {
+        return $this->order;
+    }
+
+    public function setOrder(Order $order): void
+    {
+        $this->order = $order;
     }
 }
