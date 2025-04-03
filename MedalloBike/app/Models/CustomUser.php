@@ -103,7 +103,7 @@ class CustomUser extends Authenticatable
         return $this->attributes['address'] ?? null;
     }
 
-    public function setAddress(?string $address): void
+    public function setAddress(string $address): void
     {
         $this->attributes['address'] = $address;
     }
