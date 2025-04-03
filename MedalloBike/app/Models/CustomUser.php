@@ -28,7 +28,7 @@ class CustomUser extends Authenticatable
      * $this->attributes['email_verified_at'] - timestamp|null - contains the user email verification date
      * $this->attributes['created_at'] - timestamp - contains the user creation date
      * $this->attributes['updated_at'] - timestamp - contains the user update date
-     * 
+     *
      * $this->orders - Collection<Order> - contains the associated orders
      */
 
@@ -50,7 +50,7 @@ class CustomUser extends Authenticatable
         'password',
         'address',
         'budget',
-        'role'
+        'role',
     ];
 
     /**

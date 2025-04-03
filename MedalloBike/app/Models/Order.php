@@ -19,7 +19,7 @@ class Order extends Model
      * $this->attributes['state'] - string - contains the state of the order (pending/processing/completed/cancelled)
      * $this->attributes['created_at'] - timestamp - contains the record creation date
      * $this->attributes['updated_at'] - timestamp - contains the record update date
-     * 
+     *
      * $this->user - CustomUser - contains the associated user
      * $this->items - Collection<Item> - contains the associated items
      */
@@ -92,7 +92,7 @@ class Order extends Model
     public function items(): HasMany
     {
         return $this->hasMany(Item::class);
-    }   
+    }
 
     public function getItems(): Collection
     {

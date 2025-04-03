@@ -23,8 +23,8 @@ class Category extends Model
      * $this->products - Collection<Product> - contains the associated products
      */
     protected $fillable = [
-        'name', 
-        'state', 
+        'name',
+        'state',
     ];
 
     public function getId(): int

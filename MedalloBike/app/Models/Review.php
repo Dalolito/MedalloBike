@@ -15,7 +15,7 @@ class Review extends Model
      * $this->attributes['description'] - string - contains the text of the review
      * $this->attributes['created_at'] - timestamp - contains the date the review was created
      * $this->attributes['updated_at'] - timestamp - contains the date the review was last updated
-     * 
+     *
      * $this->product - Product - contains the associated product
      */
     protected $fillable = [

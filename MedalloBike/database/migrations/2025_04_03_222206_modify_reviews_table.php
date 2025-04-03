@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('reviews', function (Blueprint $table) {
             $table->renameColumn('review', 'description');
-            
+
             $table->dropColumn('state');
         });
     }
@@ -25,7 +25,7 @@ return new class extends Migration
     {
         Schema::table('reviews', function (Blueprint $table) {
             $table->renameColumn('description', 'review');
-            
+
             $table->boolean('state')->default(false)->after('description');
         });
     }

@@ -29,7 +29,7 @@ class Product extends Model
      * $this->attributes['state'] - string - contains the state of the product (available/disabled)
      * $this->attributes['created_at'] - timestamp - contains the record creation date
      * $this->attributes['updated_at'] - timestamp - contains the record update date
-     * 
+     *
      * $this->category - Category - contains the associated category
      * $this->items - Collection<Item> - contains the associated items
      * $this->reviews - Collection<Review> - contains the associated reviews
@@ -50,7 +50,6 @@ class Product extends Model
      *
      * @param  Collection<Product>  $products
      * @param  array<int, int>  $productsInSession
-     * @return int
      */
     public static function sumPricesByQuantities(Collection $products, array $productsInSession): int
     {
@@ -206,7 +205,6 @@ class Product extends Model
      * Scope a query to get top selling products.
      *
      * @param  Builder<Product>  $query
-     * @param  int  $limit
      * @return Builder<Product>
      */
     public function scopeTopSelling(Builder $query, int $limit = 3): Builder
