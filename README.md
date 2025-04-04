@@ -180,5 +180,3 @@ Desde aquí puedes:
 ## Notas adicionales
 
 - La aplicación utiliza SQLite por defecto, pero puedes configurarla para usar MySQL cambiando la configuración en el archivo .env.
-- Si cambias el controlador de la base de datos, asegúrate de tener los drivers correspondientes instalados.
-- Para problemas o dudas, por favor abre un issue en el repositorio del proyecto.
