@@ -14,7 +14,7 @@ class ReviewRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'review' => 'required|string',
+            'description' => 'required|string',
             'product_id' => 'required|integer|exists:products,id',
             'qualification' => 'required|integer|min:0|max:5',
         ];
