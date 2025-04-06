@@ -1,4 +1,3 @@
-<!-- Made by: David Lopera Londoño -->
 @extends('layouts.app')
 
 @section('title', $viewData['title'])
@@ -118,18 +117,26 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header bg-light">
-                                <h5 class="mb-0">{{ __('app.products_user.show.create_review') }}</h5>
+                                <h5 class="mb-0">Reviews & Ratings</h5>
                             </div>
                             <div class="card-body">
                                 <!-- Review Form -->
-                                <div class="mb-4">
-                                    <x-review-form :product="$viewData['product']" />
-                                </div>
+                                @auth
+                                    <div class="mb-4">
+                                        @include('components.review-form', [
+                                            'product' => $viewData['product'],
+                                        ])
+                                    </div>
+                                    <hr>
+                                @else
+                                    <div class="alert alert-info mb-4">
+                                        <i class="bi bi-info-circle me-2"></i>
+                                        Please <a href="{{ route('login') }}">login</a> to leave a review.
+                                    </div>
+                                @endauth
 
                                 <!-- Review List -->
-                                <div class="review-list">
-                                    <x-review-list :product="$viewData['product']" />
-                                </div>
+                                @include('components.review-list', ['reviews' => $viewData['reviews']])
                             </div>
                         </div>
                     </div>
