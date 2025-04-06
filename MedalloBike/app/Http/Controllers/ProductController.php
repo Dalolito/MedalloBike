@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-// Made by: David Lopera Londoño
-
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -38,9 +37,14 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
+        $reviews = Review::where('product_id', $id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
         $viewData = [
             'title' => $product->getTitle().' - '.__('app.products_user.show.title_suffix'),
             'product' => $product,
+            'reviews' => $reviews,
         ];
 
         return view('product.show')->with('viewData', $viewData);

@@ -36,6 +36,36 @@ return [
             'no_orders' => 'Parece que aún no has comprado nada en nuestra tienda =(',
         ],
     ],
+    'review' => [
+        'form' => [
+            'qualification' => 'Calificación',
+            'submit' => 'Enviar Reseña',
+            'label_review' => 'Tu Reseña',
+            'add_review' => 'Escribir una Reseña',
+            'select_rating' => 'Seleccionar calificación',
+            'review_placeholder' => 'Comparte tu experiencia con este producto...',
+            'rating' => [
+                'excellent' => 'Excelente',
+                'very_good' => 'Muy Bueno',
+                'good' => 'Bueno',
+                'fair' => 'Regular',
+                'poor' => 'Malo',
+            ],
+        ],
+        'list' => [
+            'title' => 'Reseñas de Clientes',
+            'rating' => 'Calificación',
+            'no_reviews' => 'Aún no hay reseñas. ¡Sé el primero en compartir tu opinión!',
+            'date' => 'Fecha',
+            'view_all' => 'Ver Todas las Reseñas',
+        ],
+    ],
+    'hero' => [
+        'title' => 'Descubre Tu Bicicleta Perfecta',
+        'subtitle' => 'Bicicletas y accesorios de calidad para todas tus aventuras ciclistas',
+        'shop_now' => 'Comprar Ahora',
+        'explore_routes' => 'Explorar Rutas',
+    ],
 
     'products_user' => [
         'show' => [

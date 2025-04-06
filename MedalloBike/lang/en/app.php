@@ -46,6 +46,37 @@ return [
             'no_orders' => 'Seems to be that you have not purchased anything in our store =(',
         ],
     ],
+    'review' => [
+        'form' => [
+            'qualification' => 'Rating',
+            'submit' => 'Submit Review',
+            'label_review' => 'Your Review',
+            'add_review' => 'Write a Review',
+            'select_rating' => 'Select rating',
+            'review_placeholder' => 'Share your experience with this product...',
+            'rating' => [
+                'excellent' => 'Excellent',
+                'very_good' => 'Very Good',
+                'good' => 'Good',
+                'fair' => 'Fair',
+                'poor' => 'Poor',
+            ],
+        ],
+        'list' => [
+            'title' => 'Customer Reviews',
+            'rating' => 'Rating',
+            'no_reviews' => 'No reviews yet. Be the first to share your opinion!',
+            'date' => 'Date',
+            'view_all' => 'View All Reviews',
+        ],
+    ],
+    
+    'hero' => [
+        'title' => 'Discover Your Perfect Ride',
+        'subtitle' => 'Quality bikes and accessories for all your cycling adventures',
+        'shop_now' => 'Shop Now',
+        'explore_routes' => 'Explore Routes',
+    ],
 
     'products_user' => [
         'show' => [
@@ -78,6 +109,7 @@ return [
             'all_categories' => 'All Categories',
             'filter' => 'Filter',
         ],
+
         'cart' => [
             'quantity' => 'Quantity',
             'add_to_cart' => 'Add to cart',
