@@ -1,29 +1,32 @@
 <?php
 
-namespace App\Services;
+namespace App\Utils;
 
 // Made by: David Lopera Londoño
+
 use App\Models\CustomUser;
 use App\Models\Item;
 use App\Models\Order;
 use App\Models\Product;
-use Illuminate\Support\Facades\DB;
 
-class PurchaseService
+class Purchase
 {
     /**
-     * procces purchase of session products
+     * Process a purchase with products in session
      *
      * @param  int  $userId  User id
-     * @param  array  $productsInSession  Array with products in session
-     * @return array Result of the purchase
+     * @param  array  $productsInSession  Array with products in session (product_id => quantity)
+     * @return array Result of the purchase with status and order information
      */
-    public function processPurchase(int $userId, array $productsInSession): array
+    public static function process(int $userId, array $productsInSession): array
     {
         $user = CustomUser::find($userId);
         $products = Product::findMany(array_keys($productsInSession));
+
+        // Calculate total price for all products in cart
         $total = Product::sumPricesByQuantities($products, $productsInSession);
 
+        // Check if user has enough budget
         if ($user->getBudget() < $total) {
             return [
                 'status' => 'insufficient_funds',
@@ -32,23 +35,24 @@ class PurchaseService
             ];
         }
 
-        DB::beginTransaction();
-
+        // Create new order with initial values
         $order = new Order;
         $order->setUserId($userId);
         $order->setTotalPrice(0);
         $order->setState('pending');
         $order->save();
 
+        // Reset total for accurate calculation
         $total = 0;
 
+        // Process each product in cart
         foreach ($products as $product) {
+
             $quantity = $productsInSession[$product->getId()];
 
             if ($quantity > $product->getStock()) {
                 $quantity = $product->getStock();
             }
-
             $item = new Item;
             $item->setQuantity($quantity);
             $item->setTotalPrice($product->getPrice() * $quantity);
@@ -58,6 +62,7 @@ class PurchaseService
 
             $total += ($product->getPrice() * $quantity);
 
+            // Update product stock
             $product->setStock($product->getStock() - $quantity);
             $product->save();
         }
@@ -68,12 +73,9 @@ class PurchaseService
         $user->setBudget($user->getBudget() - $total);
         $user->save();
 
-        DB::commit();
-
         return [
             'status' => 'success',
             'order' => $order,
         ];
-
     }
 }

@@ -29,7 +29,10 @@ class Product extends Model
      * $this->attributes['state'] - string - contains the state of the product (available/disabled)
      * $this->attributes['created_at'] - timestamp - contains the record creation date
      * $this->attributes['updated_at'] - timestamp - contains the record update date
-     * $this->items - Item[] - contains the associated items
+     *
+     * $this->category - Category - contains the associated category
+     * $this->items - Collection<Item> - contains the associated items
+     * $this->reviews - Collection<Review> - contains the associated reviews
      */
     protected $fillable = [
         'title',
@@ -42,7 +45,13 @@ class Product extends Model
         'state',
     ];
 
-    public static function sumPricesByQuantities($products, array $productsInSession): int
+    /**
+     * Calculate the sum of prices multiplied by their quantities.
+     *
+     * @param  Collection<Product>  $products
+     * @param  array<int, int>  $productsInSession
+     */
+    public static function sumPricesByQuantities(Collection $products, array $productsInSession): int
     {
         $total = 0;
         foreach ($products as $product) {
@@ -157,6 +166,11 @@ class Product extends Model
         return $this->category;
     }
 
+    public function setCategory(Category $category): void
+    {
+        $this->category = $category;
+    }
+
     public function items(): HasMany
     {
         return $this->hasMany(Item::class);
@@ -172,6 +186,27 @@ class Product extends Model
         $this->items = $items;
     }
 
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function setReviews(Collection $reviews): void
+    {
+        $this->reviews = $reviews;
+    }
+
+    /**
+     * Scope a query to get top selling products.
+     *
+     * @param  Builder<Product>  $query
+     * @return Builder<Product>
+     */
     public function scopeTopSelling(Builder $query, int $limit = 3): Builder
     {
         return $query->withCount(['items as total_sold' => function ($query) {

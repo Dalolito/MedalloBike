@@ -1,12 +1,11 @@
-<!-- Made by: David Lopera Londoño -->
 @extends('layouts.app')
 
-@section('title', $viewData["title"])
+@section('title', $viewData['title'])
 
 @section('content')
     <div class="container my-5">
         <!-- Success Message -->
-        @if(session('success'))
+        @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -23,7 +22,7 @@
                     </a>
                 </div>
             </div>
-            
+
             <div class="card-body">
                 <div class="row">
                     <!-- Product Image and Reviews -->
@@ -55,8 +54,9 @@
                                         <tr>
                                             <th>{{ __('app.products_user.show.stock') }}</th>
                                             <td>
-                                                @if($viewData['product']->getStock() > 0)
-                                                    <span class="badge bg-success">{{ $viewData['product']->getStock() }}</span>
+                                                @if ($viewData['product']->getStock() > 0)
+                                                    <span
+                                                        class="badge bg-success">{{ $viewData['product']->getStock() }}</span>
                                                 @else
                                                     <span class="badge bg-danger">0</span>
                                                 @endif
@@ -65,10 +65,12 @@
                                         <tr>
                                             <th>{{ __('app.products_user.show.state') }}</th>
                                             <td>
-                                                @if($viewData['product']->getState() == 'available')
-                                                    <span class="badge bg-success">{{ __('admin.products.edit.form.state_available') }}</span>
+                                                @if ($viewData['product']->getState() == 'available')
+                                                    <span
+                                                        class="badge bg-success">{{ __('admin.products.edit.form.state_available') }}</span>
                                                 @else
-                                                    <span class="badge bg-secondary">{{ __('admin.products.edit.form.state_disabled') }}</span>
+                                                    <span
+                                                        class="badge bg-secondary">{{ __('admin.products.edit.form.state_disabled') }}</span>
                                                 @endif
                                             </td>
                                         </tr>
@@ -77,17 +79,22 @@
                             </div>
                             <div class="col-md-6">
                                 <!-- Add to Cart Section -->
-                                @if($viewData['product']->getState() == 'available' && $viewData['product']->getStock() > 0)
+                                @if ($viewData['product']->getState() == 'available' && $viewData['product']->getStock() > 0)
                                     <h5>{{ __('app.products_user.cart.add_to_cart') }}</h5>
                                     <div class="p-3 bg-light rounded mb-3">
-                                        <form method="POST" action="{{ route('cart.add', ['id'=> $viewData['product']->getId()]) }}"> 
-                                            @csrf 
+                                        <form method="POST"
+                                            action="{{ route('cart.add', ['id' => $viewData['product']->getId()]) }}">
+                                            @csrf
                                             <div class="mb-3">
-                                                <label for="quantity" class="form-label">{{ __('app.products_user.cart.quantity') }}</label>
-                                                <input type="number" min="1" max="{{ $viewData['product']->getStock() }}" class="form-control" id="quantity" name="quantity" value="1"> 
+                                                <label for="quantity"
+                                                    class="form-label">{{ __('app.products_user.cart.quantity') }}</label>
+                                                <input type="number" min="1"
+                                                    max="{{ $viewData['product']->getStock() }}" class="form-control"
+                                                    id="quantity" name="quantity" value="1">
                                             </div>
                                             <button class="btn bg-primary text-white w-100" type="submit">
-                                                <i class="bi bi-cart-plus"></i> {{ __('app.products_user.cart.add_to_cart') }}
+                                                <i class="bi bi-cart-plus"></i>
+                                                {{ __('app.products_user.cart.add_to_cart') }}
                                             </button>
                                         </form>
                                     </div>
@@ -104,24 +111,32 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Reviews Section -->
                 <div class="row mt-4">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header bg-light">
-                                <h5 class="mb-0">{{ __('app.products_user.show.create_review') }}</h5>
+                                <h5 class="mb-0">Reviews & Ratings</h5>
                             </div>
                             <div class="card-body">
                                 <!-- Review Form -->
-                                <div class="mb-4">
-                                    <x-review-form :product="$viewData['product']" />
-                                </div>
-                                
+                                @auth
+                                    <div class="mb-4">
+                                        @include('components.review-form', [
+                                            'product' => $viewData['product'],
+                                        ])
+                                    </div>
+                                    <hr>
+                                @else
+                                    <div class="alert alert-info mb-4">
+                                        <i class="bi bi-info-circle me-2"></i>
+                                        Please <a href="{{ route('login') }}">login</a> to leave a review.
+                                    </div>
+                                @endauth
+
                                 <!-- Review List -->
-                                <div class="review-list">
-                                    <x-review-list :product="$viewData['product']" />
-                                </div>
+                                @include('components.review-list', ['reviews' => $viewData['reviews']])
                             </div>
                         </div>
                     </div>

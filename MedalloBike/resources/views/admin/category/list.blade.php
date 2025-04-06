@@ -1,15 +1,15 @@
 <!-- Made by: Camilo Monsalve Montes -->
 @extends('layouts.admin')
 
-@section('title', $viewData["title"])
+@section('title', $viewData['title'])
 
 @section('content')
     <div class="container">
         <!-- Header Section -->
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
-                <h1>{{ $viewData["title"] }}</h1>
-                <h5 class="text-muted">{{ $viewData["subtitle"] }}</h5>
+                <h1>{{ $viewData['title'] }}</h1>
+                <h5 class="text-muted">{{ $viewData['subtitle'] }}</h5>
             </div>
             <div>
                 <a href="{{ route('admin.category.create') }}" class="btn btn-primary">
@@ -21,7 +21,7 @@
         <!-- Categories Table -->
         <div class="card">
             <div class="card-body">
-                @if(isset($viewData['category']) && count($viewData['category']) > 0)
+                @if (isset($viewData['category']) && count($viewData['category']) > 0)
                     <div class="table-responsive">
                         <table class="table table-striped table-hover">
                             <thead class="table-dark">
@@ -35,15 +35,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($viewData['category'] as $category)
+                                @foreach ($viewData['category'] as $category)
                                     <tr>
                                         <td>{{ $category->getId() }}</td>
                                         <td>{{ $category->getName() }}</td>
                                         <td>
-                                            @if($category->getState() == 'available')
-                                                <span class="badge bg-success">{{ __('admin.category.edit.form.state_available') }}</span>
+                                            @if ($category->getState() == 'available')
+                                                <span
+                                                    class="badge bg-success">{{ __('admin.category.edit.form.state_available') }}</span>
                                             @else
-                                                <span class="badge bg-secondary">{{ __('admin.category.edit.form.state_disabled') }}</span>
+                                                <span
+                                                    class="badge bg-secondary">{{ __('admin.category.edit.form.state_disabled') }}</span>
                                             @endif
                                         </td>
                                         <td>{{ $category->getCreatedAt() }}</td>
@@ -51,26 +53,30 @@
                                         <td class="text-end">
                                             <div class="btn-group" role="group">
                                                 <!-- Show button -->
-                                                <a href="{{ route('admin.category.show', ['id' => $category->getId()]) }}" 
-                                                   class="btn btn-sm btn-info me-1" title="{{ __('admin.category.list.show_category') }}">
+                                                <a href="{{ route('admin.category.show', ['id' => $category->getId()]) }}"
+                                                    class="btn btn-sm btn-info me-1"
+                                                    title="{{ __('admin.category.list.show_category') }}">
                                                     <i class="bi bi-eye-fill"></i>
                                                 </a>
-                                                
+
                                                 <!-- Edit button -->
-                                                <a href="{{ route('admin.category.edit', ['id' => $category->getId()]) }}" 
-                                                   class="btn btn-sm btn-primary me-1" title="{{ __('admin.category.list.edit') }}">
+                                                <a href="{{ route('admin.category.edit', ['id' => $category->getId()]) }}"
+                                                    class="btn btn-sm btn-primary me-1"
+                                                    title="{{ __('admin.category.list.edit') }}">
                                                     <i class="bi bi-pencil-fill"></i>
                                                 </a>
-                                                
+
                                                 <!-- Enable/Disable button -->
-                                                @if($category->getState() == 'available')
-                                                    <a href="{{ route('admin.category.disable', ['id' => $category->getId()]) }}" 
-                                                       class="btn btn-sm btn-warning" title="{{ __('admin.category.list.disable') }}">
+                                                @if ($category->getState() == 'available')
+                                                    <a href="{{ route('admin.category.disable', ['id' => $category->getId()]) }}"
+                                                        class="btn btn-sm btn-warning"
+                                                        title="{{ __('admin.category.list.disable') }}">
                                                         <i class="bi bi-toggle-off"></i>
                                                     </a>
                                                 @else
-                                                    <a href="{{ route('admin.category.enable', ['id' => $category->getId()]) }}" 
-                                                       class="btn btn-sm btn-success" title="{{ __('admin.category.list.enable') }}">
+                                                    <a href="{{ route('admin.category.enable', ['id' => $category->getId()]) }}"
+                                                        class="btn btn-sm btn-success"
+                                                        title="{{ __('admin.category.list.enable') }}">
                                                         <i class="bi bi-toggle-on"></i>
                                                     </a>
                                                 @endif
