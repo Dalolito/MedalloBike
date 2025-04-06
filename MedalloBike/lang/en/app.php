@@ -70,7 +70,7 @@ return [
             'view_all' => 'View All Reviews',
         ],
     ],
-    
+
     'hero' => [
         'title' => 'Discover Your Perfect Ride',
         'subtitle' => 'Quality bikes and accessories for all your cycling adventures',
