@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 // Made by: David Lopera Londoño
 
 use App\Models\Product;
-use App\Services\PurchaseService;
+use App\Utils\Purchase;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -56,13 +56,6 @@ class CartController extends Controller
         return back();
     }
 
-    protected $purchaseService;
-
-    public function __construct(PurchaseService $purchaseService)
-    {
-        $this->purchaseService = $purchaseService;
-    }
-
     public function purchase(Request $request): View|RedirectResponse
     {
         $productsInSession = $request->session()->get('products');
@@ -72,7 +65,7 @@ class CartController extends Controller
         }
 
         $userId = Auth::id();
-        $result = $this->purchaseService->processPurchase($userId, $productsInSession);
+        $result = Purchase::process($userId, $productsInSession);
 
         if ($result['status'] === 'insufficient_funds') {
             return redirect()->route('cart.index')->with('error',
