@@ -11,10 +11,10 @@
                         <h1 class="card-title display-4 fw-bold">{{ __('app.hero.title') }}</h1>
                         <p class="card-text fs-5">{{ __('app.hero.subtitle') }}</p>
                         <div>
-                            <a href="{{ route('product.list') }}" class="btn btn-light btn-lg">
+                            <a href="{{ route('product.index') }}" class="btn btn-light btn-lg">
                                 {{ __('app.hero.shop_now') }}
                             </a>
-                            <a href="{{ route('route.list') }}" class="btn btn-outline-light btn-lg ms-3">
+                            <a href="#" class="btn btn-outline-light btn-lg ms-3">
                                 {{ __('app.hero.explore_routes') }}
                             </a>
                         </div>

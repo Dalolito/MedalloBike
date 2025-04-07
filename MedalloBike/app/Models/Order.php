@@ -15,8 +15,8 @@ class Order extends Model
      * ORDER ATTRIBUTES
      * $this->attributes['id'] - int - contains the primary key of the order
      * $this->attributes['totalPrice'] - int - contains the total price of the order
-     * $this->attributes['user_id'] - int - contains the foreign key of the user
      * $this->attributes['state'] - string - contains the state of the order (pending/processing/completed/cancelled)
+     * $this->attributes['user_id'] - int - contains the foreign key of the user
      * $this->attributes['created_at'] - timestamp - contains the record creation date
      * $this->attributes['updated_at'] - timestamp - contains the record update date
      *

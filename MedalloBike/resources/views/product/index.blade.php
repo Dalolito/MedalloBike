@@ -21,7 +21,7 @@
                         <h5 class="mb-0">{{ __('app.products_user.list.filter_by_category') }}</h5>
                     </div>
                     <div class="card-body">
-                        <form method="GET" action="{{ route('product.list') }}" class="d-flex">
+                        <form method="GET" action="{{ route('product.index') }}" class="d-flex">
                             <select name="category" class="form-select me-2">
                                 <option value="">{{ __('app.products_user.list.all_categories') }}</option>
                                 @foreach ($viewData['categories'] as $category)

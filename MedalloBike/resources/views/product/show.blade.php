@@ -17,7 +17,7 @@
                 <h1 class="fs-5 mb-0">{{ $viewData['product']->getTitle() }}</h1>
                 <div>
                     <!-- Action Button -->
-                    <a href="{{ route('product.list') }}" class="btn btn-secondary btn-sm">
+                    <a href="{{ route('product.index') }}" class="btn btn-secondary btn-sm">
                         <i class="bi bi-arrow-left"></i> {{ __('app.products_user.show.back_to_list') }}
                     </a>
                 </div>
@@ -117,13 +117,13 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header bg-light">
-                                <h5 class="mb-0">Reviews & Ratings</h5>
+                                <h5 class="mb-0">{{ __('app.review.list.title') }}</h5>
                             </div>
                             <div class="card-body">
                                 <!-- Review Form -->
                                 @auth
                                     <div class="mb-4">
-                                        @include('components.review-form', [
+                                        @include('components.review.form', [
                                             'product' => $viewData['product'],
                                         ])
                                     </div>
@@ -131,12 +131,13 @@
                                 @else
                                     <div class="alert alert-info mb-4">
                                         <i class="bi bi-info-circle me-2"></i>
-                                        Please <a href="{{ route('login') }}">login</a> to leave a review.
+                                        {{ __('app.review.form.login_to_review') }}
+                                        <a href="{{ route('login') }}">{{ __('app.login') }}</a>
                                     </div>
                                 @endauth
 
                                 <!-- Review List -->
-                                @include('components.review-list', ['reviews' => $viewData['reviews']])
+                                @include('components.review.list', ['reviews' => $viewData['reviews']])
                             </div>
                         </div>
                     </div>

@@ -42,6 +42,7 @@ return [
             'submit' => 'Enviar Reseña',
             'label_review' => 'Tu Reseña',
             'add_review' => 'Escribir una Reseña',
+            'login_to_review' => 'Por favor',
             'select_rating' => 'Seleccionar calificación',
             'review_placeholder' => 'Comparte tu experiencia con este producto...',
             'rating' => [

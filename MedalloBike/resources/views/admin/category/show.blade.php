@@ -44,7 +44,7 @@
                         </a>
                     @endif
 
-                    <a href="{{ route('admin.category.list') }}" class="btn btn-secondary btn-sm">
+                    <a href="{{ route('admin.category.index') }}" class="btn btn-secondary btn-sm">
                         <i class="bi bi-arrow-left"></i> {{ __('admin.category.show.back_to_list') }}
                     </a>
                 </div>

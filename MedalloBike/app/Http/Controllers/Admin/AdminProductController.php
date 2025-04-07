@@ -13,6 +13,17 @@ use Illuminate\View\View;
 
 class AdminProductController extends Controller
 {
+    public function index(): View
+    {
+        $viewData = [
+            'title' => __('admin.products.list.title'),
+            'subtitle' => __('admin.products.list.subtitle'),
+            'products' => Product::all(),
+        ];
+
+        return view('admin.product.index')->with('viewData', $viewData);
+    }
+
     public function create(): View
     {
         $categories = Category::all();
@@ -30,17 +41,6 @@ class AdminProductController extends Controller
         Product::create($request->validated());
 
         return back()->with('success', __('messages.success.product_created'));
-    }
-
-    public function list(): View
-    {
-        $viewData = [
-            'title' => __('admin.products.list.title'),
-            'subtitle' => __('admin.products.list.subtitle'),
-            'products' => Product::all(),
-        ];
-
-        return view('admin.product.list')->with('viewData', $viewData);
     }
 
     public function show(int $id): View

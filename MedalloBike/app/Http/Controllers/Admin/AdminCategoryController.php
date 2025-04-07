@@ -12,6 +12,17 @@ use Illuminate\View\View;
 
 class AdminCategoryController extends Controller
 {
+    public function index(): View
+    {
+        $viewData = [
+            'title' => __('admin.category.list.title'),
+            'subtitle' => __('admin.category.list.subtitle'),
+            'category' => Category::all(),
+        ];
+
+        return view('admin.category.index')->with('viewData', $viewData);
+    }
+
     public function create(): View
     {
         $viewData = [
@@ -29,17 +40,6 @@ class AdminCategoryController extends Controller
         Category::create($categoryData);
 
         return back()->with('success', __('messages.success.category_created'));
-    }
-
-    public function list(): View
-    {
-        $viewData = [
-            'title' => __('admin.category.list.title'),
-            'subtitle' => __('admin.category.list.subtitle'),
-            'category' => Category::all(),
-        ];
-
-        return view('admin.category.list')->with('viewData', $viewData);
     }
 
     public function show(int $id): View
