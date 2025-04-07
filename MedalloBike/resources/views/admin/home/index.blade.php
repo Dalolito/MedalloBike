@@ -26,7 +26,7 @@
                         <p class="card-text">{{ __('admin.dashboard.products.description') }}</p>
                     </div>
                     <div class="card-footer bg-transparent border-top-0">
-                        <a href="{{ route('admin.product.list') }}" class="btn btn-sm btn-primary">
+                        <a href="{{ route('admin.product.index') }}" class="btn btn-sm btn-primary">
                             <i class="bi bi-list"></i> {{ __('admin.dashboard.products.view') }}
                         </a>
                         <a href="{{ route('admin.product.create') }}" class="btn btn-sm btn-success">
@@ -47,7 +47,7 @@
                         <p class="card-text">{{ __('admin.dashboard.categories.description') }}</p>
                     </div>
                     <div class="card-footer bg-transparent border-top-0">
-                        <a href="{{ route('admin.category.list') }}" class="btn btn-sm btn-primary">
+                        <a href="{{ route('admin.category.index') }}" class="btn btn-sm btn-primary">
                             <i class="bi bi-list"></i> {{ __('admin.dashboard.categories.view') }}
                         </a>
                         <a href="{{ route('admin.category.create') }}" class="btn btn-sm btn-success">
