@@ -51,7 +51,6 @@ class Product extends Model
      * @param  Collection<Product>  $products
      * @param  array<int, int>  $productsInSession
      */
-    
     public static function sumPricesByQuantities(Collection $products, array $productsInSession): int
     {
         $total = 0;
@@ -216,5 +215,4 @@ class Product extends Model
     {
         $this->reviews = $reviews;
     }
-
 }
