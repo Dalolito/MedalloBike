@@ -61,6 +61,21 @@ class Product extends Model
         return $total;
     }
 
+    /**
+     * Scope a query to get top selling products.
+     *
+     * @param  Builder<Product>  $query
+     * @return Builder<Product>
+     */
+    public function scopeTopSelling(Builder $query, int $limit = 3): Builder
+    {
+        return $query->withCount(['items as total_sold' => function ($query) {
+            $query->select(DB::raw('SUM(quantity)'));
+        }])
+            ->orderBy('total_sold', 'desc')
+            ->take($limit);
+    }
+
     public function getId(): int
     {
         return $this->attributes['id'];
@@ -161,7 +176,7 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function getCategory(): ?Category
+    public function getCategory(): Category
     {
         return $this->category;
     }
@@ -199,20 +214,5 @@ class Product extends Model
     public function setReviews(Collection $reviews): void
     {
         $this->reviews = $reviews;
-    }
-
-    /**
-     * Scope a query to get top selling products.
-     *
-     * @param  Builder<Product>  $query
-     * @return Builder<Product>
-     */
-    public function scopeTopSelling(Builder $query, int $limit = 3): Builder
-    {
-        return $query->withCount(['items as total_sold' => function ($query) {
-            $query->select(DB::raw('SUM(quantity)'));
-        }])
-            ->orderBy('total_sold', 'desc')
-            ->take($limit);
     }
 }
