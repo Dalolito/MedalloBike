@@ -1,4 +1,4 @@
- MedalloBike - Tienda Online de Productos para Ciclismo
+# MedalloBike - Tienda Online de Productos para Ciclismo 🚲
 
 MedalloBike es una aplicación web desarrollada con Laravel que permite gestionar un inventario de productos relacionados con el ciclismo y realizar compras en línea.
 
