@@ -10,7 +10,7 @@ use Illuminate\View\View;
 
 class ProductController extends Controller
 {
-    public function list(Request $request): View
+    public function index(Request $request): View
     {
         $categoryId = $request->query('category');
         $productsQuery = Product::where('state', 'available');
@@ -30,7 +30,7 @@ class ProductController extends Controller
             'selectedCategory' => $categoryId,
         ];
 
-        return view('product.list')->with('viewData', $viewData);
+        return view('product.index')->with('viewData', $viewData);
     }
 
     public function show(int $id): View

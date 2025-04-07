@@ -53,6 +53,7 @@ return [
             'label_review' => 'Your Review',
             'add_review' => 'Write a Review',
             'select_rating' => 'Select rating',
+            'login_to_review' => 'Please',
             'review_placeholder' => 'Share your experience with this product...',
             'rating' => [
                 'excellent' => 'Excellent',
