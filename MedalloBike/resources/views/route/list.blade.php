@@ -26,22 +26,20 @@
                             <!-- Route Info -->
                             <div class="card-body">
                                 <h5 class="card-title fw-bold">{{ $route->getName() }}</h5>
-                                <p class="card-text fs-5 text-primary fw-bold">
-                                    {{ __('app.routes_user.show.description') }}: {{ $route->getDescription() }}
-                                </p>
                                 <p class="card-text text-muted">
                                     <small>
+                                        {{ __('app.routes_user.list.description') }}: {{ $route->getDescription() }}<br>
                                         {{ __('app.routes_user.list.difficulty') }}: {{ $route->getDifficulty() }} <br>
-                                        {{ __('app.routes_user.show.zone') }}: {{ $route->getZone() }} <br>
-                                        {{ __('app.routes_user.show.start') }}: {{ $route->getCoordinateStart() }} <br>
-                                        {{ __('app.routes_user.show.end') }}: {{ $route->getCoordinateEnd() }}
+                                        {{ __('app.routes_user.list.zone') }}: {{ $route->getZone() }} <br>
+                                        {{ __('app.routes_user.list.coordinateStar') }}: {{ $route->getCoordinateStart() }} <br>
+                                        {{ __('app.routes_user.list.coordinateEnd') }}: {{ $route->getCoordinateEnd() }}
                                     </small>
                                 </p>
                             </div>
 
                             <!-- Route Actions -->
                             <div class="card-footer bg-white text-center py-3">
-                                <a href="{{ route('routes.show', $route->getId()) }}"
+                                <a href="#"
                                     class="btn btn-outline-primary btn-sm w-100">
                                     <i class="bi bi-info-circle me-1"></i>
                                     {{ __('app.routes_user.list.show_route') }}
