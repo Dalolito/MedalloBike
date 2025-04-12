@@ -168,7 +168,7 @@
                                 aria-labelledby="routes-accordion">
                                 <ul class="submenu">
                                     <li class="submenu-item">
-                                        <a class="submenu-link" href="#">{{ __('app.view_route') }}</a>
+                                        <a class="submenu-link" href="{{ route('route.list') }}">{{ __('app.view_route') }}</a>
                                     </li>
                                 </ul>
                             </div>
