@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Route extends Model
 {
@@ -48,8 +47,6 @@ class Route extends Model
      * @param  Builder<Route>  $query
      * @return Builder<Route>
      */
-    
-
     public function getId(): int
     {
         return $this->attributes['id'];

@@ -45,7 +45,6 @@ Route::middleware('admin')->group(function () {
 Route::get('/product', $ProductControllerRoute.'@index')->name('product.index');
 Route::get('/product/show/{id}', $ProductControllerRoute.'@show')->name('product.show');
 
-
 // Cart Controller routes
 Route::get('/cart', $CartControllerRoute.'@index')->name('cart.index');
 Route::get('/cart/delete', $CartControllerRoute.'@delete')->name('cart.delete');

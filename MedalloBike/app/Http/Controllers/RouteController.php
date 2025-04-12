@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Route;
 use App\Models\Review;
+use App\Models\Route;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -11,16 +11,13 @@ class RouteController extends Controller
 {
     /**
      * Display a list of available routes, optionally filtered by zone.
-     *
-     * @param Request $request
-     * @return View
      */
     public function list(Request $request): View
     {
         $routes = Route::query()->get();
         $viewData = [
-            'title' => __('app.routes_user.list.title'), 
-            'subtitle' => __('app.routes_user.list.subtitle'), 
+            'title' => __('app.routes_user.list.title'),
+            'subtitle' => __('app.routes_user.list.subtitle'),
             'routes' => $routes,
         ];
 
@@ -29,25 +26,21 @@ class RouteController extends Controller
 
     /**
      * Show the details of a specific route, including reviews.
-     *
-     * @param int $id
-     * @return View
      */
     public function show(int $id): View
     {
-        $route = Route::findOrFail($id); 
+        $route = Route::findOrFail($id);
 
-        
         $reviews = Review::where('route_id', $id)
-            ->orderBy('created_at', 'desc') 
+            ->orderBy('created_at', 'desc')
             ->get();
 
         $viewData = [
-            'title' => $route->getName().' - '.__('app.routes_user.show.title_suffix'), 
-            'route' => $route, 
-            'reviews' => $reviews, 
+            'title' => $route->getName().' - '.__('app.routes_user.show.title_suffix'),
+            'route' => $route,
+            'reviews' => $reviews,
         ];
 
-        return view('route.show')->with('viewData', $viewData); 
+        return view('route.show')->with('viewData', $viewData);
     }
 }

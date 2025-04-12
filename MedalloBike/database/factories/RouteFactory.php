@@ -22,14 +22,14 @@ class RouteFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->company . ' ' . $this->faker->word,  // Nombre de la ruta
+            'name' => $this->faker->company.' '.$this->faker->word,  // Nombre de la ruta
             'description' => $this->faker->text(200),  // Descripción de la ruta
             'difficulty' => $this->faker->numberBetween(1, 5),  // Dificultad de la ruta (1 a 5)
             'type' => $this->faker->randomElement(['Mountain', 'Road', 'Hybrid']),  // Tipo de ruta
             'zone' => $this->faker->city,  // Zona de la ruta
-            'imageMap' => $this->faker->numberBetween(1, 5),  
-            'coordinateStart' => $this->faker->latitude . ', ' . $this->faker->longitude,  // Coordenadas de inicio
-            'coordinateEnd' => $this->faker->latitude . ', ' . $this->faker->longitude,  // Coordenadas de fin
+            'imageMap' => $this->faker->numberBetween(1, 5),
+            'coordinateStart' => $this->faker->latitude.', '.$this->faker->longitude,  // Coordenadas de inicio
+            'coordinateEnd' => $this->faker->latitude.', '.$this->faker->longitude,  // Coordenadas de fin
         ];
     }
 }
