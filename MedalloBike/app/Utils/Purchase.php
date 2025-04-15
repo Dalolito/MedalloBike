@@ -4,10 +4,10 @@ namespace App\Utils;
 
 // Made by: David Lopera Londoño
 
-use App\Models\CustomUser;
 use App\Models\Item;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\User;
 
 class Purchase
 {
@@ -20,7 +20,7 @@ class Purchase
      */
     public static function process(int $userId, array $productsInSession): array
     {
-        $user = CustomUser::find($userId);
+        $user = User::find($userId);
         $products = Product::findMany(array_keys($productsInSession));
 
         // Calculate total price for all products in cart

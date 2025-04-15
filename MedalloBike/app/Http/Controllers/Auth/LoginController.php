@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\CustomUser;
+use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,9 +31,9 @@ class LoginController extends Controller
     {
         if (Auth::check()) {
             $userId = Auth::id();
-            $customUser = CustomUser::find($userId);
+            $user = User::find($userId);
 
-            if ($customUser && $customUser->getRole() == 'admin') {
+            if ($user && $user->getRole() == 'admin') {
                 return '/admin/home';
             }
         }
