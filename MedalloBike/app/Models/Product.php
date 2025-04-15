@@ -45,37 +45,6 @@ class Product extends Model
         'state',
     ];
 
-    /**
-     * Calculate the sum of prices multiplied by their quantities.
-     *
-     * @param  Collection<Product>  $products
-     * @param  array<int, int>  $productsInSession
-     */
-    public static function sumPricesByQuantities(Collection $products, array $productsInSession): int
-    {
-        $total = 0;
-        foreach ($products as $product) {
-            $total = $total + ($product->getPrice() * $productsInSession[$product->getId()]);
-        }
-
-        return $total;
-    }
-
-    /**
-     * Scope a query to get top selling products.
-     *
-     * @param  Builder<Product>  $query
-     * @return Builder<Product>
-     */
-    public function scopeTopSelling(Builder $query, int $limit = 3): Builder
-    {
-        return $query->withCount(['items as total_sold' => function ($query) {
-            $query->select(DB::raw('SUM(quantity)'));
-        }])
-            ->orderBy('total_sold', 'desc')
-            ->take($limit);
-    }
-
     public function getId(): int
     {
         return $this->attributes['id'];
@@ -214,5 +183,24 @@ class Product extends Model
     public function setReviews(Collection $reviews): void
     {
         $this->reviews = $reviews;
+    }
+
+    public static function sumPricesByQuantities(Collection $products, array $productsInSession): int
+    {
+        $total = 0;
+        foreach ($products as $product) {
+            $total = $total + ($product->getPrice() * $productsInSession[$product->getId()]);
+        }
+
+        return $total;
+    }
+
+    public function scopeTopSelling(Builder $query, int $limit = 3): Builder
+    {
+        return $query->withCount(['items as total_sold' => function ($query) {
+            $query->select(DB::raw('SUM(quantity)'));
+        }])
+            ->orderBy('total_sold', 'desc')
+            ->take($limit);
     }
 }

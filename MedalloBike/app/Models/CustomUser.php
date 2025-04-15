@@ -32,19 +32,8 @@ class CustomUser extends Authenticatable
      * $this->orders - Collection<Order> - contains the associated orders
      * $this->reviews - Collection<Review> - contains the associated reviews
      */
-
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
     protected $table = 'custom_users';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'name',
         'email',
@@ -54,11 +43,6 @@ class CustomUser extends Authenticatable
         'role',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
@@ -129,22 +113,11 @@ class CustomUser extends Authenticatable
         $this->attributes['budget'] = $budget;
     }
 
-    /**
-     * Get the token value for the "remember me" session.
-     *
-     * @return string|null
-     */
     public function getRememberToken()
     {
         return $this->remember_token;
     }
 
-    /**
-     * Set the token value for the "remember me" session.
-     *
-     * @param  string  $value
-     * @return void
-     */
     public function setRememberToken($value)
     {
         $this->remember_token = $value;
