@@ -43,7 +43,7 @@ return [
             'product_name' => 'Product Name',
             'price' => 'Price',
             'quantity' => 'Quantity',
-            'no_orders' => 'Seems to be that you have not purchased anything in our store =(',
+            'no_orders' => 'Seems that you have not purchased anything in our store yet =(',
         ],
     ],
     'review' => [
@@ -52,7 +52,7 @@ return [
             'submit' => 'Submit Review',
             'label_review' => 'Your Review',
             'add_review' => 'Write a Review',
-            'select_rating' => 'Select rating',
+            'select_rating' => 'Select Rating',
             'login_to_review' => 'Please',
             'review_placeholder' => 'Share your experience with this product...',
             'rating' => [
@@ -138,9 +138,12 @@ return [
         'list' => [
             'title' => 'Routes - MedalloBike',
             'subtitle' => 'List of available routes',
+            'description' => 'Description',
             'zone' => 'Zone',
             'type' => 'Type',
             'difficulty' => 'Difficulty',
+            'coordinateStar' => 'Star',
+            'coordinateEnd' => 'End',
             'show_route' => 'View Route',
             'no_routes' => 'No routes available yet.',
         ],

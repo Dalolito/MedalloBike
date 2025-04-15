@@ -14,7 +14,7 @@
                             <a href="{{ route('product.index') }}" class="btn btn-light btn-lg">
                                 {{ __('app.hero.shop_now') }}
                             </a>
-                            <a href="#" class="btn btn-outline-light btn-lg ms-3">
+                            <a href="{{ route('route.list') }}" class="btn btn-outline-light btn-lg ms-3">
                                 {{ __('app.hero.explore_routes') }}
                             </a>
                         </div>
