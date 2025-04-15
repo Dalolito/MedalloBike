@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
-use App\Models\CustomUser;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
                 ->create();
         }
 
-        CustomUser::factory()->create([
+        User::factory()->create([
             'name' => 'Admin User',
             'email' => 'admin@medallobike.com',
             'password' => Hash::make('admin123'),

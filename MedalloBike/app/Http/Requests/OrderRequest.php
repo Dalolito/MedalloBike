@@ -17,7 +17,7 @@ class OrderRequest extends FormRequest
     {
         return [
             'totalPrice' => 'required|numeric|min:0',
-            'user_id' => 'required|integer|exists:custom_users,id',
+            'user_id' => 'required|integer|exists:users,id',
             'state' => 'required|string|in:pending,processing,completed,cancelled',
         ];
     }

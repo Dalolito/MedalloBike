@@ -20,7 +20,7 @@ class Order extends Model
      * $this->attributes['created_at'] - timestamp - contains the record creation date
      * $this->attributes['updated_at'] - timestamp - contains the record update date
      *
-     * $this->user - CustomUser - contains the associated user
+     * $this->user - User - contains the associated user
      * $this->items - Collection<Item> - contains the associated items
      */
     protected $fillable = [
@@ -76,15 +76,15 @@ class Order extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(CustomUser::class);
+        return $this->belongsTo(User::class);
     }
 
-    public function getUser(): CustomUser
+    public function getUser(): User
     {
         return $this->user;
     }
 
-    public function setUser(CustomUser $user): void
+    public function setUser(User $user): void
     {
         $this->user = $user;
     }
