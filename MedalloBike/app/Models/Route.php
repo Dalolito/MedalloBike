@@ -142,15 +142,6 @@ class Route extends Model
         return $this->attributes['updated_at'];
     }
 
-    /**
-     * Relationship with reviews.
-     * A route can have many reviews.
-     */
-    public function reviews(): HasMany
-    {
-        return $this->hasMany(Review::class);
-    }
-
     public function getReviews(): Collection
     {
         return $this->reviews;
@@ -159,5 +150,10 @@ class Route extends Model
     public function setReviews(Collection $reviews): void
     {
         $this->reviews = $reviews;
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
     }
 }

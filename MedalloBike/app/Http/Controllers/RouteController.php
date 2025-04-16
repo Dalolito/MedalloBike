@@ -12,7 +12,7 @@ class RouteController extends Controller
     /**
      * Display a list of available routes, optionally filtered by zone.
      */
-    public function list(Request $request): View
+    public function index(Request $request): View
     {
         $routes = Route::query()->get();
         $viewData = [
@@ -21,7 +21,7 @@ class RouteController extends Controller
             'routes' => $routes,
         ];
 
-        return view('route.list')->with('viewData', $viewData); // Return the 'route.index' view with the data
+        return view('route.index')->with('viewData', $viewData);
     }
 
     /**
