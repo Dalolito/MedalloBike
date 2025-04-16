@@ -59,8 +59,9 @@ Route::middleware('auth')->group(function () {
     $ReviewControllerRoute = 'App\Http\Controllers\ReviewController';
     Route::post('/review/save', $ReviewControllerRoute.'@save')->name('review.save');
 });
+
 // Route Controller routes
-Route::get('/route', $RouteControllerRoute.'@list')->name('route.list');
+Route::get('/route', $RouteControllerRoute.'@index')->name('route.index');
 Route::get('/route/show/{id}', $RouteControllerRoute.'@show')->name('route.show');
 
 // My Account Controller routes

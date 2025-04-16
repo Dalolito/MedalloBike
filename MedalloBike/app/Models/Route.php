@@ -4,7 +4,6 @@ namespace App\Models;
 
 // Made by: [Your Name]
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -41,12 +40,6 @@ class Route extends Model
         'coordinateEnd',
     ];
 
-    /**
-     * Scope a query to get top rated routes (optional, just an example).
-     *
-     * @param  Builder<Route>  $query
-     * @return Builder<Route>
-     */
     public function getId(): int
     {
         return $this->attributes['id'];
@@ -142,10 +135,6 @@ class Route extends Model
         return $this->attributes['updated_at'];
     }
 
-    /**
-     * Relationship with reviews.
-     * A route can have many reviews.
-     */
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
