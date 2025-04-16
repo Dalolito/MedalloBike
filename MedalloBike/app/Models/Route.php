@@ -41,12 +41,6 @@ class Route extends Model
         'coordinateEnd',
     ];
 
-    /**
-     * Scope a query to get top rated routes (optional, just an example).
-     *
-     * @param  Builder<Route>  $query
-     * @return Builder<Route>
-     */
     public function getId(): int
     {
         return $this->attributes['id'];
@@ -142,6 +136,11 @@ class Route extends Model
         return $this->attributes['updated_at'];
     }
 
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
     public function getReviews(): Collection
     {
         return $this->reviews;
@@ -152,8 +151,4 @@ class Route extends Model
         $this->reviews = $reviews;
     }
 
-    public function reviews(): HasMany
-    {
-        return $this->hasMany(Review::class);
-    }
 }
