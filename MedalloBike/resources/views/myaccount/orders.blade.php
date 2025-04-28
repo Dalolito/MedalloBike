@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('title', $viewData["title"])
-@section('subtitle', $viewData["subtitle"])
+@section('title', $viewData['title'])
+@section('subtitle', $viewData['subtitle'])
 @section('content')
     @forelse ($viewData["orders"] as $order)
         <div class="card mb-4">
@@ -10,7 +10,7 @@
             <div class="card-body">
                 <b>{{ __('app.myaccount.orders.date') }}:</b> {{ $order->getCreatedAt() }}<br />
                 <b>{{ __('app.myaccount.orders.total') }}:</b> ${{ $order->getTotalPrice() }}<br />
-                
+
                 <table class="table table-bordered table-striped text-center mt-3">
                     <thead>
                         <tr>
@@ -25,7 +25,8 @@
                             <tr>
                                 <td>{{ $item->getId() }}</td>
                                 <td>
-                                    <a class="link-success" href="{{ route('product.show', ['id'=> $item->getProduct()->getId()]) }}">
+                                    <a class="link-success"
+                                        href="{{ route('product.show', ['id' => $item->getProduct()->getId()]) }}">
                                         {{ $item->getProduct()->getTitle() }}
                                     </a>
                                 </td>

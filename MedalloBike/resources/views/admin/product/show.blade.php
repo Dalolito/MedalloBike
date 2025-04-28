@@ -1,12 +1,12 @@
 <!-- Made by: David Lopera Londoño -->
 @extends('layouts.admin')
 
-@section('title', $viewData["title"])
+@section('title', $viewData['title'])
 
 @section('content')
     <div class="container my-5">
         <!-- Success Message -->
-        @if(session('success'))
+        @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -18,28 +18,31 @@
                 <h1 class="fs-5 mb-0">{{ $viewData['product']->getTitle() }}</h1>
                 <div>
                     <!-- Actions in card header -->
-                    <a href="{{ route('admin.product.edit', ['id' => $viewData['product']->getId()]) }}" class="btn btn-light btn-sm me-1">
+                    <a href="{{ route('admin.product.edit', ['id' => $viewData['product']->getId()]) }}"
+                        class="btn btn-light btn-sm me-1">
                         <i class="bi bi-pencil-fill"></i> {{ __('admin.products.list.edit') }}
                     </a>
-                    
-                    @if($viewData['product']->getState() == 'available')
-                        <a class="btn btn-warning btn-sm me-1" href="{{ route('admin.product.disable', ['id' => $viewData['product']->getId()]) }}">
+
+                    @if ($viewData['product']->getState() == 'available')
+                        <a class="btn btn-warning btn-sm me-1"
+                            href="{{ route('admin.product.disable', ['id' => $viewData['product']->getId()]) }}">
                             <i class="bi bi-toggle-off"></i> {{ __('admin.products.list.disable') }}
                         </a>
                     @else
-                        <a class="btn btn-success btn-sm me-1" href="{{ route('admin.product.enable', ['id' => $viewData['product']->getId()]) }}">
+                        <a class="btn btn-success btn-sm me-1"
+                            href="{{ route('admin.product.enable', ['id' => $viewData['product']->getId()]) }}">
                             <i class="bi bi-toggle-on"></i> {{ __('admin.products.list.enable') }}
                         </a>
                     @endif
-                    
+
                     <!-- No delete button as products are only disabled, not deleted -->
-                    
+
                     <a href="{{ route('admin.product.list') }}" class="btn btn-secondary btn-sm">
                         <i class="bi bi-arrow-left"></i> {{ __('admin.products.show.back_to_list') }}
                     </a>
                 </div>
             </div>
-            
+
             <div class="card-body">
                 <div class="row">
                     <!-- Product Image -->
@@ -71,8 +74,9 @@
                                         <tr>
                                             <th>{{ __('admin.products.show.stock') }}</th>
                                             <td>
-                                                @if($viewData['product']->getStock() > 0)
-                                                    <span class="badge bg-success">{{ $viewData['product']->getStock() }}</span>
+                                                @if ($viewData['product']->getStock() > 0)
+                                                    <span
+                                                        class="badge bg-success">{{ $viewData['product']->getStock() }}</span>
                                                 @else
                                                     <span class="badge bg-danger">0</span>
                                                 @endif
@@ -81,10 +85,12 @@
                                         <tr>
                                             <th>{{ __('admin.products.show.state') }}</th>
                                             <td>
-                                                @if($viewData['product']->getState() == 'available')
-                                                    <span class="badge bg-success">{{ __('admin.products.edit.form.state_available') }}</span>
+                                                @if ($viewData['product']->getState() == 'available')
+                                                    <span
+                                                        class="badge bg-success">{{ __('admin.products.edit.form.state_available') }}</span>
                                                 @else
-                                                    <span class="badge bg-secondary">{{ __('admin.products.edit.form.state_disabled') }}</span>
+                                                    <span
+                                                        class="badge bg-secondary">{{ __('admin.products.edit.form.state_disabled') }}</span>
                                                 @endif
                                             </td>
                                         </tr>
