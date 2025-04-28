@@ -15,12 +15,13 @@ class Order extends Model
      * ORDER ATTRIBUTES
      * $this->attributes['id'] - int - contains the primary key of the order
      * $this->attributes['totalPrice'] - int - contains the total price of the order
+     * $this->attributes['state'] - string - contains the state of the order (pending/processing/completed/cancelled)
      * $this->attributes['user_id'] - int - contains the foreign key of the user
-     * $this->attributes['state'] - string - contains the state of the order
      * $this->attributes['created_at'] - timestamp - contains the record creation date
      * $this->attributes['updated_at'] - timestamp - contains the record update date
-     * $this->user - User - contains the associated User
-     * $this->items - Item[] - contains the associated items
+     *
+     * $this->user - CustomUser - contains the associated user
+     * $this->items - Collection<Item> - contains the associated items
      */
     protected $fillable = [
         'totalPrice',
@@ -43,21 +44,6 @@ class Order extends Model
         $this->attributes['totalPrice'] = $totalPrice;
     }
 
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(CustomUser::class);
-    }
-
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-    public function setUser($user)
-    {
-        $this->user = $user;
-    }
-
     public function getUserId(): int
     {
         return $this->attributes['user_id'];
@@ -78,6 +64,31 @@ class Order extends Model
         $this->attributes['state'] = $state;
     }
 
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(CustomUser::class);
+    }
+
+    public function getUser(): CustomUser
+    {
+        return $this->user;
+    }
+
+    public function setUser(CustomUser $user): void
+    {
+        $this->user = $user;
+    }
+
     public function items(): HasMany
     {
         return $this->hasMany(Item::class);
@@ -91,15 +102,5 @@ class Order extends Model
     public function setItems(Collection $items): void
     {
         $this->items = $items;
-    }
-
-    public function getCreatedAt(): string
-    {
-        return $this->attributes['created_at'];
-    }
-
-    public function getUpdatedAt(): string
-    {
-        return $this->attributes['updated_at'];
     }
 }

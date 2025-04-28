@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Review extends Model
 {
@@ -10,18 +11,20 @@ class Review extends Model
      * REVIEW ATTRIBUTES
      * $this->attributes['id'] - int - contains the primary key of the review
      * $this->attributes['product_id'] - int - contains the foreign key of the associated product
-     * $this->attributes['user_id'] - int - contains the foreign key of the user who created the review
+     * $this->attributes['user_id'] - int - contains the foreign key of the associated user
      * $this->attributes['qualification'] - int - contains the rating given in the review (0-5)
-     * $this->attributes['review'] - string - contains the text of the review
-     * $this->attributes['state'] - bool - contains the approval status of the review (true = approved, false = pending/rejected)
+     * $this->attributes['description'] - string - contains the text of the review
      * $this->attributes['created_at'] - timestamp - contains the date the review was created
      * $this->attributes['updated_at'] - timestamp - contains the date the review was last updated
+     *
+     * $this->product - Product - contains the associated product
+     * $this->user - CustomUser - contains the associated user
      */
     protected $fillable = [
         'qualification',
-        'review',
-        'state',
+        'description',
         'product_id',
+        'user_id',
     ];
 
     public function getId(): int
@@ -39,24 +42,24 @@ class Review extends Model
         $this->attributes['product_id'] = $product_id;
     }
 
-    public function getReview(): string
+    public function getUserId(): int
     {
-        return $this->attributes['review'];
+        return $this->attributes['user_id'];
     }
 
-    public function setReview(string $review): void
+    public function setUserId(int $user_id): void
     {
-        $this->attributes['review'] = $review;
+        $this->attributes['user_id'] = $user_id;
     }
 
-    public function getState(): bool
+    public function getDescription(): string
     {
-        return $this->attributes['state'];
+        return $this->attributes['description'];
     }
 
-    public function setState(bool $approvedState): void
+    public function setDescription(string $description): void
     {
-        $this->attributes['approvedState'] = $approvedState;
+        $this->attributes['description'] = $description;
     }
 
     public function getQualification(): int
@@ -66,7 +69,7 @@ class Review extends Model
 
     public function setQualification(int $qualification): void
     {
-        $this->attributes['product_id'] = $qualification;
+        $this->attributes['qualification'] = $qualification;
     }
 
     public function getCreatedAt(): string
@@ -77,5 +80,35 @@ class Review extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function getProduct(): Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(Product $product): void
+    {
+        $this->product = $product;
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(CustomUser::class);
+    }
+
+    public function getUser(): CustomUser
+    {
+        return $this->user;
+    }
+
+    public function setUser(CustomUser $user): void
+    {
+        $this->user = $user;
     }
 }

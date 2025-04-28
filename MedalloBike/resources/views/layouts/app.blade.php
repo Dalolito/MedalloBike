@@ -76,7 +76,7 @@
                                 <ul class="submenu">
                                     <li class="submenu-item">
                                         <a class="submenu-link"
-                                            href="{{ route('product.list') }}">{{ __('app.view_product') }}</a>
+                                            href="{{ route('product.index') }}">{{ __('app.view_product') }}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -168,8 +168,7 @@
                                 aria-labelledby="routes-accordion">
                                 <ul class="submenu">
                                     <li class="submenu-item">
-                                        <a class="submenu-link"
-                                            href="{{ route('route.list') }}">{{ __('app.view_route') }}</a>
+                                        <a class="submenu-link" href="{{ route('route.index') }}">{{ __('app.view_route') }}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -251,6 +250,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 06444ed06cece2faea0d92999bb0171615e2e0b7
     <script src="{{ asset('/js/sidebar.js') }}"></script>
 </body>
 

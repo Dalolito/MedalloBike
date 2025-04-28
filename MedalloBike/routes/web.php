@@ -18,7 +18,7 @@ Route::middleware('admin')->group(function () {
 
     Route::get('/admin/product/create', $AdminProductControllerRoute.'@create')->name('admin.product.create');
     Route::post('/admin/product/save', $AdminProductControllerRoute.'@save')->name('admin.product.save');
-    Route::get('/admin/product/list', $AdminProductControllerRoute.'@list')->name('admin.product.list');
+    Route::get('/admin/product', $AdminProductControllerRoute.'@index')->name('admin.product.index');
     Route::get('/admin/product/show/{id}', $AdminProductControllerRoute.'@show')->name('admin.product.show');
     Route::get('/admin/product/edit/{id}', $AdminProductControllerRoute.'@edit')->name('admin.product.edit');
     Route::post('/admin/product/update/{id}', $AdminProductControllerRoute.'@update')->name('admin.product.update');
@@ -33,7 +33,7 @@ Route::middleware('admin')->group(function () {
 
     Route::get('/admin/category/create', $AdminCategoryControllerRoute.'@create')->name('admin.category.create');
     Route::post('/admin/category/save', $AdminCategoryControllerRoute.'@save')->name('admin.category.save');
-    Route::get('/admin/category/list', $AdminCategoryControllerRoute.'@list')->name('admin.category.list');
+    Route::get('/admin/category', $AdminCategoryControllerRoute.'@index')->name('admin.category.index');
     Route::get('/admin/category/show/{id}', $AdminCategoryControllerRoute.'@show')->name('admin.category.show');
     Route::get('/admin/category/edit/{id}', $AdminCategoryControllerRoute.'@edit')->name('admin.category.edit');
     Route::put('/admin/category/update/{id}', $AdminCategoryControllerRoute.'@update')->name('admin.category.update');
@@ -42,7 +42,7 @@ Route::middleware('admin')->group(function () {
 });
 
 // Product Controller routes
-Route::get('/product/list', $ProductControllerRoute.'@list')->name('product.list');
+Route::get('/product', $ProductControllerRoute.'@index')->name('product.index');
 Route::get('/product/show/{id}', $ProductControllerRoute.'@show')->name('product.show');
 
 // Cart Controller routes
@@ -59,8 +59,9 @@ Route::middleware('auth')->group(function () {
     $ReviewControllerRoute = 'App\Http\Controllers\ReviewController';
     Route::post('/review/save', $ReviewControllerRoute.'@save')->name('review.save');
 });
+
 // Route Controller routes
-Route::get('/route', $RouteControllerRoute.'@list')->name('route.list');
+Route::get('/route', $RouteControllerRoute.'@index')->name('route.index');
 Route::get('/route/show/{id}', $RouteControllerRoute.'@show')->name('route.show');
 
 // My Account Controller routes

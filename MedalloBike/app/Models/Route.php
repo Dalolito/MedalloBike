@@ -2,26 +2,33 @@
 
 namespace App\Models;
 
+// Made by: [Your Name]
+
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-/**
- * ROUTE ATTRIBUTES
- * $this->attributes['id'] - int - contains the primary key of the route
- * $this->attributes['name'] - string - contains the name of the route
- * $this->attributes['description'] - string - contains the description of the route
- * $this->attributes['difficulty'] - int - difficulty level of the route
- * $this->attributes['type'] - string - type of route
- * $this->attributes['zone'] - string - zone of the route
- * $this->attributes['imageMap'] - string - contains the image path of the map
- * $this->attributes['coordinateStart'] - array - starting coordinates
- * $this->attributes['coordinateEnd'] - array - ending coordinates
- * $this->attributes['created_at'] - timestamp - creation date
- * $this->attributes['updated_at'] - timestamp - update date
- * $this->reviews - Review[] - associated reviews
- */
 class Route extends Model
 {
+    use HasFactory;
+
+    /**
+     * ROUTE ATTRIBUTES
+     * $this->attributes['id'] - int - contains the primary key of the route
+     * $this->attributes['name'] - string - contains the name of the route
+     * $this->attributes['description'] - string - contains the description of the route
+     * $this->attributes['difficulty'] - int - contains the difficulty of the route
+     * $this->attributes['type'] - string - contains the type of the route
+     * $this->attributes['zone'] - string - contains the zone of the route
+     * $this->attributes['imageMap'] - string - contains the path to the map image
+     * $this->attributes['coordinateStart'] - string - contains the start coordinates of the route
+     * $this->attributes['coordinateEnd'] - string - contains the end coordinates of the route
+     * $this->attributes['created_at'] - timestamp - contains the record creation date
+     * $this->attributes['updated_at'] - timestamp - contains the record update date
+     *
+     * $this->reviews - Collection<Review> - contains the associated reviews
+     */
     protected $fillable = [
         'name',
         'description',
@@ -29,17 +36,9 @@ class Route extends Model
         'type',
         'zone',
         'imageMap',
-        'coordinate_start',
-        'coordinate_end',
+        'coordinateStart',
+        'coordinateEnd',
     ];
-    // === RELATIONSHIPS ===
-
-    public function reviews(): HasMany
-    {
-        return $this->hasMany(Review::class);
-    }
-
-    // === GETTERS & SETTERS ===
 
     public function getId(): int
     {
@@ -108,22 +107,22 @@ class Route extends Model
 
     public function getCoordinateStart(): string
     {
-        return $this->attributes['coordinate_start'];
+        return $this->attributes['coordinateStart'];
     }
 
-    public function setCoordinateStart(string $coordinate_start): void
+    public function setCoordinateStart(string $coordinateStart): void
     {
-        $this->attributes['coordinate_start'] = $coordinate_start;
+        $this->attributes['coordinateStart'] = $coordinateStart;
     }
 
     public function getCoordinateEnd(): string
     {
-        return $this->attributes['coordinate_end'];
+        return $this->attributes['coordinateEnd'];
     }
 
-    public function setCoordinateEnd(string $coordinate_end): void
+    public function setCoordinateEnd(string $coordinateEnd): void
     {
-        $this->attributes['coordinate_end'] = $coordinate_end;
+        $this->attributes['coordinateEnd'] = $coordinateEnd;
     }
 
     public function getCreatedAt(): string
@@ -134,5 +133,20 @@ class Route extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function setReviews(Collection $reviews): void
+    {
+        $this->reviews = $reviews;
     }
 }

@@ -43,8 +43,40 @@ return [
             'product_name' => 'Product Name',
             'price' => 'Price',
             'quantity' => 'Quantity',
-            'no_orders' => 'Seems to be that you have not purchased anything in our store =(',
+            'no_orders' => 'Seems that you have not purchased anything in our store yet =(',
         ],
+    ],
+    'review' => [
+        'form' => [
+            'qualification' => 'Rating',
+            'submit' => 'Submit Review',
+            'label_review' => 'Your Review',
+            'add_review' => 'Write a Review',
+            'select_rating' => 'Select Rating',
+            'login_to_review' => 'Please',
+            'review_placeholder' => 'Share your experience with this product...',
+            'rating' => [
+                'excellent' => 'Excellent',
+                'very_good' => 'Very Good',
+                'good' => 'Good',
+                'fair' => 'Fair',
+                'poor' => 'Poor',
+            ],
+        ],
+        'list' => [
+            'title' => 'Customer Reviews',
+            'rating' => 'Rating',
+            'no_reviews' => 'No reviews yet. Be the first to share your opinion!',
+            'date' => 'Date',
+            'view_all' => 'View All Reviews',
+        ],
+    ],
+
+    'hero' => [
+        'title' => 'Discover Your Perfect Ride',
+        'subtitle' => 'Quality bikes and accessories for all your cycling adventures',
+        'shop_now' => 'Shop Now',
+        'explore_routes' => 'Explore Routes',
     ],
 
     'products_user' => [
@@ -78,6 +110,7 @@ return [
             'all_categories' => 'All Categories',
             'filter' => 'Filter',
         ],
+
         'cart' => [
             'quantity' => 'Quantity',
             'add_to_cart' => 'Add to cart',
@@ -105,14 +138,32 @@ return [
         'list' => [
             'title' => 'Routes - MedalloBike',
             'subtitle' => 'List of available routes',
+            'description' => 'Description',
             'zone' => 'Zone',
             'type' => 'Type',
             'difficulty' => 'Difficulty',
+            'coordinateStar' => 'Star',
+            'coordinateEnd' => 'End',
             'show_route' => 'View Route',
             'no_routes' => 'No routes available yet.',
+            'filter_by_zone' => 'Filter by Zone',
+            'all_zones' => 'All Zones',
+            'filter' => 'Filter',
         ],
         'show' => [
             'title_suffix' => 'Route Details',
+            'description' => 'Description',
+            'details' => 'Route Details',
+            'zone' => 'Zone',
+            'difficulty' => 'Difficulty',
+            'coordinates' => 'Coordinates',
+            'start' => 'Start',
+            'end' => 'End',
+            'add_review' => 'Add a Review',
+            'back_to_list' => 'Back to Routes List',
+            'created_at' => 'Creation Date',
+            'updated_at' => 'Last Update',
+            'date_format' => 'Y-m-d H:i:s',
         ],
     ],
 ];

@@ -29,7 +29,10 @@ class Product extends Model
      * $this->attributes['state'] - string - contains the state of the product (available/disabled)
      * $this->attributes['created_at'] - timestamp - contains the record creation date
      * $this->attributes['updated_at'] - timestamp - contains the record update date
-     * $this->items - Item[] - contains the associated items
+     *
+     * $this->category - Category - contains the associated category
+     * $this->items - Collection<Item> - contains the associated items
+     * $this->reviews - Collection<Review> - contains the associated reviews
      */
     protected $fillable = [
         'title',
@@ -41,16 +44,6 @@ class Product extends Model
         'stock',
         'state',
     ];
-
-    public static function sumPricesByQuantities($products, array $productsInSession): int
-    {
-        $total = 0;
-        foreach ($products as $product) {
-            $total = $total + ($product->getPrice() * $productsInSession[$product->getId()]);
-        }
-
-        return $total;
-    }
 
     public function getId(): int
     {
@@ -152,9 +145,14 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function getCategory(): ?Category
+    public function getCategory(): Category
     {
         return $this->category;
+    }
+
+    public function setCategory(Category $category): void
+    {
+        $this->category = $category;
     }
 
     public function items(): HasMany
@@ -170,6 +168,31 @@ class Product extends Model
     public function setItems(Collection $items): void
     {
         $this->items = $items;
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function setReviews(Collection $reviews): void
+    {
+        $this->reviews = $reviews;
+    }
+
+    public static function sumPricesByQuantities(Collection $products, array $productsInSession): int
+    {
+        $total = 0;
+        foreach ($products as $product) {
+            $total = $total + ($product->getPrice() * $productsInSession[$product->getId()]);
+        }
+
+        return $total;
     }
 
     public function scopeTopSelling(Builder $query, int $limit = 3): Builder

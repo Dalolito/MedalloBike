@@ -36,6 +36,37 @@ return [
             'no_orders' => 'Parece que aún no has comprado nada en nuestra tienda =(',
         ],
     ],
+    'review' => [
+        'form' => [
+            'qualification' => 'Calificación',
+            'submit' => 'Enviar Reseña',
+            'label_review' => 'Tu Reseña',
+            'add_review' => 'Escribir una Reseña',
+            'login_to_review' => 'Por favor',
+            'select_rating' => 'Seleccionar calificación',
+            'review_placeholder' => 'Comparte tu experiencia con este producto...',
+            'rating' => [
+                'excellent' => 'Excelente',
+                'very_good' => 'Muy Bueno',
+                'good' => 'Bueno',
+                'fair' => 'Regular',
+                'poor' => 'Malo',
+            ],
+        ],
+        'list' => [
+            'title' => 'Reseñas de Clientes',
+            'rating' => 'Calificación',
+            'no_reviews' => 'Aún no hay reseñas. ¡Sé el primero en compartir tu opinión!',
+            'date' => 'Fecha',
+            'view_all' => 'Ver Todas las Reseñas',
+        ],
+    ],
+    'hero' => [
+        'title' => 'Descubre Tu Bicicleta Perfecta',
+        'subtitle' => 'Bicicletas y accesorios de calidad para todas tus aventuras ciclistas',
+        'shop_now' => 'Comprar Ahora',
+        'explore_routes' => 'Explorar Rutas',
+    ],
 
     'products_user' => [
         'show' => [
@@ -86,6 +117,38 @@ return [
                 'subtitle' => 'Estado de la Compra',
                 'completed' => 'Compra Completada',
             ],
+        ],
+    ],
+
+    'routes_user' => [
+        'show' => [
+            'title_suffix' => 'Rutas - MedalloBike',
+            'description' => 'Descripción',
+            'details' => 'Detalles de la Ruta',
+            'zone' => 'Zona',
+            'difficulty' => 'Dificultad',
+            'coordinates' => 'Coordenadas',
+            'start' => 'Inicio',
+            'end' => 'Fin',
+            'add_review' => 'Agregar una Reseña',
+            'back_to_list' => 'Volver a la Lista de Rutas',
+            'created_at' => 'Fecha de Creación',
+            'updated_at' => 'Fecha de Actualización',
+            'date_format' => 'd-m-Y H:i:s',
+        ],
+        'list' => [
+            'title' => 'Rutas - MedalloBike',
+            'subtitle' => 'Lista de Rutas',
+            'name' => 'Nombre de la Ruta',
+            'zone' => 'Zona',
+            'difficulty' => 'Dificultad',
+            'coordinateStar' => 'Inicio',
+            'coordinateEnd' => 'Final',
+            'show_route' => 'Ver Ruta',
+            'no_routes' => 'No hay rutas disponibles aún.',
+            'filter_by_zone' => 'Filtrar por Zona',
+            'all_zones' => 'Todas las Zonas',
+            'filter' => 'Filtrar',
         ],
     ],
 ];

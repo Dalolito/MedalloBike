@@ -37,7 +37,7 @@
 
                     <!-- No delete button as products are only disabled, not deleted -->
 
-                    <a href="{{ route('admin.product.list') }}" class="btn btn-secondary btn-sm">
+                    <a href="{{ route('admin.product.index') }}" class="btn btn-secondary btn-sm">
                         <i class="bi bi-arrow-left"></i> {{ __('admin.products.show.back_to_list') }}
                     </a>
                 </div>

@@ -16,33 +16,37 @@ class CustomUser extends Authenticatable
     use Notifiable;
 
     /**
-     * PRODUCT ATTRIBUTES
-     * $this->attributes['id'] - int - contains the product primary key (id)
+     * CUSTOMUSER ATTRIBUTES
+     * $this->attributes['id'] - int - contains the user primary key (id)
      * $this->attributes['name'] - string - contains the complete user name
      * $this->attributes['email'] - string - contains the user email
      * $this->attributes['password'] - string - contains the user password
-     * $this->attributes['address'] - string - contains the user address
-     * $this->attributes['role'] - string - contains the user role
-     * $this->attributes['budget'] - double - contains the user budget
-     * $this->attributes['remember_token'] - string - contains the user password
-     * $this->attributes['email_verified_at'] - timestamp - contains the user email verification date
+     * $this->attributes['address'] - string|null - contains the user address
+     * $this->attributes['role'] - string - contains the user role (user/admin)
+     * $this->attributes['budget'] - float - contains the user budget
+     * $this->attributes['remember_token'] - string|null - contains the user remember token
+     * $this->attributes['email_verified_at'] - timestamp|null - contains the user email verification date
      * $this->attributes['created_at'] - timestamp - contains the user creation date
      * $this->attributes['updated_at'] - timestamp - contains the user update date
-     * $this->orders - Order[] - contains the associated orders
-     */
-
-    /**
-     * The table associated with the model.
      *
-     * @var string
+     * $this->orders - Collection<Order> - contains the associated orders
+     * $this->reviews - Collection<Review> - contains the associated reviews
      */
     protected $table = 'custom_users';
 
-    protected $fillable = ['name', 'email', 'password', 'address', 'budget', 'role'];
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'address',
+        'budget',
+        'role',
+    ];
 
-    protected $hidden = ['password', 'remember_token'];
-
-    protected $casts = ['email_verified_at' => 'datetime', 'password' => 'hashed'];
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
 
     public function getId(): int
     {
@@ -79,9 +83,9 @@ class CustomUser extends Authenticatable
         $this->attributes['password'] = $password;
     }
 
-    public function getAddress(): string
+    public function getAddress(): ?string
     {
-        return $this->attributes['address'];
+        return $this->attributes['address'] ?? null;
     }
 
     public function setAddress(string $address): void
@@ -109,24 +113,34 @@ class CustomUser extends Authenticatable
         $this->attributes['budget'] = $budget;
     }
 
+    public function getRememberToken()
+    {
+        return $this->remember_token;
+    }
+
+    public function setRememberToken($value)
+    {
+        $this->remember_token = $value;
+    }
+
+    public function getEmailVerifiedAt(): ?string
+    {
+        return $this->attributes['email_verified_at'];
+    }
+
+    public function setEmailVerifiedAt(string $emailVerifiedAt): void
+    {
+        $this->attributes['email_verified_at'] = $emailVerifiedAt;
+    }
+
     public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
     }
 
-    public function setCreatedAt($createdAt): void
-    {
-        $this->attributes['created_at'] = $createdAt;
-    }
-
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
-    }
-
-    public function setUpdatedAt($updatedAt): void
-    {
-        $this->attributes['updated_at'] = $updatedAt;
     }
 
     public function orders(): HasMany
@@ -142,5 +156,20 @@ class CustomUser extends Authenticatable
     public function setOrders(Collection $orders): void
     {
         $this->orders = $orders;
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class, 'user_id');
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function setReviews(Collection $reviews): void
+    {
+        $this->reviews = $reviews;
     }
 }

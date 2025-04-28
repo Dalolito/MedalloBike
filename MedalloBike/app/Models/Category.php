@@ -4,8 +4,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
 {
@@ -18,10 +20,11 @@ class Category extends Model
      * $this->attributes['state'] - string - contains the state of the category (available/disabled)
      * $this->attributes['created_at'] - timestamp - contains the record creation date
      * $this->attributes['updated_at'] - timestamp - contains the record update date
+     * $this->products - Collection<Product> - contains the associated products
      */
     protected $fillable = [
-        'name', // Name of the category
-        'state', // State of the category (available/disabled)
+        'name',
+        'state',
     ];
 
     public function getId(): int
@@ -59,8 +62,18 @@ class Category extends Model
         return $this->attributes['updated_at'];
     }
 
-    public function products()
+    public function products(): HasMany
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
+    public function setProducts(Collection $products): void
+    {
+        $this->products = $products;
     }
 }

@@ -77,7 +77,7 @@
                                 <ul class="submenu">
                                     <li class="submenu-item">
                                         <a class="submenu-link"
-                                            href="{{ route('admin.product.list') }}">{{ __('app.view_product') }}</a>
+                                            href="{{ route('admin.product.index') }}">{{ __('app.view_product') }}</a>
                                     </li>
                                     <li class="submenu-item">
                                         <a class="submenu-link"
@@ -116,7 +116,9 @@
                                 <ul class="submenu">
                                     <li class="submenu-item">
                                         <a class="submenu-link"
-                                            href="{{ route('admin.category.list') }}">{{ __('app.view_category') }}</a>
+
+                                            href="{{ route('admin.category.index') }}">{{ __('app.view_category') }}</a>
+
                                     </li>
                                     <li class="submenu-item">
                                         <a class="submenu-link"
@@ -206,6 +208,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
     <script src="{{ asset('/js/sidebar.js') }}"></script>
+
 </body>
 
 </html>
