@@ -19,11 +19,7 @@
             <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center">
                     <h5>{{ $viewData['title'] }}</h5>
-<<<<<<< HEAD
-                    <a href="{{ route('admin.category.list') }}" class="btn btn-secondary">
-=======
                     <a href="{{ route('admin.category.index') }}" class="btn btn-secondary">
->>>>>>> 06444ed06cece2faea0d92999bb0171615e2e0b7
                         {{ __('admin.category.edit.back_to_list') }}
                     </a>
                 </div>

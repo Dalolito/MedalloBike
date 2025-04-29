@@ -17,13 +17,39 @@ class Purchase
             $user = CustomUser::find($userId);
             $products = Product::findMany(array_keys($productsInSession));
 
+            $total = 0;
+            foreach ($products as $product) {
+                $quantity = $productsInSession[$product->getId()];
+
+                if ($quantity > $product->getStock()) {
+                    $quantity = $product->getStock();
+                }
+
+                if ($quantity <= 0) {
+                    continue;
+                }
+
+                $total += ($product->getPrice() * $quantity);
+            }
+
+            if ($user->getBudget() < $total) {
+                return [
+                    'status' => 'insufficient_funds',
+                    'budget' => $user->getBudget(),
+                    'total' => $total,
+                    'message' => __('messages.error.insufficient_funds', [
+                        'budget' => number_format($user->getBudget(), 2),
+                        'total' => number_format($total, 2),
+                    ]),
+                ];
+            }
+
             $order = new Order;
             $order->setUserId($userId);
             $order->setTotalPrice(0);
             $order->setState('pending');
             $order->save();
 
-            $total = 0;
             $items = [];
             $stockAvailable = false;
 
@@ -48,8 +74,6 @@ class Purchase
                 $item->save();
                 $items[] = $item;
 
-                $total += ($product->getPrice() * $quantity);
-
                 $product->setStock($product->getStock() - $quantity);
                 $product->save();
             }
@@ -65,6 +89,9 @@ class Purchase
 
             $order->setTotalPrice($total);
             $order->save();
+
+            $user->setBudget($user->getBudget() - $total);
+            $user->save();
 
             return [
                 'status' => 'success',

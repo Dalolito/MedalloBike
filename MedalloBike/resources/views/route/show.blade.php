@@ -32,11 +32,9 @@
                     <!-- Route Map Image -->
                     <div class="col-lg-6">
                         <div class="route-image-container">
-                            <img src="{{ asset('/img/image.png') }}" 
-                                class="img-fluid w-100" 
-                                alt="{{ $viewData['route']->getName() }}"
-                                style="height: 400px; object-fit: cover;">
-                            <div class="position-absolute bottom-0 start-0 w-100 p-3 text-white" 
+                            <img src="{{ asset('/img/image.png') }}" class="img-fluid w-100"
+                                alt="{{ $viewData['route']->getName() }}" style="height: 400px; object-fit: cover;">
+                            <div class="position-absolute bottom-0 start-0 w-100 p-3 text-white"
                                 style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
                                 <h5 class="mb-0">{{ $viewData['route']->getZone() }}</h5>
                                 <small>
@@ -111,7 +109,8 @@
                                                                 <i class="bi bi-cursor-fill"></i>
                                                             </div>
                                                             <div>
-                                                                <small class="text-muted d-block">{{ __('app.routes_user.show.start') }}</small>
+                                                                <small
+                                                                    class="text-muted d-block">{{ __('app.routes_user.show.start') }}</small>
                                                                 <strong>{{ $viewData['route']->getCoordinateStart() }}</strong>
                                                             </div>
                                                         </div>
@@ -122,7 +121,8 @@
                                                                 <i class="bi bi-flag-fill"></i>
                                                             </div>
                                                             <div>
-                                                                <small class="text-muted d-block">{{ __('app.routes_user.show.end') }}</small>
+                                                                <small
+                                                                    class="text-muted d-block">{{ __('app.routes_user.show.end') }}</small>
                                                                 <strong>{{ $viewData['route']->getCoordinateEnd() }}</strong>
                                                             </div>
                                                         </div>
@@ -174,5 +174,4 @@
         </div>
     </div>
 
-@endsection 
-
+@endsection

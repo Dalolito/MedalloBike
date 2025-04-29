@@ -26,7 +26,7 @@
                             <!-- Route Info -->
                             <div class="card-body">
                                 <h5 class="card-title fw-bold mb-3">{{ $route->getName() }}</h5>
-                                
+
                                 <!-- Description -->
                                 <div class="mb-3">
                                     <p class="card-text text-muted mb-2">
@@ -42,7 +42,8 @@
                                         <div class="d-flex align-items-center">
                                             <i class="bi bi-bar-chart-fill text-primary me-2"></i>
                                             <div>
-                                                <small class="text-muted d-block">{{ __('app.routes_user.list.difficulty') }}</small>
+                                                <small
+                                                    class="text-muted d-block">{{ __('app.routes_user.list.difficulty') }}</small>
                                                 <div class="text-warning">
                                                     @for ($i = 1; $i <= 5; $i++)
                                                         @if ($i <= $route->getDifficulty())
@@ -61,7 +62,8 @@
                                         <div class="d-flex align-items-center">
                                             <i class="bi bi-geo-alt-fill text-danger me-2"></i>
                                             <div>
-                                                <small class="text-muted d-block">{{ __('app.routes_user.list.zone') }}</small>
+                                                <small
+                                                    class="text-muted d-block">{{ __('app.routes_user.list.zone') }}</small>
                                                 <span class="fw-medium">{{ $route->getZone() }}</span>
                                             </div>
                                         </div>
@@ -72,7 +74,8 @@
                                         <div class="d-flex align-items-center">
                                             <i class="bi bi-cursor-fill text-success me-2"></i>
                                             <div>
-                                                <small class="text-muted d-block">{{ __('app.routes_user.list.coordinateStar') }}</small>
+                                                <small
+                                                    class="text-muted d-block">{{ __('app.routes_user.list.coordinateStar') }}</small>
                                                 <span class="fw-medium">{{ $route->getCoordinateStart() }}</span>
                                             </div>
                                         </div>
@@ -83,7 +86,8 @@
                                         <div class="d-flex align-items-center">
                                             <i class="bi bi-flag-fill text-danger me-2"></i>
                                             <div>
-                                                <small class="text-muted d-block">{{ __('app.routes_user.list.coordinateEnd') }}</small>
+                                                <small
+                                                    class="text-muted d-block">{{ __('app.routes_user.list.coordinateEnd') }}</small>
                                                 <span class="fw-medium">{{ $route->getCoordinateEnd() }}</span>
                                             </div>
                                         </div>
@@ -117,10 +121,12 @@
         .hover-shadow {
             transition: all 0.3s ease;
         }
+
         .hover-shadow:hover {
             transform: translateY(-5px);
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
         }
+
         .fw-medium {
             font-weight: 500;
         }
