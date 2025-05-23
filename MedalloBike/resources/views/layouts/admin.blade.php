@@ -117,6 +117,7 @@
                                     <li class="submenu-item">
                                         <a class="submenu-link"
                                             href="{{ route('admin.category.index') }}">{{ __('app.view_category') }}</a>
+
                                     </li>
                                     <li class="submenu-item">
                                         <a class="submenu-link"

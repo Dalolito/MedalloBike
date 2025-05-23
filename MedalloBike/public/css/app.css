@@ -14,3 +14,51 @@ nav{
     height: 18vw;
     object-fit: cover;
 }
+
+/* Route Styles */
+.route-image-container {
+    transition: all 0.3s ease;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.route-image-container:hover {
+    transform: scale(1.02);
+}
+
+.hover-shadow {
+    transition: all 0.3s ease;
+}
+
+.hover-shadow:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.fw-medium {
+    font-weight: 500;
+}
+
+.route-details .card {
+    height: 100%;
+}
+
+.route-coordinate-icon {
+    font-size: 1.25rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.route-coordinate-icon.start {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+}
+
+.route-coordinate-icon.end {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+}

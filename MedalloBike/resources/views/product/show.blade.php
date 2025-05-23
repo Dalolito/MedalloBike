@@ -136,6 +136,7 @@
                                     </div>
                                 @endauth
 
+
                                 <!-- Review List -->
                                 @include('components.review.list', ['reviews' => $viewData['reviews']])
                             </div>
