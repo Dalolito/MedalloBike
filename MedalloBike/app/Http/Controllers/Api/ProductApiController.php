@@ -13,9 +13,10 @@ class ProductApiController extends Controller
     {
         $products = new ProductCollection(
             Product::where('state', 'available')
-                   ->where('stock', '>', 0)
-                   ->get()
+                ->where('stock', '>', 0)
+                ->get()
         );
+
         return response()->json($products, 200);
     }
 
@@ -23,9 +24,10 @@ class ProductApiController extends Controller
     {
         $products = new ProductCollection(
             Product::where('state', 'available')
-                   ->where('stock', '>', 0)
-                   ->paginate(5)
+                ->where('stock', '>', 0)
+                ->paginate(5)
         );
+
         return response()->json($products, 200);
     }
 }
