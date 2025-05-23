@@ -18,7 +18,7 @@ class Review extends Model
      * $this->attributes['updated_at'] - timestamp - contains the date the review was last updated
      *
      * $this->product - Product - contains the associated product
-     * $this->user - CustomUser - contains the associated user
+     * $this->user - User - contains the associated user
      */
     protected $fillable = [
         'qualification',
@@ -99,15 +99,15 @@ class Review extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(CustomUser::class);
+        return $this->belongsTo(User::class);
     }
 
-    public function getUser(): CustomUser
+    public function getUser(): User
     {
         return $this->user;
     }
 
-    public function setUser(CustomUser $user): void
+    public function setUser(User $user): void
     {
         $this->user = $user;
     }
