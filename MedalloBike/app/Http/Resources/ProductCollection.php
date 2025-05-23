@@ -10,9 +10,15 @@ class ProductCollection extends ResourceCollection
     public function toArray(Request $request): array
     {
         return [
-            'data' => $this->collection,
+            'data' => $this->collection->map(function ($product) {
+                return array_merge($product->toArray(), [
+                    'links' => [
+                        'view' => url('/product/show/' . $product->getId()),
+                    ]
+                ]);
+            }),
             'additionalData' => [
-                'storeName' => 'Mega Store',
+                'storeName' => 'MedalloBike',
                 'storeProductsLink' => 'http://127.0.0.1:8000/products',
             ],
         ];

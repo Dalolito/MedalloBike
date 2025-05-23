@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Laravel - API test example</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="infoProducts">
+  
+</div>
+   
+<script type="text/javascript">
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: 'http://127.0.0.1:8000/api/products',
+    success: function(data){
+      $('#infoProducts').html(JSON.stringify(data));
+    }
+  });
+</script>
+   
+</body>
+</html>
