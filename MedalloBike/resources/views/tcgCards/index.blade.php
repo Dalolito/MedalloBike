@@ -32,7 +32,7 @@
                             <!-- Card Info -->
                             <div class="card-body text-center">
                                 <h5 class="card-title fw-bold">{{ $card['name'] ?: __('app.tcg_cards.list.no_name') }}</h5>
-                                
+
                                 @if ($card['description'])
                                     <p class="card-text text-muted">
                                         {{ Str::limit($card['description'], 100) }}

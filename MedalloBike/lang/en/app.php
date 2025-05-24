@@ -173,6 +173,6 @@ return [
             'no_cards' => 'No cards are available at this time.',
             'no_name' => 'No name',
         ],
-    ]
-    
+    ],
+
 ];

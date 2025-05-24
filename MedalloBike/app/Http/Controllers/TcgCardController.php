@@ -9,11 +9,11 @@ class TCGCardController extends Controller
 {
     public function index(): View
     {
-        $tcgCardServiceApi = new TcgCardServiceApi();
+        $tcgCardServiceApi = new TcgCardServiceApi;
         $cardsData = $tcgCardServiceApi->getcards();
-        
+
         $cards = [];
-        
+
         if (isset($cardsData['data']) && is_array($cardsData['data'])) {
             foreach ($cardsData['data'] as $cardData) {
                 $cards[] = [
