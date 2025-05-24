@@ -25,9 +25,9 @@ class GoogleAuthController extends Controller
     {
         try {
             $googleUser = Socialite::driver('google')->user();
-            
+
             $user = User::where('email', $googleUser->email)->first();
-            
+
             if ($user) {
                 Auth::login($user);
             } else {
@@ -39,16 +39,16 @@ class GoogleAuthController extends Controller
                     'role' => 'user',
                     'budget' => 5000.00,
                 ]);
-                
+
                 Auth::login($user);
             }
-            
+
             if ($user->getRole() === 'admin') {
-                return redirect('/admin/home')->with('success', 'Bienvenido, ' . $user->getName());
+                return redirect('/admin/home')->with('success', 'Bienvenido, '.$user->getName());
             }
-            
-            return redirect('/')->with('success', 'Bienvenido, ' . $user->getName());
-            
+
+            return redirect('/')->with('success', 'Bienvenido, '.$user->getName());
+
         } catch (\Exception $e) {
             return redirect('/login')->with('error', 'Error al iniciar sesión con Google. Inténtalo de nuevo.');
         }
