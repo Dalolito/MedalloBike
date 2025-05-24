@@ -19,15 +19,9 @@
                     <div class="col-md-4 col-lg-3 mb-4">
                         <div class="card h-100">
                             <!-- Card Image -->
-                            @if ($card['image'])
-                                <img src="{{ $card['image'] }}" class="card-img-top img-fluid"
-                                    style="height: 250px; object-fit: cover;" alt="{{ $card['name'] }}">
-                            @else
-                                <div class="card-img-top d-flex align-items-center justify-content-center bg-light"
-                                    style="height: 250px;">
-                                    <i class="bi bi-image text-muted" style="font-size: 3rem;"></i>
-                                </div>
-                            @endif
+                            <img src="{{ asset('/img/CardImage.png') }}" class="card-img-top img-fluid"
+                                style="height: 250px; object-fit: cover;" alt="{{ $card['name'] }}">
+                         
 
                             <!-- Card Info -->
                             <div class="card-body text-center">
