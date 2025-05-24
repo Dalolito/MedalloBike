@@ -19,6 +19,8 @@ return [
     'categories' => 'Categorías',
     'create_category' => 'Crear Categoría',
     'view_category' => 'Ver Categorías',
+    'tcg' => 'Cartas TCG',
+    'view_tcg_cards' => 'Ver Cartas TCG',
 
     'myaccount' => [
         'title' => 'Mi Cuenta',
