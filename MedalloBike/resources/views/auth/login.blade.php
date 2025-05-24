@@ -12,6 +12,19 @@
                     <div class="card-header">{{ __('auth.login.title') }}</div>
 
                     <div class="card-body">
+                        <!-- Botón de inicio de sesión con Google -->
+                        <div class="mb-4">
+                            <a href="{{ route('auth.google') }}" class="btn btn-danger w-100 mb-3">
+                                <i class="bi bi-google me-2"></i>
+                                {{ __('auth.google.login') }}
+                            </a>
+                            
+                            <div class="text-center">
+                                <hr class="my-3">
+                                <small class="text-muted">{{ __('auth.google.or') }}</small>
+                            </div>
+                        </div>
+
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
 

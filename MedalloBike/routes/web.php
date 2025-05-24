@@ -80,4 +80,8 @@ Route::middleware('admin')->group(function () {
 // TCG Card Controller routes
 Route::get('/tcg/cards', $TCGCardControllerRoute.'@index')->name('tcgCards.index');
 
+// Google Auth routes
+Route::get('/auth/google', 'App\Http\Controllers\Auth\GoogleAuthController@redirectToGoogle')->name('auth.google');
+Route::get('/auth/google/callback', 'App\Http\Controllers\Auth\GoogleAuthController@handleGoogleCallback')->name('auth.google.callback');
+
 Auth::routes();
