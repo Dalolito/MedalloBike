@@ -166,4 +166,13 @@ return [
             'date_format' => 'Y-m-d H:i:s',
         ],
     ],
+    'tcg_cards' => [
+        'list' => [
+            'title' => 'TCG Cards - MedalloBike',
+            'subtitle' => 'Available card collection',
+            'no_cards' => 'No cards are available at this time.',
+            'no_name' => 'No name',
+        ],
+    ],
+
 ];

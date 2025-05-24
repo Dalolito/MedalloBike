@@ -8,6 +8,7 @@ $ProductControllerRoute = 'App\Http\Controllers\ProductController';
 $CartControllerRoute = 'App\Http\Controllers\CartController';
 $MyAccountControllerRoute = 'App\Http\Controllers\MyAccountController';
 $RouteControllerRoute = 'App\Http\Controllers\RouteController';
+$TCGCardControllerRoute = 'App\Http\Controllers\TCGCardController';
 
 // Home Controller routes
 Route::get('/', $HomeControllerRoute.'@index')->name('home.index');
@@ -75,5 +76,8 @@ Route::middleware('admin')->group(function () {
     $AdminHomeControllerRoute = 'App\Http\Controllers\Admin\AdminHomeController';
     Route::get('/admin/home', $AdminHomeControllerRoute.'@index')->name('admin.home.index');
 });
+
+// TCG Card Controller routes
+Route::get('/tcg/cards', $TCGCardControllerRoute.'@index')->name('tcgCards.index');
 
 Auth::routes();

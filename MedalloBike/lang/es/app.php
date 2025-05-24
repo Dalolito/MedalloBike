@@ -151,4 +151,12 @@ return [
             'filter' => 'Filtrar',
         ],
     ],
+    'tcg_cards' => [
+        'list' => [
+            'title' => 'Cartas TCG - MedalloBike',
+            'subtitle' => 'Colección de cartas disponibles',
+            'no_cards' => 'No hay cartas disponibles en este momento.',
+            'no_name' => 'Sin nombre',
+        ],
+    ],
 ];
