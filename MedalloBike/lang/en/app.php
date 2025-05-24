@@ -21,6 +21,8 @@ return [
     'view_category' => 'View Categories',
     'route' => 'Route',
     'view_route' => 'View Route',
+    'tcg' => 'TCG Cards',
+    'view_tcg_cards' => 'View TCG Cards',
 
     'review' => [
         'form' => [
