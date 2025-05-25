@@ -8,6 +8,7 @@ $ProductControllerRoute = 'App\Http\Controllers\ProductController';
 $CartControllerRoute = 'App\Http\Controllers\CartController';
 $MyAccountControllerRoute = 'App\Http\Controllers\MyAccountController';
 $RouteControllerRoute = 'App\Http\Controllers\RouteController';
+$TCGCardControllerRoute = 'App\Http\Controllers\TCGCardController';
 
 // Home Controller routes
 Route::get('/', $HomeControllerRoute.'@index')->name('home.index');
@@ -59,8 +60,9 @@ Route::middleware('auth')->group(function () {
     $ReviewControllerRoute = 'App\Http\Controllers\ReviewController';
     Route::post('/review/save', $ReviewControllerRoute.'@save')->name('review.save');
 });
+
 // Route Controller routes
-Route::get('/route', $RouteControllerRoute.'@list')->name('route.list');
+Route::get('/route', $RouteControllerRoute.'@index')->name('route.index');
 Route::get('/route/show/{id}', $RouteControllerRoute.'@show')->name('route.show');
 
 // My Account Controller routes
@@ -73,6 +75,19 @@ Route::middleware('auth')->group(function () {
 Route::middleware('admin')->group(function () {
     $AdminHomeControllerRoute = 'App\Http\Controllers\Admin\AdminHomeController';
     Route::get('/admin/home', $AdminHomeControllerRoute.'@index')->name('admin.home.index');
+});
+
+// TCG Card Controller routes
+Route::get('/tcg/cards', $TCGCardControllerRoute.'@index')->name('tcgCards.index');
+
+// Google Auth routes
+Route::get('/auth/google', 'App\Http\Controllers\Auth\GoogleAuthController@redirectToGoogle')->name('auth.google');
+Route::get('/auth/google/callback', 'App\Http\Controllers\Auth\GoogleAuthController@handleGoogleCallback')->name('auth.google.callback');
+// Report Controller routes
+Route::middleware('auth')->group(function () {
+    $ReportControllerRoute = 'App\\Http\\Controllers\\ReportController';
+    Route::get('/reports', $ReportControllerRoute.'@showReports')->name('admin.reports.index');
+    Route::get('/reports/reviews', $ReportControllerRoute.'@generateReviewsReport')->name('admin.reports.reviews');
 });
 
 Auth::routes();

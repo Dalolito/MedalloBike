@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', 'MedalloBike')
 @section('content')
+
     <div class="container">
         <!-- Hero Banner -->
         <div class="row mb-5">
@@ -14,7 +15,7 @@
                             <a href="{{ route('product.index') }}" class="btn btn-light btn-lg">
                                 {{ __('app.hero.shop_now') }}
                             </a>
-                            <a href="#" class="btn btn-outline-light btn-lg ms-3">
+                            <a href="{{ route('route.index') }}" class="btn btn-outline-light btn-lg ms-3">
                                 {{ __('app.hero.explore_routes') }}
                             </a>
                         </div>
@@ -23,4 +24,3 @@
             </div>
         </div>
     </div>
-@endsection

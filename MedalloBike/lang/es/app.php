@@ -19,6 +19,8 @@ return [
     'categories' => 'Categorías',
     'create_category' => 'Crear Categoría',
     'view_category' => 'Ver Categorías',
+    'tcg' => 'Cartas TCG',
+    'view_tcg_cards' => 'Ver Cartas TCG',
 
     'myaccount' => [
         'title' => 'Mi Cuenta',
@@ -117,6 +119,46 @@ return [
                 'subtitle' => 'Estado de la Compra',
                 'completed' => 'Compra Completada',
             ],
+        ],
+    ],
+
+    'routes_user' => [
+        'show' => [
+            'title_suffix' => 'Rutas - MedalloBike',
+            'description' => 'Descripción',
+            'details' => 'Detalles de la Ruta',
+            'zone' => 'Zona',
+            'difficulty' => 'Dificultad',
+            'coordinates' => 'Coordenadas',
+            'start' => 'Inicio',
+            'end' => 'Fin',
+            'add_review' => 'Agregar una Reseña',
+            'back_to_list' => 'Volver a la Lista de Rutas',
+            'created_at' => 'Fecha de Creación',
+            'updated_at' => 'Fecha de Actualización',
+            'date_format' => 'd-m-Y H:i:s',
+        ],
+        'list' => [
+            'title' => 'Rutas - MedalloBike',
+            'subtitle' => 'Lista de Rutas',
+            'name' => 'Nombre de la Ruta',
+            'zone' => 'Zona',
+            'difficulty' => 'Dificultad',
+            'coordinateStar' => 'Inicio',
+            'coordinateEnd' => 'Final',
+            'show_route' => 'Ver Ruta',
+            'no_routes' => 'No hay rutas disponibles aún.',
+            'filter_by_zone' => 'Filtrar por Zona',
+            'all_zones' => 'Todas las Zonas',
+            'filter' => 'Filtrar',
+        ],
+    ],
+    'tcg_cards' => [
+        'list' => [
+            'title' => 'Cartas TCG - MedalloBike',
+            'subtitle' => 'Colección de cartas disponibles',
+            'no_cards' => 'No hay cartas disponibles en este momento.',
+            'no_name' => 'Sin nombre',
         ],
     ],
 ];

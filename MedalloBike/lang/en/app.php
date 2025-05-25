@@ -21,6 +21,8 @@ return [
     'view_category' => 'View Categories',
     'route' => 'Route',
     'view_route' => 'View Route',
+    'tcg' => 'TCG Cards',
+    'view_tcg_cards' => 'View TCG Cards',
 
     'review' => [
         'form' => [
@@ -43,7 +45,7 @@ return [
             'product_name' => 'Product Name',
             'price' => 'Price',
             'quantity' => 'Quantity',
-            'no_orders' => 'Seems to be that you have not purchased anything in our store =(',
+            'no_orders' => 'Seems that you have not purchased anything in our store yet =(',
         ],
     ],
     'review' => [
@@ -52,7 +54,7 @@ return [
             'submit' => 'Submit Review',
             'label_review' => 'Your Review',
             'add_review' => 'Write a Review',
-            'select_rating' => 'Select rating',
+            'select_rating' => 'Select Rating',
             'login_to_review' => 'Please',
             'review_placeholder' => 'Share your experience with this product...',
             'rating' => [
@@ -138,14 +140,41 @@ return [
         'list' => [
             'title' => 'Routes - MedalloBike',
             'subtitle' => 'List of available routes',
+            'description' => 'Description',
             'zone' => 'Zone',
             'type' => 'Type',
             'difficulty' => 'Difficulty',
+            'coordinateStar' => 'Star',
+            'coordinateEnd' => 'End',
             'show_route' => 'View Route',
             'no_routes' => 'No routes available yet.',
+            'filter_by_zone' => 'Filter by Zone',
+            'all_zones' => 'All Zones',
+            'filter' => 'Filter',
         ],
         'show' => [
             'title_suffix' => 'Route Details',
+            'description' => 'Description',
+            'details' => 'Route Details',
+            'zone' => 'Zone',
+            'difficulty' => 'Difficulty',
+            'coordinates' => 'Coordinates',
+            'start' => 'Start',
+            'end' => 'End',
+            'add_review' => 'Add a Review',
+            'back_to_list' => 'Back to Routes List',
+            'created_at' => 'Creation Date',
+            'updated_at' => 'Last Update',
+            'date_format' => 'Y-m-d H:i:s',
         ],
     ],
+    'tcg_cards' => [
+        'list' => [
+            'title' => 'TCG Cards - MedalloBike',
+            'subtitle' => 'Available card collection',
+            'no_cards' => 'No cards are available at this time.',
+            'no_name' => 'No name',
+        ],
+    ],
+
 ];

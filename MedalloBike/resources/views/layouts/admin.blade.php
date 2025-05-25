@@ -117,6 +117,7 @@
                                     <li class="submenu-item">
                                         <a class="submenu-link"
                                             href="{{ route('admin.category.index') }}">{{ __('app.view_category') }}</a>
+
                                     </li>
                                     <li class="submenu-item">
                                         <a class="submenu-link"
@@ -124,6 +125,12 @@
                                     </li>
                                 </ul>
                             </div>
+                        </li>
+                        <li>
+                            <a class="sidebar-nav-link" href="{{ route('admin.reports.index') }}">
+                                <i class="bi bi-file-earmark-text nav-icon"></i>
+                                Reports
+                            </a>
                         </li>
                     </ul>
                 </div>

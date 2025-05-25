@@ -56,4 +56,9 @@ return [
             ],
         ],
     ],
+    'google' => [
+        'login' => 'Sign in with Google',
+        'register' => 'Sign up with Google',
+        'or' => 'or use your local account',
+    ],
 ];
