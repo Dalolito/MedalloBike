@@ -80,13 +80,13 @@ return new class extends Migration
     {
         $conn = Schema::getConnection()->getDoctrineSchemaManager();
         $foreignKeys = $conn->listTableForeignKeys($table);
-        
+
         foreach ($foreignKeys as $foreignKey) {
             if (in_array($column, $foreignKey->getLocalColumns())) {
                 return true;
             }
         }
-        
+
         return false;
     }
 };
