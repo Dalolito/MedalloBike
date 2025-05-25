@@ -77,6 +77,12 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/home', $AdminHomeControllerRoute.'@index')->name('admin.home.index');
 });
 
+// TCG Card Controller routes
+Route::get('/tcg/cards', $TCGCardControllerRoute.'@index')->name('tcgCards.index');
+
+// Google Auth routes
+Route::get('/auth/google', 'App\Http\Controllers\Auth\GoogleAuthController@redirectToGoogle')->name('auth.google');
+Route::get('/auth/google/callback', 'App\Http\Controllers\Auth\GoogleAuthController@handleGoogleCallback')->name('auth.google.callback');
 // Report Controller routes
 Route::middleware('auth')->group(function () {
     $ReportControllerRoute = 'App\\Http\\Controllers\\ReportController';
