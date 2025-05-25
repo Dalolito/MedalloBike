@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description');
 
             // Relación con User
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
 
             // Relación opcional con Product o Route
             $table->foreignId('product_id')->nullable()->constrained()->onDelete('set null');

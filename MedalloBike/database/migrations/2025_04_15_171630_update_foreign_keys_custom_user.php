@@ -11,10 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Primero, elimina las restricciones de clave foránea existentes
-        Schema::table('orders', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-        });
+        try {
+            // Primero, elimina las restricciones de clave foránea existentes
+            Schema::table('orders', function (Blueprint $table) {
+                $table->dropForeign(['user_id']);
+            });
+        } catch (\Exception $e) {
+            // Si falla, significa que la clave foránea no existe
+        }
 
         // Luego actualiza las referencias para que apunten a la tabla 'users'
         Schema::table('orders', function (Blueprint $table) {
@@ -26,7 +30,11 @@ return new class extends Migration
         if (Schema::hasTable('reviews')) {
             Schema::table('reviews', function (Blueprint $table) {
                 if (Schema::hasColumn('reviews', 'user_id')) {
-                    $table->dropForeign(['user_id']);
+                    try {
+                        $table->dropForeign(['user_id']);
+                    } catch (\Exception $e) {
+                        // Si falla, significa que la clave foránea no existe
+                    }
                     $table->foreign('user_id')->references('id')->on('users');
                 }
             });
@@ -38,19 +46,47 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Revertir los cambios en caso de rollback
+        try {
+            // Revertir los cambios en caso de rollback
+            Schema::table('orders', function (Blueprint $table) {
+                $table->dropForeign(['user_id']);
+            });
+        } catch (\Exception $e) {
+            // Si falla, significa que la clave foránea no existe
+        }
+
         Schema::table('orders', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
             $table->foreign('user_id')->references('id')->on('users');
         });
 
         if (Schema::hasTable('reviews')) {
             Schema::table('reviews', function (Blueprint $table) {
                 if (Schema::hasColumn('reviews', 'user_id')) {
-                    $table->dropForeign(['user_id']);
+                    try {
+                        $table->dropForeign(['user_id']);
+                    } catch (\Exception $e) {
+                        // Si falla, significa que la clave foránea no existe
+                    }
                     $table->foreign('user_id')->references('id')->on('users');
                 }
             });
         }
+    }
+
+    /**
+     * Check if a foreign key exists
+     */
+    private function hasForeignKey($table, $column): bool
+    {
+        $conn = Schema::getConnection()->getDoctrineSchemaManager();
+        $foreignKeys = $conn->listTableForeignKeys($table);
+
+        foreach ($foreignKeys as $foreignKey) {
+            if (in_array($column, $foreignKey->getLocalColumns())) {
+                return true;
+            }
+        }
+
+        return false;
     }
 };

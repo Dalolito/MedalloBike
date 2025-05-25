@@ -51,7 +51,15 @@ return new class extends Migration
         // No eliminamos la tabla users al hacer rollback
         // Solo eliminamos las columnas que agregamos
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['address', 'role', 'budget']);
+            if (Schema::hasColumn('users', 'address')) {
+                $table->dropColumn('address');
+            }
+            if (Schema::hasColumn('users', 'role')) {
+                $table->dropColumn('role');
+            }
+            if (Schema::hasColumn('users', 'budget')) {
+                $table->dropColumn('budget');
+            }
         });
     }
 };

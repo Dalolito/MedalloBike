@@ -1,5 +1,5 @@
-
 <?php
+
 return [
     'dashboard' => [
         'title' => 'Admin Panel',
@@ -158,4 +158,39 @@ return [
     'view_products' => 'View Products',
     'create_category' => 'Create Category',
     'view_categories' => 'View Categories',
+    'reports' => [
+        'reviews' => [
+            'title' => 'Product Reviews Report',
+            'subtitle' => 'Analysis of product ratings and reviews',
+            'date_range' => 'Report period',
+            'generated_at' => 'Generated at',
+            'general_stats' => 'General Statistics',
+            'total_reviews' => 'Total Reviews',
+            'average_rating' => 'Average Rating',
+            'total_products_reviewed' => 'Total Products Reviewed',
+            'distribution' => 'Ratings Distribution',
+            'qualification' => 'Rating',
+            'count' => 'Count',
+            'percentage' => 'Percentage',
+            'by_product' => 'Reviews by Product',
+            'product' => 'Product',
+            'brand' => 'Brand',
+            'reviews_count' => 'Reviews Count',
+            'avg_rating' => 'Avg. Rating',
+            'min_rating' => 'Min. Rating',
+            'max_rating' => 'Max. Rating',
+        ],
+        'index' => [
+            'title' => 'Reports',
+            'reviews_card_title' => 'Reviews Report',
+            'reviews_card_text' => 'Generate a detailed report of product reviews, including statistics and ratings distribution.',
+            'reviews_button' => 'Generate Reviews Report',
+            'purchases_card_title' => 'Purchases Report',
+            'purchases_card_text' => 'Generate a detailed report of purchases, including statistics by category and top-selling products.',
+            'purchases_button' => 'Generate Purchases Report',
+            'start_date' => 'Start Date',
+            'end_date' => 'End Date',
+            'generate_report' => 'Generate Report',
+        ],
+    ],
 ];
