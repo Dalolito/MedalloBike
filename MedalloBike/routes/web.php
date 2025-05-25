@@ -76,4 +76,11 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/home', $AdminHomeControllerRoute.'@index')->name('admin.home.index');
 });
 
+// Report Controller routes
+Route::middleware('auth')->group(function () {
+    $ReportControllerRoute = 'App\\Http\\Controllers\\ReportController';
+    Route::get('/reports', $ReportControllerRoute.'@showReports')->name('admin.reports.index');
+    Route::get('/reports/reviews', $ReportControllerRoute.'@generateReviewsReport')->name('admin.reports.reviews');
+});
+
 Auth::routes();

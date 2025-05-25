@@ -1,5 +1,5 @@
-
 <?php
+
 return [
     'dashboard' => [
         'title' => 'Panel de Administración',
@@ -107,4 +107,39 @@ return [
     'view_products' => 'Ver Productos',
     'create_category' => 'Crear Categoría',
     'view_categories' => 'Ver Categorías',
+    'reports' => [
+        'reviews' => [
+            'title' => 'Reporte de Reseñas',
+            'subtitle' => 'Análisis de calificaciones y reseñas',
+            'date_range' => 'Período del reporte',
+            'generated_at' => 'Generado el',
+            'general_stats' => 'Estadísticas Generales',
+            'total_reviews' => 'Total de Reseñas',
+            'average_rating' => 'Calificación Promedio',
+            'total_products_reviewed' => 'Total de Productos Reseñados',
+            'distribution' => 'Distribución de Calificaciones',
+            'qualification' => 'Calificación',
+            'count' => 'Cantidad',
+            'percentage' => 'Porcentaje',
+            'by_product' => 'Reseñas por Producto',
+            'product' => 'Producto',
+            'brand' => 'Marca',
+            'reviews_count' => 'Cantidad de Reseñas',
+            'avg_rating' => 'Calificación Promedio',
+            'min_rating' => 'Calificación Mínima',
+            'max_rating' => 'Calificación Máxima',
+        ],
+        'index' => [
+            'title' => 'Reportes',
+            'reviews_card_title' => 'Reporte de Reseñas',
+            'reviews_card_text' => 'Genera un reporte detallado de las reseñas de productos, incluyendo estadísticas y distribución de calificaciones.',
+            'reviews_button' => 'Generar Reporte de Reseñas',
+            'purchases_card_title' => 'Reporte de Compras',
+            'purchases_card_text' => 'Genera un reporte detallado de las compras realizadas, incluyendo estadísticas por categoría y productos más vendidos.',
+            'purchases_button' => 'Generar Reporte de Compras',
+            'start_date' => 'Fecha Inicio',
+            'end_date' => 'Fecha Fin',
+            'generate_report' => 'Generar Reporte',
+        ],
+    ],
 ];
