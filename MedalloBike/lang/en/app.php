@@ -177,4 +177,62 @@ return [
         ],
     ],
 
+    'features' => [
+        'title' => 'Why Choose MedalloBike?',
+        'subtitle' => 'We are more than a store, we are your companion in every adventure on wheels',
+        'quality' => [
+            'title' => 'Premium Quality',
+            'description' => 'We select the best brands and products to guarantee durability and exceptional performance on every ride.',
+        ],
+        'routes' => [
+            'title' => 'Exclusive Routes',
+            'description' => 'Discover carefully selected routes in Medellín and its surroundings, with different difficulty levels.',
+        ],
+        'support' => [
+            'title' => 'Expert Support',
+            'description' => 'Our team of specialists advises you to find the perfect bicycle according to your needs and style.',
+        ],
+    ],
+
+    'stats' => [
+        'customers' => 'Happy Customers',
+        'bikes' => 'Bikes Sold',
+        'routes' => 'Available Routes',
+        'experience' => 'Years of Experience',
+    ],
+
+    'products_preview' => [
+        'title' => 'Featured Products',
+        'subtitle' => 'Discover our selection of high-quality bicycles and accessories',
+        'view_all' => 'View All Products',
+    ],
+
+    'routes_preview' => [
+        'title' => 'Recommended Routes',
+        'subtitle' => 'Explore the best trails and cycling routes in the region',
+        'view_all' => 'Explore Routes',
+    ],
+
+    'about' => [
+        'title' => 'Our Story',
+        'description' => 'MedalloBike was born from a passion for cycling and a commitment to offering the best bicycles and accessories in Medellín. Since our beginnings, we have worked to build a community of cyclists united by adventure and love for two wheels.',
+        'mission' => 'Our mission is to make cycling accessible to everyone, providing quality products, safe routes and the best customer service.',
+    ],
+
+    'services' => [
+        'title' => 'Our Services',
+        'sales' => 'Bicycle and accessory sales',
+        'maintenance' => 'Maintenance and repair',
+        'consulting' => 'Personalized consulting',
+        'routes' => 'Guided routes and maps',
+        'community' => 'Cycling community',
+    ],
+
+    'cta' => [
+        'title' => 'Ready for your next adventure?',
+        'subtitle' => 'Join our community of cyclists and discover a world of possibilities on two wheels.',
+        'shop_now' => 'Shop Now',
+        'my_account' => 'My Account',
+        'register' => 'Join Now',
+    ],
 ];
