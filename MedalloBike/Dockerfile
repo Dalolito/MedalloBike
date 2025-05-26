@@ -16,3 +16,5 @@ RUN composer install \
 RUN if [ ! -f .env ]; then cp .env.example .env; fi
 RUN php artisan key:generate
 RUN chmod -R 777 storage
+
+CMD bash -c "sleep 10 && php artisan migrate --force && php artisan db:seed --force && apache2-foreground"
