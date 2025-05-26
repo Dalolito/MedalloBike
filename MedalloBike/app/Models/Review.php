@@ -20,6 +20,7 @@ class Review extends Model
      *
      * $this->product - Product - contains the associated product
      * $this->user - User - contains the associated user
+     * $this->route - Route - contains the associated route
      */
     protected $fillable = [
         'qualification',
@@ -96,6 +97,21 @@ class Review extends Model
     public function setProduct(Product $product): void
     {
         $this->product = $product;
+    }
+
+        public function route(): BelongsTo
+    {
+        return $this->belongsTo(Route::class);
+    }
+
+    public function getRoute(): Route
+    {
+        return $this->route;
+    }
+
+    public function setRoute(Route $route): void
+    {
+        $this->route = $route;
     }
 
     public function user(): BelongsTo
