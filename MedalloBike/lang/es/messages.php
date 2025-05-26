@@ -20,4 +20,7 @@ return [
         'stock_not_available' => 'No hay suficiente stock disponible para algunos productos en tu carrito.',
         'quantity_exceeds_limit' => 'El valor debe ser menor o igual que :limit.',
     ],
+
+    'google_auth_error' => 'Error al autenticar con Google. Por favor intenta de nuevo.',
+    'welcome_user' => 'Bienvenido, :name',
 ];

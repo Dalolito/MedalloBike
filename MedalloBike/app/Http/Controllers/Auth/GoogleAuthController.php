@@ -3,54 +3,58 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Services\GoogleAuthService;
+use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\View\View;
 use Laravel\Socialite\Facades\Socialite;
 
 class GoogleAuthController extends Controller
 {
-    /**
-     * Redirect to Google for authentication
-     */
-    public function redirectToGoogle()
+    protected GoogleAuthService $googleAuthService;
+
+    public function __construct(GoogleAuthService $googleAuthService)
+    {
+        $this->googleAuthService = $googleAuthService;
+    }
+
+    public function redirectToGoogle(): RedirectResponse
     {
         return Socialite::driver('google')->redirect();
     }
 
-    /**
-     * Handle Google callback
-     */
-    public function handleGoogleCallback()
+    public function handleGoogleCallback(): RedirectResponse
     {
         try {
             $googleUser = Socialite::driver('google')->user();
 
-            $user = User::where('email', $googleUser->email)->first();
+            $user = $this->googleAuthService->findOrCreateUser($googleUser);
 
-            if ($user) {
-                Auth::login($user);
-            } else {
-                $user = User::create([
-                    'name' => $googleUser->name,
-                    'email' => $googleUser->email,
-                    'password' => Hash::make(uniqid()),
-                    'email_verified_at' => now(),
-                    'role' => 'user',
-                    'budget' => 5000.00,
-                ]);
+            Auth::login($user);
 
-                Auth::login($user);
-            }
+            $redirectUrl = $this->googleAuthService->getRedirectUrl($user);
 
-            if ($user->getRole() === 'admin') {
-                return redirect('/admin/home')->with('success', 'Bienvenido, '.$user->getName());
-            }
+            $viewData = [];
+            $viewData['message'] = $this->googleAuthService->getWelcomeMessage($user);
 
-            return redirect('/')->with('success', 'Bienvenido, '.$user->getName());
+            return redirect($redirectUrl)->with('viewData', $viewData);
 
-        } catch (\Exception $e) {
-            return redirect('/login')->with('error', 'Error al iniciar sesión con Google. Inténtalo de nuevo.');
+        } catch (Exception $e) {
+            $viewData = [];
+            $viewData['error'] = __('messages.google_auth_error');
+
+            return redirect('/login')->with('viewData', $viewData);
         }
+    }
+
+    public function showError(): View
+    {
+        $viewData = [];
+        $viewData['title'] = __('auth.error.title');
+        $viewData['subtitle'] = __('auth.error.subtitle');
+        $viewData['message'] = __('auth.error.google_connection_failed');
+
+        return view('auth.error')->with('viewData', $viewData);
     }
 }
