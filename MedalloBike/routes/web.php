@@ -88,12 +88,12 @@ Route::middleware('auth')->group(function () {
     $ReportControllerRoute = 'App\\Http\\Controllers\\ReportController';
     Route::get('/reports', $ReportControllerRoute.'@showReports')->name('admin.reports.index');
     Route::get('/reports/reviews/pdf', $ReportControllerRoute.'@generateReviewsReport')->name('admin.reports.reviews');
-    
+
 });
 
 // Rutas para archivos estáticos
 Route::get('/css/{file}', function ($file) {
-    return response()->file(public_path('css/' . $file));
+    return response()->file(public_path('css/'.$file));
 })->where('file', '.*');
 
 Auth::routes();

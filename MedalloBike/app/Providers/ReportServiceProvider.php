@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Interfaces\ReportGenerate;
-use App\Utils\ReportGenerateExcel;
 use App\Utils\ReportGeneratePDF;
 use App\Utils\ReportGenerateWord;
 use Illuminate\Support\ServiceProvider;

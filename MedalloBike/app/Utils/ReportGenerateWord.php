@@ -15,23 +15,23 @@ class ReportGenerateWord implements ReportGenerate
         $productReviews = $this->getProductReviews($request);
         $generalStats = $this->getGeneralStats($request, $productReviews);
 
-        $phpWord = new PhpWord();
+        $phpWord = new PhpWord;
         $section = $phpWord->addSection();
 
         $section->addTitle(__('admin.reports.reviews.title'), 1);
         $section->addText(__('admin.reports.reviews.subtitle'));
-        $section->addText(__('admin.reports.reviews.date_range') . ': ' . ($request->input('start_date') ? date('d/m/Y', strtotime($request->input('start_date'))) : 'Todo') . ' - ' . ($request->input('end_date') ? date('d/m/Y', strtotime($request->input('end_date'))) : 'Todo'));
+        $section->addText(__('admin.reports.reviews.date_range').': '.($request->input('start_date') ? date('d/m/Y', strtotime($request->input('start_date'))) : 'Todo').' - '.($request->input('end_date') ? date('d/m/Y', strtotime($request->input('end_date'))) : 'Todo'));
         $section->addTextBreak();
 
         // General statistics
-        $section->addText(__('admin.reports.reviews.general_stats') . ':', ['bold' => true]);
-        $section->addText(__('admin.reports.reviews.total_reviews') . ': ' . $generalStats['total_reviews']);
-        $section->addText(__('admin.reports.reviews.average_rating') . ': ' . number_format($generalStats['average_rating'], 2, ',', '.'));
-        $section->addText(__('admin.reports.reviews.total_products_reviewed') . ': ' . $generalStats['total_products_reviewed']);
+        $section->addText(__('admin.reports.reviews.general_stats').':', ['bold' => true]);
+        $section->addText(__('admin.reports.reviews.total_reviews').': '.$generalStats['total_reviews']);
+        $section->addText(__('admin.reports.reviews.average_rating').': '.number_format($generalStats['average_rating'], 2, ',', '.'));
+        $section->addText(__('admin.reports.reviews.total_products_reviewed').': '.$generalStats['total_products_reviewed']);
         $section->addTextBreak();
 
         // Reviews by product table
-        $section->addText(__('admin.reports.reviews.by_product') . ':', ['bold' => true]);
+        $section->addText(__('admin.reports.reviews.by_product').':', ['bold' => true]);
         $table = $section->addTable();
         $table->addRow();
         $table->addCell()->addText(__('admin.reports.reviews.product'));
@@ -113,4 +113,4 @@ class ReportGenerateWord implements ReportGenerate
             $query->whereDate('created_at', '<=', request('end_date'));
         }
     }
-} 
+}
