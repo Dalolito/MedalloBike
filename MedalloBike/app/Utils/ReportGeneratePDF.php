@@ -5,31 +5,25 @@ namespace App\Utils;
 use App\Interfaces\ReportGenerate;
 use App\Models\Product;
 use App\Models\Review;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\ReviewsExport;
 
-class ReportGenerateExcel implements ReportGenerate
+class ReportGeneratePDF implements ReportGenerate
 {
     public function generateReport(Request $request)
     {
         $productReviews = $this->getProductReviews($request);
         $generalStats = $this->getGeneralStats($request, $productReviews);
-        
-        $startDate = $request->input('start_date') ? date('d/m/Y', strtotime($request->input('start_date'))) : 'Todo';
-        $endDate = $request->input('end_date') ? date('d/m/Y', strtotime($request->input('end_date'))) : 'Todo';
-
-        $data = [
+        $pdf = PDF::loadView('admin.reports.reviewsPdf', [
             'productReviews' => $productReviews,
             'generalStats' => $generalStats,
-            'startDate' => $startDate,
-            'endDate' => $endDate
-        ];
+            'title' => 'Reporte de Reseñas de Productos',
+            'subtitle' => 'Análisis de calificaciones y reseñas por producto',
+            'startDate' => $request->input('start_date') ? date('d/m/Y', strtotime($request->input('start_date'))) : 'Todo',
+            'endDate' => $request->input('end_date') ? date('d/m/Y', strtotime($request->input('end_date'))) : 'Todo',
+        ]);
 
-        return Excel::download(
-            new ReviewsExport($data),
-            'reporte-resenas.xlsx'
-        );
+        return $pdf->download('reporte-resenas.pdf');
     }
 
     private function applyReviewDateFilters($q, $start_date, $end_date)
@@ -88,4 +82,4 @@ class ReportGenerateExcel implements ReportGenerate
             $query->whereDate('created_at', '<=', request('end_date'));
         }
     }
-} 
+}
