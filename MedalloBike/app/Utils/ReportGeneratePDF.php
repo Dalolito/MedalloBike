@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class ReportGeneratePDF implements ReportGenerate
 {
-    public function generateReport(Request $request)
+    public function generateReport(Request $request): Response
     {
         $productReviews = Product::getProductReviewsReport($request->input('start_date'), $request->input('end_date'));
         $generalStats = Review::getGeneralStats($request->input('start_date'), $request->input('end_date'), $productReviews);

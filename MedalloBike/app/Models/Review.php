@@ -112,7 +112,7 @@ class Review extends Model
         $this->user = $user;
     }
 
-    public static function getGeneralStats($start_date, $end_date, $productReviews)
+    public static function getGeneralStats(string $start_date, string $end_date, Collection $productReviews): array
     {
         $query = self::query();
         if ($start_date) {

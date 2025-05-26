@@ -204,7 +204,7 @@ class Product extends Model
             ->take($limit);
     }
 
-    public static function getProductReviewsReport($start_date, $end_date)
+    public static function getProductReviewsReport(string $start_date, string $end_date): Collection
     {
         $query = self::withCount(['reviews' => function ($q) use ($start_date, $end_date) {
             if ($start_date) {

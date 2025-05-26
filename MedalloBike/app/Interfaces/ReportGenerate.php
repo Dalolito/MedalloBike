@@ -6,5 +6,5 @@ use Illuminate\Http\Request;
 
 interface ReportGenerate
 {
-    public function generateReport(Request $request);
+    public function generateReport(Request $request): Response;
 }
