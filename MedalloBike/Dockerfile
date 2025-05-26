@@ -1,4 +1,4 @@
-FROM php:8.1.4-apache
+FROM php:8.2-apache
 RUN apt-get update -y && apt-get install -y openssl zip unzip git 
 RUN docker-php-ext-install pdo_mysql
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -13,7 +13,8 @@ RUN composer install \
     --no-plugins \
     --no-scripts \
     --prefer-dist
+RUN if [ ! -f .env ]; then cp .env.example .env; fi
 RUN php artisan key:generate
-RUN php artisan migrate
 RUN chmod -R 777 storage
-RUN php artisan db:seed
+
+CMD bash -c "sleep 10 && php artisan migrate --force && php artisan db:seed --force && apache2-foreground"
