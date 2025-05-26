@@ -18,7 +18,6 @@
                 <label for="format" class="form-label">{{ __('admin.reports.index.format') }}</label>
                 <select name="format" id="format" class="form-control" required>
                     <option value="pdf"><i class="fas fa-file-pdf"></i> PDF</option>
-                    <option value="excel"><i class="fas fa-file-excel"></i> Excel</option>
                     <option value="word"><i class="fas fa-file-word"></i> Word</option>
                 </select>
             </div>

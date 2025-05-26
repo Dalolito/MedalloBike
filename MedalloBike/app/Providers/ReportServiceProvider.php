@@ -15,9 +15,7 @@ class ReportServiceProvider extends ServiceProvider
         $this->app->bind(ReportGenerate::class, function ($app) {
             $format = request()->input('format', 'pdf');
 
-            if ($format === 'excel') {
-                return new ReportGenerateExcel;
-            } elseif ($format === 'word') {
+            if ($format === 'word') {
                 return new ReportGenerateWord;
             } else {
                 return new ReportGeneratePDF;

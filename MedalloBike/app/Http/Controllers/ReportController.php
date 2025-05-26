@@ -12,8 +12,8 @@ class ReportController extends Controller
         return view('admin.reports.index');
     }
 
-    public function generateReviewsReport(Request $request)
+    public function generateReviewsReport(Request $request, ReportGenerate $reportGenerator)
     {
-        return $this->reportGenerator->generateReport($request);
+        return $reportGenerator->generateReport($request);
     }
 }
