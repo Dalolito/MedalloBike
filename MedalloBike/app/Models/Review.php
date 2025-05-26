@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -110,5 +111,22 @@ class Review extends Model
     public function setUser(User $user): void
     {
         $this->user = $user;
+    }
+
+    public static function getGeneralStats(string $start_date, string $end_date, Collection $productReviews): array
+    {
+        $query = self::query();
+        if ($start_date) {
+            $query->whereDate('created_at', '>=', $start_date);
+        }
+        if ($end_date) {
+            $query->whereDate('created_at', '<=', $end_date);
+        }
+
+        return [
+            'total_reviews' => $query->count(),
+            'average_rating' => $query->avg('qualification'),
+            'total_products_reviewed' => $productReviews->count(),
+        ];
     }
 }

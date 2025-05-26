@@ -190,6 +190,7 @@ return [
             'purchases_button' => 'Generate Purchases Report',
             'start_date' => 'Start Date',
             'end_date' => 'End Date',
+            'format' => 'Report Format',
             'generate_report' => 'Generate Report',
         ],
     ],

@@ -85,9 +85,10 @@ Route::get('/auth/google', 'App\Http\Controllers\Auth\GoogleAuthController@redir
 Route::get('/auth/google/callback', 'App\Http\Controllers\Auth\GoogleAuthController@handleGoogleCallback')->name('auth.google.callback');
 // Report Controller routes
 Route::middleware('auth')->group(function () {
-    $ReportControllerRoute = 'App\\Http\\Controllers\\ReportController';
-    Route::get('/reports', $ReportControllerRoute.'@showReports')->name('admin.reports.index');
-    Route::get('/reports/reviews', $ReportControllerRoute.'@generateReviewsReport')->name('admin.reports.reviews');
+    $ReportControllerRoute = 'App\Http\Controllers\Admin\AdminReportController';
+    Route::get('/reports', $ReportControllerRoute.'@index')->name('admin.report.index');
+    Route::get('/report/review/', $ReportControllerRoute.'@export')->name('review.export');
+
 });
 
 Auth::routes();

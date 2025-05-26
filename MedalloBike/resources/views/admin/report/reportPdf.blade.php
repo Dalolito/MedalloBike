@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ __('admin.reports.reviews.title') }}</title>
-    <link rel="stylesheet" href="{{ public_path('css/pdf-report.css') }}">
+    <link rel="stylesheet" href="{{ public_path('css/reportPdf.css') }}">
 </head>
 <body>
     <div class="container mt-4">

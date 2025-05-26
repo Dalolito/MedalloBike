@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/sidebar.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
     <title>@yield('title', __('nav.title'))</title>
 </head>
 
@@ -284,6 +285,7 @@
         crossorigin="anonymous"></script>
 
     <script src="{{ asset('/js/sidebar.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>
