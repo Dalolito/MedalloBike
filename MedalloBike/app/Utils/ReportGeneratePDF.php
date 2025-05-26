@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Review;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class ReportGeneratePDF implements ReportGenerate
 {

@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use PhpOffice\PhpWord\PhpWord;
+use Symfony\Component\HttpFoundation\Response;
 
 class ReportGenerateWord implements ReportGenerate
 {

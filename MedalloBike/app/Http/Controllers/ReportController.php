@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Interfaces\ReportGenerate;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\Response;
 
 class ReportController extends Controller
 {
