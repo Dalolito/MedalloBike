@@ -37,12 +37,14 @@ class DatabaseSeeder extends Seeder
                 ->create();
         }
 
-        User::factory()->create([
-            'name' => 'Admin User',
-            'email' => 'admin@medallobike.com',
-            'password' => Hash::make('admin123'),
-            'role' => 'admin',
-        ]);
+        User::firstOrCreate(
+            ['email' => 'admin@medallobike.com'],
+            [
+                'name' => 'Admin User',
+                'password' => Hash::make('admin123'),
+                'role' => 'admin',
+                'budget' => 5000.00,
+            ]);
 
         Route::factory()->count(10)->create();
     }
