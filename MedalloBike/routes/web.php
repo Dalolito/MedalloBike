@@ -86,14 +86,9 @@ Route::get('/auth/google/callback', 'App\Http\Controllers\Auth\GoogleAuthControl
 // Report Controller routes
 Route::middleware('auth')->group(function () {
     $ReportControllerRoute = 'App\\Http\\Controllers\\ReportController';
-    Route::get('/reports', $ReportControllerRoute.'@showReports')->name('admin.reports.index');
-    Route::get('/reports/reviews/pdf', $ReportControllerRoute.'@generateReviewsReport')->name('admin.reports.reviews');
+    Route::get('/reports', $ReportControllerRoute.'@index')->name('admin.report.index');
+    Route::get('/report/review/', $ReportControllerRoute.'@export')->name('review.export');
 
 });
-
-// Rutas para archivos estáticos
-Route::get('/css/{file}', function ($file) {
-    return response()->file(public_path('css/'.$file));
-})->where('file', '.*');
 
 Auth::routes();

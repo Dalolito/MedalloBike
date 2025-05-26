@@ -12,15 +12,15 @@ class ReportGenerateWord implements ReportGenerate
 {
     public function generateReport(Request $request)
     {
-        $productReviews = $this->getProductReviews($request);
-        $generalStats = $this->getGeneralStats($request, $productReviews);
+        $productReviews = Product::getProductReviewsReport($request->input('start_date'), $request->input('end_date'));
+        $generalStats = Review::getGeneralStats($request->input('start_date'), $request->input('end_date'), $productReviews);
 
         $phpWord = new PhpWord;
         $section = $phpWord->addSection();
 
         $section->addTitle(__('admin.reports.reviews.title'), 1);
         $section->addText(__('admin.reports.reviews.subtitle'));
-        $section->addText(__('admin.reports.reviews.date_range').': '.($request->input('start_date') ? date('d/m/Y', strtotime($request->input('start_date'))) : 'Todo').' - '.($request->input('end_date') ? date('d/m/Y', strtotime($request->input('end_date'))) : 'Todo'));
+        $section->addText(__('admin.reports.reviews.date_range').': '.($request->input('start_date') ? date('d/m/Y', strtotime($request->input('start_date'))) : __('admin.reports.reviews.all')).' - '.($request->input('end_date') ? date('d/m/Y', strtotime($request->input('end_date'))) : __('admin.reports.reviews.all')));
         $section->addTextBreak();
 
         // General statistics
@@ -54,63 +54,6 @@ class ReportGenerateWord implements ReportGenerate
         $tempFile = tempnam(sys_get_temp_dir(), 'word');
         $phpWord->save($tempFile, 'Word2007');
 
-        return response()->download($tempFile, 'reporte-resenas.docx')->deleteFileAfterSend(true);
-    }
-
-    private function applyReviewDateFilters($q, $start_date, $end_date)
-    {
-        if ($start_date) {
-            $q->whereDate('created_at', '>=', $start_date);
-        }
-        if ($end_date) {
-            $q->whereDate('created_at', '<=', $end_date);
-        }
-    }
-
-    private function getProductReviews(Request $request)
-    {
-        $start_date = $request->input('start_date');
-        $end_date = $request->input('end_date');
-
-        $query = Product::withCount(['reviews' => function ($q) use ($start_date, $end_date) {
-            $this->applyReviewDateFilters($q, $start_date, $end_date);
-        }])
-            ->withAvg(['reviews' => function ($q) use ($start_date, $end_date) {
-                $this->applyReviewDateFilters($q, $start_date, $end_date);
-            }], 'qualification')
-            ->withMin(['reviews' => function ($q) use ($start_date, $end_date) {
-                $this->applyReviewDateFilters($q, $start_date, $end_date);
-            }], 'qualification')
-            ->withMax(['reviews' => function ($q) use ($start_date, $end_date) {
-                $this->applyReviewDateFilters($q, $start_date, $end_date);
-            }], 'qualification');
-
-        return $query->having('reviews_count', '>', 0)
-            ->orderByDesc('reviews_avg_qualification')
-            ->get();
-    }
-
-    private function getGeneralStats(Request $request, $productReviews)
-    {
-        $query = Review::query();
-
-        $this->applyDateFilters($query, $request);
-
-        return [
-            'total_reviews' => $query->count(),
-            'average_rating' => $query->avg('qualification'),
-            'total_products_reviewed' => $productReviews->count(),
-        ];
-    }
-
-    private function applyDateFilters($query, Request $request)
-    {
-        if ($request->has('start_date')) {
-            $query->whereDate('created_at', '>=', request('start_date'));
-        }
-
-        if ($request->has('end_date')) {
-            $query->whereDate('created_at', '<=', request('end_date'));
-        }
+        return response()->download($tempFile, 'Reporte de Reseñas.docx')->deleteFileAfterSend(true);
     }
 }

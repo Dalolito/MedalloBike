@@ -5,7 +5,7 @@
     <div class="reports-card reports-card-lg">
         <h5 class="card-title">{{ __('admin.reports.index.reviews_card_title') }}</h5>
         <p class="card-text">{{ __('admin.reports.index.reviews_card_text') }}</p>
-        <form action="{{ route('admin.reports.reviews') }}" method="GET">
+        <form action="{{ route('review.export') }}" method="GET">
             <div class="mb-3">
                 <label for="start_date" class="form-label">{{ __('admin.reports.index.start_date') }}</label>
                 <input type="date" name="start_date" id="start_date" class="form-control" required>

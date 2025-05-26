@@ -203,4 +203,44 @@ class Product extends Model
             ->orderBy('total_sold', 'desc')
             ->take($limit);
     }
+
+    public static function getProductReviewsReport($start_date, $end_date)
+    {
+        $query = self::withCount(['reviews' => function ($q) use ($start_date, $end_date) {
+            if ($start_date) {
+                $q->whereDate('created_at', '>=', $start_date);
+            }
+            if ($end_date) {
+                $q->whereDate('created_at', '<=', $end_date);
+            }
+        }])
+            ->withAvg(['reviews' => function ($q) use ($start_date, $end_date) {
+                if ($start_date) {
+                    $q->whereDate('created_at', '>=', $start_date);
+                }
+                if ($end_date) {
+                    $q->whereDate('created_at', '<=', $end_date);
+                }
+            }], 'qualification')
+            ->withMin(['reviews' => function ($q) use ($start_date, $end_date) {
+                if ($start_date) {
+                    $q->whereDate('created_at', '>=', $start_date);
+                }
+                if ($end_date) {
+                    $q->whereDate('created_at', '<=', $end_date);
+                }
+            }], 'qualification')
+            ->withMax(['reviews' => function ($q) use ($start_date, $end_date) {
+                if ($start_date) {
+                    $q->whereDate('created_at', '>=', $start_date);
+                }
+                if ($end_date) {
+                    $q->whereDate('created_at', '<=', $end_date);
+                }
+            }], 'qualification');
+
+        return $query->having('reviews_count', '>', 0)
+            ->orderByDesc('reviews_avg_qualification')
+            ->get();
+    }
 }

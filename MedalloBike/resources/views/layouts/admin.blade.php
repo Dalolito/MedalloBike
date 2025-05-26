@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/sidebar.css') }}" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('css/reports.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
     <title>@yield('title', __('nav.title'))</title>
 </head>
 
@@ -128,7 +128,7 @@
                             </div>
                         </li>
                         <li>
-                            <a class="sidebar-nav-link" href="{{ route('admin.reports.index') }}">
+                            <a class="sidebar-nav-link" href="{{ route('admin.report.index') }}">
                                 <i class="bi bi-file-earmark-text nav-icon"></i>
                                 Reports
                             </a>

@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
-    public function showReports()
+    public function index()
     {
-        return view('admin.reports.index');
+        return view('admin.report.index');
     }
 
-    public function generateReviewsReport(Request $request, ReportGenerate $reportGenerator)
+    public function export(Request $request, ReportGenerate $reportGenerator)
     {
         return $reportGenerator->generateReport($request);
     }

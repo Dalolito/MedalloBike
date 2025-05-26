@@ -111,4 +111,21 @@ class Review extends Model
     {
         $this->user = $user;
     }
+
+    public static function getGeneralStats($start_date, $end_date, $productReviews)
+    {
+        $query = self::query();
+        if ($start_date) {
+            $query->whereDate('created_at', '>=', $start_date);
+        }
+        if ($end_date) {
+            $query->whereDate('created_at', '<=', $end_date);
+        }
+
+        return [
+            'total_reviews' => $query->count(),
+            'average_rating' => $query->avg('qualification'),
+            'total_products_reviewed' => $productReviews->count(),
+        ];
+    }
 }
