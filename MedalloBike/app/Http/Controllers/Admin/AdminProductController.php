@@ -9,6 +9,7 @@ use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class AdminProductController extends Controller
@@ -38,7 +39,16 @@ class AdminProductController extends Controller
 
     public function save(ProductRequest $request): RedirectResponse
     {
-        Product::create($request->validated());
+        $data = $request->validated();
+        
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('products', $imageName, 'public');
+            $data['image'] = $imageName;
+        }
+
+        Product::create($data);
 
         return back()->with('success', __('messages.success.product_created'));
     }
@@ -72,7 +82,20 @@ class AdminProductController extends Controller
     public function update(ProductRequest $request, int $id): RedirectResponse
     {
         $product = Product::findOrFail($id);
-        $product->update($request->validated());
+        $data = $request->validated();
+        
+        if ($request->hasFile('image')) {
+            if ($product->getImage() && $product->getImage() !== 'image0.png') {
+                Storage::disk('public')->delete('products/' . $product->getImage());
+            }
+            
+            $image = $request->file('image');
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('products', $imageName, 'public');
+            $data['image'] = $imageName;
+        }
+
+        $product->update($data);
 
         return redirect()->route('admin.product.show', ['id' => $product->getId()])->with('success', __('messages.success.product_updated'));
     }

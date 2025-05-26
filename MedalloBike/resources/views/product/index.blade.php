@@ -47,8 +47,7 @@
                     <div class="col-md-4 col-lg-3 mb-4">
                         <div class="card h-100">
                             <!-- Product Image -->
-                            <img src="{{ asset('/img/bike.jpg') }}" class="card-img-top img-fluid"
-                                style="height: 180px; object-fit: cover;" alt="{{ $product->getTitle() }}">
+                            <img src="{{ $viewData['product']->getImageUrl() }}" class="img-thumbnail" style="max-width: 80px;" alt="{{ $product->getTitle() }}">
 
                             <!-- Product Info -->
                             <div class="card-body text-center">

@@ -243,4 +243,18 @@ class Product extends Model
             ->orderByDesc('reviews_avg_qualification')
             ->get();
     }
+
+    public function getImageUrl(): string
+    {
+        if (!empty($this->attributes['image']) && $this->attributes['image'] !== 'image0.png') {
+            return asset('storage/products/' . $this->attributes['image']);
+        }
+        return asset('/img/bike.jpg');
+    }
+
+    public function hasCustomImage(): bool
+    {
+        return !empty($this->attributes['image']) && 
+            $this->attributes['image'] !== 'image0.png';
+    }
 }

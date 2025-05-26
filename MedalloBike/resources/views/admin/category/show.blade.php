@@ -111,8 +111,7 @@
                                             <tr>
                                                 <!-- Product Image -->
                                                 <td>
-                                                    <img src="{{ asset('/img/bike.jpg') }}" class="img-thumbnail"
-                                                        style="max-width: 80px;" alt="{{ $product->getTitle() }}">
+                                                    <img src="{{ $viewData['product'] }}" class="img-thumbnail" style="max-width: 80px;" alt="{{ $product->getTitle() }}">
                                                 </td>
 
                                                 <!-- Product Info -->

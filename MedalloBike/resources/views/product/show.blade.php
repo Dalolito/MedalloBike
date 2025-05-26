@@ -28,7 +28,7 @@
                     <!-- Product Image and Reviews -->
                     <div class="col-md-4">
                         <div class="product-image-container text-center">
-                            <img src="{{ asset('/img/bike.jpg') }}" class="img-fluid rounded">
+                            <img src="{{ $viewData['product']->getImageUrl() }}" class="img-thumbnail" style="max-width: 80px;" alt="{{ $product->getTitle() }}">
                         </div>
                     </div>
 
