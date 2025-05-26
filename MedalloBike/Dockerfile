@@ -13,6 +13,6 @@ RUN composer install \
     --no-plugins \
     --no-scripts \
     --prefer-dist
-RUN cp .env.example .env
+RUN if [ ! -f .env ]; then cp .env.example .env; fi
 RUN php artisan key:generate
 RUN chmod -R 777 storage
