@@ -10,6 +10,10 @@
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/sidebar.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    
+    <!-- Sección para estilos adicionales -->
+    @stack('styles')
+    
     <title>@yield('title', __('nav.title'))</title>
 </head>
 
@@ -285,6 +289,8 @@
         crossorigin="anonymous"></script>
 
     <script src="{{ asset('/js/sidebar.js') }}"></script>
+    
+    <!-- Sección para scripts adicionales -->
     @stack('scripts')
 </body>
 
