@@ -12,7 +12,11 @@ class AdminReportController extends Controller
 {
     public function index(): View
     {
-        return view('admin.report.index');
+        $viewData = [
+            'title' => __('admin.reports.index.title'),
+        ];
+
+        return view('admin.report.index')->with('viewData', $viewData);
     }
 
     public function export(Request $request, ReportGenerate $reportGenerator): Response
