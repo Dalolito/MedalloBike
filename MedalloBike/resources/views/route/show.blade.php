@@ -30,18 +30,12 @@
             <div class="card-body p-4">
                 <div class="row g-4">
                     <!-- Route Map Image -->
-                    <div class="col-lg-6">
-                        <div class="route-image-container">
-                            <img src="{{ asset('/img/image.png') }}" class="img-fluid w-100"
-                                alt="{{ $viewData['route']->getName() }}" style="height: 400px; object-fit: cover;">
-                            <div class="position-absolute bottom-0 start-0 w-100 p-3 text-white"
-                                style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
-                                <h5 class="mb-0">{{ $viewData['route']->getZone() }}</h5>
-                                <small>
-                                    <i class="bi bi-geo-alt-fill me-1"></i>
-                                    {{ __('app.routes_user.show.zone') }}
-                                </small>
-                            </div>
+                    <div class="col-lg-6 d-flex align-items-stretch">
+                        <div class="route-image-container w-100 h-100" style="height: 100%; min-height: 400px;">
+                            <img src="{{ asset('/img/image.png') }}"
+                                 class="img-fluid w-100 h-100"
+                                 style="height: 100%; min-height: 400px; object-fit: cover;"
+                                 alt="{{ $viewData['route']->getName() }}">
                         </div>
                     </div>
 
@@ -56,6 +50,13 @@
                                     </h5>
                                 </div>
                                 <div class="card-body">
+                                    <!-- Zone -->
+                                    <div class="mb-3">
+                                        <h4 class="zone-title text-primary fw-bold mb-0">
+                                            <i class="bi bi-geo-alt-fill me-2"></i>
+                                            {{ $viewData['route']->getZone() }}
+                                        </h4>
+                                    </div>
                                     <!-- Description -->
                                     <div class="mb-4">
                                         <h6 class="text-muted mb-2">{{ __('app.routes_user.show.description') }}</h6>

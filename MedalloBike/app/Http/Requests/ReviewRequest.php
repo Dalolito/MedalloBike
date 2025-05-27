@@ -15,8 +15,9 @@ class ReviewRequest extends FormRequest
     {
         return [
             'description' => 'required|string',
-            'product_id' => 'required|integer|exists:products,id',
             'qualification' => 'required|integer|min:0|max:5',
+            'product_id' => 'nullable|integer|exists:products,id',
+            'route_id' => 'nullable|integer|exists:routes,id',
         ];
     }
 
