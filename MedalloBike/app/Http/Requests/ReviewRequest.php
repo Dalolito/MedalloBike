@@ -12,13 +12,14 @@ class ReviewRequest extends FormRequest
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
      */
     public function rules(): array
-    {
-        return [
-            'description' => 'required|string',
-            'product_id' => 'required|integer|exists:products,id',
-            'qualification' => 'required|integer|min:0|max:5',
-        ];
-    }
+{
+    return [
+        'description' => 'required|string',
+        'qualification' => 'required|integer|min:0|max:5',
+        'product_id' => 'nullable|integer|exists:products,id',
+        'route_id' => 'nullable|integer|exists:routes,id',
+    ];
+}
 
     /**
      * Get custom messages for validator errors.
