@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Utils\TcgCardServiceApi;
 use Illuminate\View\View;
 
-class TCGCardController extends Controller
+class TcgCardController extends Controller 
 {
     public function index(): View
     {
