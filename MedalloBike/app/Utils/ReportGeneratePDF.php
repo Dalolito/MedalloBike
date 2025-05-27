@@ -3,7 +3,6 @@
 namespace App\Utils;
 
 use App\Interfaces\ReportGenerate;
-use App\Models\Product;
 use App\Models\Review;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
@@ -13,7 +12,7 @@ class ReportGeneratePDF implements ReportGenerate
 {
     public function generateReport(Request $request): Response
     {
-        $productReviews = Product::getProductReviewsReport($request->input('start_date'), $request->input('end_date'));
+        $productReviews = Review::getProductReviewsReport($request->input('start_date'), $request->input('end_date'));
         $generalStats = Review::getGeneralStats($request->input('start_date'), $request->input('end_date'), $productReviews);
         $pdf = PDF::loadView('admin.report.reportPdf', [
             'productReviews' => $productReviews,
