@@ -9,6 +9,7 @@ $CartControllerRoute = 'App\Http\Controllers\CartController';
 $MyAccountControllerRoute = 'App\Http\Controllers\MyAccountController';
 $RouteControllerRoute = 'App\Http\Controllers\RouteController';
 $TCGCardControllerRoute = 'App\Http\Controllers\TCGCardController';
+$GoogleAuthControllerRoute = 'App\Http\Controllers\Auth\GoogleAuthController';
 
 // Home Controller routes
 Route::get('/', $HomeControllerRoute.'@index')->name('home.index');
@@ -81,9 +82,8 @@ Route::middleware('admin')->group(function () {
 Route::get('/tcg/cards', $TCGCardControllerRoute.'@index')->name('tcgCard.index');
 
 // Google Auth routes
-Route::get('/auth/google', 'App\Http\Controllers\Auth\GoogleAuthController@redirectToGoogle')->name('auth.google');
-Route::get('/auth/google/callback', 'App\Http\Controllers\Auth\GoogleAuthController@handleGoogleCallback')->name('auth.google.callback');
-
+Route::get('/auth/google', $GoogleAuthControllerRoute.'@redirectToGoogle')->name('auth.google');
+Route::get('/auth/google/callback', $GoogleAuthControllerRoute.'@handleGoogleCallback')->name('auth.google.callback');
 // Report Controller routes
 Route::middleware('auth')->group(function () {
     $ReportControllerRoute = 'App\Http\Controllers\Admin\AdminReportController';
