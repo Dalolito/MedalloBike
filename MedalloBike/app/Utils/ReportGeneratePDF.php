@@ -3,7 +3,6 @@
 namespace App\Utils;
 
 use App\Interfaces\ReportGenerate;
-use App\Models\Product;
 use App\Models\Review;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;

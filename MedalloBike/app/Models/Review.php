@@ -114,21 +114,21 @@ class Review extends Model
         $this->user = $user;
     }
 
-    public static function getProductReviewsReport(string $start_date, string $end_date):Collection
-{
-    return self::query()
-        ->selectRaw('product_id, products.title, products.brand, COUNT(*) as reviews_count, AVG(qualification) as reviews_avg_qualification, MIN(qualification) as reviews_min_qualification, MAX(qualification) as reviews_max_qualification')
-        ->join('products', 'reviews.product_id', '=', 'products.id')
-        ->when($start_date, function ($query) use ($start_date) {
-            $query->whereDate('reviews.created_at', '>=', $start_date);
-        })
-        ->when($end_date, function ($query) use ($end_date) {
-            $query->whereDate('reviews.created_at', '<=', $end_date);
-        })
-        ->groupBy('product_id', 'products.title', 'products.brand')
-        ->orderByDesc('reviews_avg_qualification')
-        ->get();
-}
+    public static function getProductReviewsReport(string $start_date, string $end_date): Collection
+    {
+        return self::query()
+            ->selectRaw('product_id, products.title, products.brand, COUNT(*) as reviews_count, AVG(qualification) as reviews_avg_qualification, MIN(qualification) as reviews_min_qualification, MAX(qualification) as reviews_max_qualification')
+            ->join('products', 'reviews.product_id', '=', 'products.id')
+            ->when($start_date, function ($query) use ($start_date) {
+                $query->whereDate('reviews.created_at', '>=', $start_date);
+            })
+            ->when($end_date, function ($query) use ($end_date) {
+                $query->whereDate('reviews.created_at', '<=', $end_date);
+            })
+            ->groupBy('product_id', 'products.title', 'products.brand')
+            ->orderByDesc('reviews_avg_qualification')
+            ->get();
+    }
 
     public static function getGeneralStats(string $start_date, string $end_date, Collection $productReviews): array
     {

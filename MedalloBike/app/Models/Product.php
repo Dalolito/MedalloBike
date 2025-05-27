@@ -203,5 +203,4 @@ class Product extends Model
             ->orderBy('total_sold', 'desc')
             ->take($limit);
     }
-
 }
