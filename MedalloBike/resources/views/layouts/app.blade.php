@@ -205,7 +205,7 @@
                                 <ul class="submenu">
                                     <li class="submenu-item">
                                         <a class="submenu-link"
-                                            href="{{ route('tcgCards.index') }}">{{ __('app.view_tcg_cards') }}</a>
+                                            href="{{ route('tcgCard.index') }}">{{ __('app.view_tcg_cards') }}</a>
                                     </li>
                                 </ul>
                             </div>

@@ -31,6 +31,6 @@ class TCGCardController extends Controller
             'cards' => $cards,
         ];
 
-        return view('tcgCards.index')->with('viewData', $viewData);
+        return view('tcgCard.index')->with('viewData', $viewData);
     }
 }
