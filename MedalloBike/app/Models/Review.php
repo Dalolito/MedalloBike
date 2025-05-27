@@ -105,7 +105,7 @@ class Review extends Model
         return $this->belongsTo(Route::class);
     }
 
-    public function getRoute(): Route
+    public function getRoute(): ?Route
     {
         return $this->route;
     }

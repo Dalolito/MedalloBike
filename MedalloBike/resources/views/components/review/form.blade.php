@@ -3,10 +3,10 @@
     <h5 class="mb-3">{{ __('app.review.form.add_review') }}</h5>
     <form action="{{ route('review.save') }}" method="POST">
         @csrf
-        @if(isset($product))
+        @if (isset($product))
             <input type="hidden" name="product_id" value="{{ $product->getId() }}">
         @endif
-        @if(isset($route))
+        @if (isset($route))
             <input type="hidden" name="route_id" value="{{ $route->getId() }}">
         @endif
         <div class="mb-3">

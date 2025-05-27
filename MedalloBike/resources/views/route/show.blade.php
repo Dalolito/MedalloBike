@@ -32,10 +32,9 @@
                     <!-- Route Map Image -->
                     <div class="col-lg-6 d-flex align-items-stretch">
                         <div class="route-image-container w-100 h-100" style="height: 100%; min-height: 400px;">
-                            <img src="{{ asset('/img/image.png') }}"
-                                 class="img-fluid w-100 h-100"
-                                 style="height: 100%; min-height: 400px; object-fit: cover;"
-                                 alt="{{ $viewData['route']->getName() }}">
+                            <img src="{{ asset('/img/image.png') }}" class="img-fluid w-100 h-100"
+                                style="height: 100%; min-height: 400px; object-fit: cover;"
+                                alt="{{ $viewData['route']->getName() }}">
                         </div>
                     </div>
 
