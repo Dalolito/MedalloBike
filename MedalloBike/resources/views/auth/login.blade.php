@@ -18,7 +18,7 @@
                                 <i class="bi bi-google me-2"></i>
                                 {{ __('auth.google.login') }}
                             </a>
-                            
+
                             <div class="text-center">
                                 <hr class="my-3">
                                 <small class="text-muted">{{ __('auth.google.or') }}</small>

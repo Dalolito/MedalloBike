@@ -1,0 +1,115 @@
+body {
+    background: #f3f6fb;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
+.reports-bg-center {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reports-card {
+    background: linear-gradient(135deg, #f8fafc 80%, #e0e7ef 100%);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(60, 72, 100, 0.12), 0 1.5px 4px rgba(0,0,0,0.04);
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    border: 1.5px solid #e5e7eb;
+    position: relative;
+    transition: box-shadow 0.2s;
+    width: 100%;
+    max-width: 600px;
+}
+
+.reports-card-lg {
+    max-width: 600px;
+    padding: 3rem 3.5rem 2.5rem 3.5rem;
+}
+
+.reports-card:hover {
+    box-shadow: 0 12px 40px rgba(60, 72, 100, 0.18), 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.reports-card h5 {
+    font-size: 2.1rem;
+    font-weight: 800;
+    margin-bottom: 0.3rem;
+    color: #1e293b;
+    letter-spacing: -1px;
+}
+
+.reports-card p {
+    color: #64748b;
+    margin-bottom: 1.7rem;
+    font-size: 1.15rem;
+    line-height: 1.5;
+}
+
+.reports-card label {
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 0.35rem;
+    font-size: 1.08rem;
+}
+
+.reports-card input[type="date"],
+.reports-card select {
+    border-radius: 10px;
+    border: 1.5px solid #cbd5e1;
+    padding: 0.7rem 1.1rem;
+    font-size: 1.13rem;
+    margin-bottom: 1.3rem;
+    width: 100%;
+    background: #f1f5f9;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+
+.reports-card input[type="date"]:focus,
+.reports-card select:focus {
+    border-color: #2563eb;
+    outline: none;
+    background: #fff;
+    box-shadow: 0 0 0 2px #2563eb22;
+}
+
+.reports-card select {
+    cursor: pointer;
+}
+
+.reports-card button[type="submit"] {
+    background: linear-gradient(90deg, #2563eb 60%, #1e40af 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 0.9rem 1.5rem;
+    font-size: 1.18rem;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.10);
+    transition: background 0.2s, transform 0.1s;
+    width: 100%;
+    margin-top: 0.7rem;
+    letter-spacing: 0.5px;
+}
+
+.reports-card button[type="submit"]:hover {
+    background: linear-gradient(90deg, #1d4ed8 60%, #1e40af 100%);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 18px rgba(37,99,235,0.13);
+}
+
+.reports-card .fa-file-pdf { color: #e11d48; margin-right: 4px; }
+.reports-card .fa-file-excel { color: #22c55e; margin-right: 4px; }
+.reports-card .fa-file-word { color: #2563eb; margin-right: 4px; }
+.reports-card .fa-download { margin-right: 6px; }
+
+@media (max-width: 900px) {
+    .reports-card-lg {
+        max-width: 98vw;
+        padding: 1.5rem 0.7rem;
+    }
+    .reports-card h5 {
+        font-size: 1.3rem;
+    }
+} 

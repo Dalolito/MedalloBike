@@ -139,6 +139,7 @@ return [
             'purchases_button' => 'Generar Reporte de Compras',
             'start_date' => 'Fecha Inicio',
             'end_date' => 'Fecha Fin',
+            'format' => 'Formato del Reporte',
             'generate_report' => 'Generar Reporte',
         ],
     ],

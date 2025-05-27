@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 // Made by: David Lopera Londoño
 
-use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class MyAccountController extends Controller
 {
-    public function orders()
+    public function orders(): View
     {
         $userId = Auth::id();
 

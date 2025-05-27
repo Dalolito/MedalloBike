@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/sidebar.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+
+    <!-- Sección para estilos adicionales -->
+    @stack('styles')
+
     <title>@yield('title', __('nav.title'))</title>
 </head>
 
@@ -195,12 +200,12 @@
                                 </svg>
                             </button>
 
-                            <div id="tcgcards-accordion-collapse-1" class="hs-accordion-content hidden" role="region"
-                                aria-labelledby="tcgcards-accordion">
+                            <div id="tcgcards-accordion-collapse-1" class="hs-accordion-content hidden"
+                                role="region" aria-labelledby="tcgcards-accordion">
                                 <ul class="submenu">
                                     <li class="submenu-item">
                                         <a class="submenu-link"
-                                            href="{{ route('tcgCards.index') }}">{{ __('app.view_tcg_cards') }}</a>
+                                            href="{{ route('tcgCard.index') }}">{{ __('app.view_tcg_cards') }}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -284,6 +289,9 @@
         crossorigin="anonymous"></script>
 
     <script src="{{ asset('/js/sidebar.js') }}"></script>
+
+    <!-- Sección para scripts adicionales -->
+    @stack('scripts')
 </body>
 
 </html>

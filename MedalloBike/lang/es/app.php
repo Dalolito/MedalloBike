@@ -161,4 +161,63 @@ return [
             'no_name' => 'Sin nombre',
         ],
     ],
+
+    'features' => [
+        'title' => '¿Por qué elegir MedalloBike?',
+        'subtitle' => 'Somos más que una tienda, somos tu compañero en cada aventura sobre ruedas',
+        'quality' => [
+            'title' => 'Calidad Premium',
+            'description' => 'Seleccionamos las mejores marcas y productos para garantizar durabilidad y rendimiento excepcional en cada salida.',
+        ],
+        'routes' => [
+            'title' => 'Rutas Exclusivas',
+            'description' => 'Descubre rutas cuidadosamente seleccionadas en Medellín y sus alrededores, con diferentes niveles de dificultad.',
+        ],
+        'support' => [
+            'title' => 'Soporte Experto',
+            'description' => 'Nuestro equipo de especialistas te asesora para encontrar la bicicleta perfecta según tus necesidades y estilo.',
+        ],
+    ],
+
+    'stats' => [
+        'customers' => 'Clientes Felices',
+        'bikes' => 'Bicicletas Vendidas',
+        'routes' => 'Rutas Disponibles',
+        'experience' => 'Años de Experiencia',
+    ],
+
+    'products_preview' => [
+        'title' => 'Productos Destacados',
+        'subtitle' => 'Descubre nuestra selección de bicicletas y accesorios de alta calidad',
+        'view_all' => 'Ver Todos los Productos',
+    ],
+
+    'routes_preview' => [
+        'title' => 'Rutas Recomendadas',
+        'subtitle' => 'Explora los mejores senderos y rutas ciclísticas de la región',
+        'view_all' => 'Explorar Rutas',
+    ],
+
+    'about' => [
+        'title' => 'Nuestra Historia',
+        'description' => 'MedalloBike nace de la pasión por el ciclismo y el compromiso con ofrecer las mejores bicicletas y accesorios en Medellín. Desde nuestros inicios, hemos trabajado para construir una comunidad de ciclistas unidos por la aventura y el amor por las dos ruedas.',
+        'mission' => 'Nuestra misión es hacer que el ciclismo sea accesible para todos, proporcionando productos de calidad, rutas seguras y el mejor servicio al cliente.',
+    ],
+
+    'services' => [
+        'title' => 'Nuestros Servicios',
+        'sales' => 'Venta de bicicletas y accesorios',
+        'maintenance' => 'Mantenimiento y reparación',
+        'consulting' => 'Asesoría personalizada',
+        'routes' => 'Rutas guiadas y mapas',
+        'community' => 'Comunidad de ciclistas',
+    ],
+
+    'cta' => [
+        'title' => '¿Listo para tu próxima aventura?',
+        'subtitle' => 'Únete a nuestra comunidad de ciclistas y descubre un mundo de posibilidades sobre dos ruedas.',
+        'shop_now' => 'Comprar Ahora',
+        'my_account' => 'Mi Cuenta',
+        'register' => 'Únete Ahora',
+    ],
 ];

@@ -21,7 +21,7 @@
                             <!-- Card Image -->
                             <img src="{{ asset('/img/CardImage.png') }}" class="card-img-top img-fluid"
                                 style="height: 250px; object-fit: cover;" alt="{{ $card['name'] }}">
-                         
+
 
                             <!-- Card Info -->
                             <div class="card-body text-center">

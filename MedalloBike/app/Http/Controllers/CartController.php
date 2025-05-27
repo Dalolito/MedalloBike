@@ -25,6 +25,7 @@ class CartController extends Controller
         }
 
         $viewData = [];
+
         $viewData['title'] = __('app.products_user.cart.index.title');
         $viewData['subtitle'] = __('app.products_user.cart.index.subtitle');
         $viewData['total'] = $total;
