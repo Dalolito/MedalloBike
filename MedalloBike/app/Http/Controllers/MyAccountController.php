@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\View\View;
-
-// Made by: David Lopera Londoño
 
 use App\Models\Order;
+// Made by: David Lopera Londoño
+
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class MyAccountController extends Controller
 {

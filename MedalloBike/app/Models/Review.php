@@ -99,7 +99,7 @@ class Review extends Model
         $this->product = $product;
     }
 
-        public function route(): BelongsTo
+    public function route(): BelongsTo
     {
         return $this->belongsTo(Route::class);
     }

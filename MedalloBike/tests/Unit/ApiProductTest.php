@@ -4,13 +4,11 @@ namespace Tests\Unit;
 
 use App\Http\Controllers\Api\ProductApiController;
 use App\Models\Product;
-use Illuminate\Http\JsonResponse;
 use Mockery;
 use PHPUnit\Framework\TestCase;
 
 class ProductApiTest extends TestCase
 {
-
     public function test_index_returns_200_json_response(): void
     {
         $mockProduct1 = Mockery::mock(Product::class);
@@ -23,15 +21,15 @@ class ProductApiTest extends TestCase
         Product::shouldReceive('where')
             ->with('state', 'available')
             ->andReturnSelf();
-        
+
         Product::shouldReceive('where')
             ->with('stock', '>', 0)
             ->andReturnSelf();
-        
+
         Product::shouldReceive('get')
             ->andReturn($mockCollection);
 
-        $controller = new ProductApiController();
+        $controller = new ProductApiController;
         $this->assertInstanceOf(ProductApiController::class, $controller);
         $this->assertTrue(method_exists($controller, 'index'));
 
